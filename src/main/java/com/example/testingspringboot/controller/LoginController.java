@@ -1,7 +1,9 @@
 package com.example.testingspringboot.controller;
 
 import com.example.testingspringboot.entities.Login;
+import com.example.testingspringboot.entities.Student;
 import com.example.testingspringboot.service.LoginService;
+import com.example.testingspringboot.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
 import java.util.Objects;
 
 @Controller
@@ -17,6 +20,10 @@ public class LoginController {
 
     @Autowired
     private LoginService userService;
+
+    @Autowired
+    private StudentService studentService;
+
 
     @GetMapping("/login")
     public ModelAndView login() {
@@ -28,11 +35,11 @@ public class LoginController {
     @PostMapping("/login")
     public String login(@ModelAttribute("user") Login user ) {
 
-        Login oauthUser = userService.login(user.getName(), user.getPass());
+        Login authUser = userService.login(user.getName(), user.getPass(), user.getStatus());
 
 
-        System.out.print(oauthUser);
-        if(Objects.nonNull(oauthUser))
+        System.out.print(authUser);
+        if(Objects.nonNull(authUser))
         {
 
             return "redirect:/";
@@ -43,6 +50,27 @@ public class LoginController {
 
 
         }
+
+
+    }
+    @GetMapping("/get")
+    public ModelAndView getStudent() {
+        ModelAndView mav = new ModelAndView("get-student");
+
+        List<Student> result = studentService.getStudent();
+        mav.addObject("students",result);
+        return mav;
+    }
+    public  String getStudent(Model model){
+        Student student = new Student();
+
+
+        return null;
+
+
+
+
+
 
 
     }

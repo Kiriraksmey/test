@@ -53,7 +53,7 @@
 
             <tr>
               <td height="25" colspan="2" align="left" valign="middle" bgcolor="#ffffff" class="style2">
-                <div align="center">
+                <div style="text-align: center">
                   <strong>User Login</strong>
                 </div>
 
@@ -70,6 +70,13 @@
             <tr>
               <td>Password</td>
               <td><input type="password" th:field="*{pass}" class="form-control" /></td>
+            </tr>
+            <tr>
+              <td>status</td>
+              <td>
+
+                <input type="text" th:field="*{user.status}" class="form-control" />
+              </td>
             </tr>
             <tr>
               <td colspan="2"><button type="submit" class="btn btn-info" align="right">Login</button> </td>

@@ -3,24 +3,26 @@ package com.example.testingspringboot.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name="user")
-public class Login {
+@Table(name = "student")
+public class Student {
+
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
+
     private String name;
-    private String pass;
-    private  String status;
+    private String gender;
+    private String age;
 
 
-    public Login() {
+    public Student() {
     }
 
-    public Login(Long id, String name, String pass, String status) {
+    public Student(Long id, String name, String gender, String age) {
         this.id = id;
         this.name = name;
-        this.pass = pass;
-        this.status = status;
+        this.gender = gender;
+        this.age = age;
     }
 
     public Long getId() {
@@ -39,20 +41,19 @@ public class Login {
         this.name = name;
     }
 
-    public String getPass() {
-        return pass;
+    public String getGender() {
+        return gender;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass;
-    }
-    public String getStatus() {
-        return status;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
-    public void setStatus(String status) {
-        this.status= status;
+    public String getAge() {
+        return age;
     }
 
-
+    public void setAge(String age) {
+        this.age = age;
+    }
 }
