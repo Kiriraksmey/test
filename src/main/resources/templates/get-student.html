@@ -1,5 +1,7 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{index}">
 <head>
     <meta charset="UTF-8">
     <title>Student</title>
@@ -8,39 +10,40 @@
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
         crossorigin="anonymous" />
 </head>
-<body>
-<div class="container">
+<section layout:fragment="content">
+  <div class="container">
 
-  <h3>List Employees</h3>
+    <h3>List Employees</h3>
 
-  <hr/>
-  <a th:href="@{/addEmployeeForm}" class="btn btn-primary">Add Employee</a>
-  <br/><br/>
-  <table class="table table-bordered table-striped">
+    <hr/>
+    <a th:href="@{/createEmployee}" class="btn btn-primary">Add Employee</a>
+    <br/><br/>
+    <table class="table table-bordered table-striped">
 
-    <thead>
-    <tr>
-      <th>Name</th>
-      <th>Gender</th>
-      <th>Age</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="student: ${students}">
-      <td th:text="${student.name}" />
-      <td th:text="${student.gender}" />
-      <td th:text="${student.age}" />
-      <td>
-        <a th:href="@{/showUpdateForm(employeeId=${student.id})}" class="btn btn-info">Update</a>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Age</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="student: ${students}">
+        <td th:text="${student.name}" />
+        <td th:text="${student.gender}" />
+        <td th:text="${student.age}" />
+        <td>
+          <a th:href="@{/showUpdateForm(employeeId=${student.id})}" class="btn btn-info">Update</a>
 
-        <a th:href="@{/deleteEmployee(employeeId=${student.id})}" class="btn btn-danger ml-2">Delete</a>
-      </td>
-    </tr>
+          <a th:href="@{/deleteEmployee/{id}(id=${student.id})}" class="btn btn-danger ml-2">Delete</a>
+        </td>
+      </tr>
 
 
-    </tbody>
+      </tbody>
 
-  </table>
-</div>
-</body>
-</html>
+    </table>
+  </div>
+</section>
+
+</section>

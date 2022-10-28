@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Login {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long id;
+    public Long id;
     private String name;
     private String pass;
     private  String status;

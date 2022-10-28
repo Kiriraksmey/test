@@ -10,8 +10,8 @@ public class LoginService {
     @Autowired
     private LoginRepository repo;
 
-    public Login login(String name, String pass, String status) {
-        Login user = repo.findByNameAndPassAndStatus(name, pass, status);
+    public Login login(String name, String pass) {
+        Login user = repo.findByNameAndPass(name, pass);
         return user;
     }
 }

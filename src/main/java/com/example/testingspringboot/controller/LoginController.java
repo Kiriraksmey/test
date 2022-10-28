@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -31,11 +32,18 @@ public class LoginController {
         mav.addObject("user", new Login());
         return mav;
     }
+    @GetMapping("/createEmployee")
+    public ModelAndView createEmployee(){
+        ModelAndView mav = new ModelAndView("/employee/create");
+        mav.addObject("user", new Login());
+        return mav;
+    }
+
 
     @PostMapping("/login")
     public String login(@ModelAttribute("user") Login user ) {
 
-        Login authUser = userService.login(user.getName(), user.getPass(), user.getStatus());
+        Login authUser = userService.login(user.getName(), user.getPass());
 
 
         System.out.print(authUser);
@@ -53,7 +61,7 @@ public class LoginController {
 
 
     }
-    @GetMapping("/get")
+    @GetMapping("/studentList")
     public ModelAndView getStudent() {
         ModelAndView mav = new ModelAndView("get-student");
 
@@ -67,11 +75,16 @@ public class LoginController {
 
         return null;
 
+    }
+    @GetMapping("/deleteEmployee/{id}")
+    public String deleteStudent(@PathVariable Long id){
 
+        studentService.deleteStudent(id);
+        return "redirect:/studentList";
 
-
-
-
-
+    }
+    public  String deleteStudent(Model model){
+        Student student = new Student();
+        return  null;
     }
 }

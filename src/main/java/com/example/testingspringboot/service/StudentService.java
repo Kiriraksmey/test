@@ -17,5 +17,10 @@ public class StudentService {
         List<Student> student = repository.findAll();
         return student;
     }
+    public String deleteStudent(Long id){
+         repository.deleteById(id);
+        return "success";
+
+    }
 
 }
