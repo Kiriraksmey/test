@@ -16,7 +16,7 @@
     <h3>List Employees</h3>
 
     <hr/>
-    <a th:href="@{/createEmployee}" class="btn btn-primary">Add Employee</a>
+    <a th:href="@{/addEmployeeForm}" class="btn btn-primary">Add Employee</a>
     <br/><br/>
     <table class="table table-bordered table-striped">
 
@@ -33,7 +33,7 @@
         <td th:text="${student.gender}" />
         <td th:text="${student.age}" />
         <td>
-          <a th:href="@{/showUpdateForm(employeeId=${student.id})}" class="btn btn-info">Update</a>
+          <a th:href="@{/showUpdateForm/{id}(id=${student.id})}" class="btn btn-info">Update</a>
 
           <a th:href="@{/deleteEmployee/{id}(id=${student.id})}" class="btn btn-danger ml-2">Delete</a>
         </td>
@@ -46,4 +46,4 @@
   </div>
 </section>
 
-</section>
+</html>

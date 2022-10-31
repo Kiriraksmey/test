@@ -1,5 +1,6 @@
 package com.example.testingspringboot.controller;
 
+import com.example.testingspringboot.Repository.StudentRepository;
 import com.example.testingspringboot.entities.Login;
 import com.example.testingspringboot.entities.Student;
 import com.example.testingspringboot.service.LoginService;
@@ -7,10 +8,7 @@ import com.example.testingspringboot.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -24,6 +22,8 @@ public class LoginController {
 
     @Autowired
     private StudentService studentService;
+    @Autowired
+    private StudentRepository repo;
 
 
     @GetMapping("/login")
@@ -32,12 +32,7 @@ public class LoginController {
         mav.addObject("user", new Login());
         return mav;
     }
-    @GetMapping("/createEmployee")
-    public ModelAndView createEmployee(){
-        ModelAndView mav = new ModelAndView("/employee/create");
-        mav.addObject("user", new Login());
-        return mav;
-    }
+
 
 
     @PostMapping("/login")
@@ -83,8 +78,36 @@ public class LoginController {
         return "redirect:/studentList";
 
     }
-    public  String deleteStudent(Model model){
-        Student student = new Student();
-        return  null;
+//    public  String deleteStudent(Model model){
+//        Student student = new Student();
+//        return  null;
+//    }
+    @ResponseBody
+    @GetMapping("/addEmployeeForm")
+    public ModelAndView createEmployee(Student student){
+        ModelAndView mav = new ModelAndView("/employee/create");
+        Student newStudent = new Student();
+        mav.addObject("students", newStudent);
+        return mav;
     }
+    @PostMapping("/saveEmployee")
+    public String saveEmployee(@ModelAttribute Student student) {
+        repo.save(student);
+        return "redirect:/list";
+    }
+//    public  String saveData(Student student){
+//        repo.save(student);
+//        return  "Sucess";
+//    }
+    @GetMapping("/showUpdateForm")
+    public ModelAndView showUpdateForm(@RequestParam Long id) {
+    ModelAndView mav = new ModelAndView("/employee/update");
+    Student student = repo.findById(id).get();
+    mav.addObject("students", student);
+    return mav;
+}
+
+
+
+
 }
