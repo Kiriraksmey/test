@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http:/www.w3.org/1999/xhtml"
+      xmlns:th="http:/www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="icon" th:href="@{images/fevicon.png}" type="image/png" />
+    <link rel="icon" th:href="@{../images/fevicon.png}" type="image/png" />
     <!-- bootstrap css -->
-    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{../css/bootstrap.min.css}" />
     <!-- site css -->
-    <link rel="stylesheet" th:href="@{/style.css}" />
+    <link rel="stylesheet" th:href="@{../style.css}" />
     <!-- responsive css -->
-    <link rel="stylesheet" th:href="@{/css/responsive.css}" />
+    <link rel="stylesheet" th:href="@{../css/responsive.css}" />
     <!-- color css -->
-    <link rel="stylesheet" th:href="@{/css/colors.css}" />
+    <link rel="stylesheet" th:href="@{../css/color_2.css}" />
     <!-- select bootstrap -->
-    <link rel="stylesheet" th:href="@{/css/bootstrap-select.css}" />
+    <link rel="stylesheet" th:href="@{../css/bootstrap-select.css}" />
     <!-- scrollbar css -->
-    <link rel="stylesheet" th:href="@{/css/perfect-scrollbar.css}" />
+    <link rel="stylesheet" th:href="@{../css/perfect-scrollbar.css}" />
     <!-- custom css -->
-    <link rel="stylesheet" th:href="@{/css/custom.css}" />
+    <link rel="stylesheet" th:href="@{../css/custom.css}" />
 
 
 </head>
@@ -27,13 +27,13 @@
     <div class="sidebar_blog_1">
         <div class="sidebar-header">
             <div class="logo_section">
-                <a href="index.html"><img class="logo_icon img-responsive" th:src="@{images/logo/logo_icon.png}" alt="#" /></a>
+                <a href="index.html"><img class="logo_icon img-responsive" th:src="@{../images/logo/logo_icon.png}" alt="#" /></a>
             </div>
         </div>
         <div class="sidebar_user_info">
             <div class="icon_setting"></div>
             <div class="user_profle_side">
-                <div class="user_img"><img class="img-responsive" th:src="@{images/layout_img/user_img.jpg}" alt="#" /></div>
+                <div class="user_img"><img class="img-responsive" th:src="@{../images/layout_img/user_img.jpg}" alt="#" /></div>
                 <div class="user_info">
                     <h6>John David</h6>
                     <p><span class="online_animation"></span> Online</p>
@@ -55,20 +55,20 @@
                     </li>
                 </ul>
             </li>
-            <li>
-                <a th:href="@{/index}" >
-                    <i class="fa fa-sign-out"></i>
-                    <span>Login</span>
-                </a>
-            </li>
-            <li>
-                <a th:href="@{/getTest}">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Logout</span>
-                </a>
-            </li>
-            <li><a th:href="@{/system/studentList}"><i class="fa fa-clock-o orange_color"></i> <span>Student</span></a></li>
-            <li><a th:href="@{/system/courseList}"><i class="fa fa-table purple_color2"></i> <span>Course</span></a></li>
+<!--            <li>-->
+<!--                <a th:href="@{../index}" >-->
+<!--                    <i class="fa fa-sign-out"></i>-->
+<!--                    <span>Login</span>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a th:href="@{../getTest}">-->
+<!--                    <i class="fas fa-sign-out-alt"></i>-->
+<!--                    <span>Logout</span>-->
+<!--                </a>-->
+<!--            </li>-->
+            <li><a th:href="@{../system/studentList}"><i class="fa fa-clock-o orange_color"></i> <span>Student</span></a></li>
+            <li><a th:href="@{../system/courseList}"><i class="fa fa-table purple_color2"></i> <span>Course</span></a></li>
             <li>
                 <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-diamond purple_color"></i> <span>Elements</span></a>
                 <ul class="collapse list-unstyled" id="element">
@@ -102,7 +102,7 @@
                         <a href="project.html">> <span>Projects</span></a>
                     </li>
                     <li>
-                        <a th:href="@{/index}" >> <span>Login</span></a>
+                        <a th:href="@{../index}" >> <span>Login</span></a>
                     </li>
                     <li>
                         <a href="404_error.html">> <span>404 Error</span></a>
