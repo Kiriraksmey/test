@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
 <head>
+
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -10,14 +13,14 @@
     <div class="full">
         <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
         <div class="logo_section">
-            <a href="testindex_template.html"><img class="img-responsive" src="images/logo/logo.png" alt="#" /></a>
+
         </div>
         <div class="right_topbar">
             <div class="icon_info">
                 <ul>
                     <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
                     <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
-                    <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
+                    <li><a th:href="@{/}" target="_blank"><i class="fa fa-home" title="Go to home page"></i> </a></li>
                 </ul>
                 <ul class="user_profile_dd">
                     <li>
@@ -34,5 +37,29 @@
         </div>
     </div>
 </nav>
+
+<!-- jQuery -->
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{js/popper.min.js}"></script>
+<script th:src="@{js/bootstrap.min.js}"></script>
+<script th:src="@{js/animate.js}"></script>
+<!-- select country -->
+<script th:src="@{js/bootstrap-select.js}"></script>
+<!-- owl carousel -->
+<script th:src="@{js/owl.carousel.js}"></script>
+<!-- chart js -->
+<script th:src="@{js/Chart.min.js}"></script>
+<script th:src="@{js/Chart.bundle.min.js}"></script>
+<script th:src="@{js/utils.js}"></script>
+<script th:src="@{js/analyser.js}"></script>
+<!-- nice scrollbar -->
+<script th:src="@{js/perfect-scrollbar.min.js}"></script>
+<script>
+    var ps = new PerfectScrollbar('#sidebar');
+</script>
+<!-- custom js -->
+<script th:src="@{js/custom.js}"></script>
+<script th:src="@{js/chart_custom_style1.js}"></script>
+
 </body>
 </html>

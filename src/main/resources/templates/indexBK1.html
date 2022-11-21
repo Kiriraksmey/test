@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- basic -->
+    <!-- site icon -->
+    <link rel="icon" th:href="@{images/fevicon.png}" type="image/png" />
+    <!-- bootstrap css -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <!-- site css -->
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <!-- responsive css -->
+    <link rel="stylesheet" th:href="@{/css/responsive.css}" />
+    <!-- color css -->
+    <link rel="stylesheet" th:href="@{/css/colors.css}" />
+    <!-- select bootstrap -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap-select.css}" />
+    <!-- scrollbar css -->
+    <link rel="stylesheet" th:href="@{/css/perfect-scrollbar.css}" />
+    <!-- custom css -->
+    <link rel="stylesheet" th:href="@{/css/custom.css}" />
+    <link rel="stylesheet" th:href="@{/search.css}" />
+    <link rel="stylesheet" th:href="@{/css/student.css}" />
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <link rel="stylesheet" th:href="@{/css/variables.css}" />
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+    <![endif]-->
+</head>
+<body class="inner_page login">
+
+<div class="full_container">
+    <div class="inner_container">
+        <!-- Sidebar  -->
+        <!-- end sidebar -->
+        <!-- right content -->
+
+            <!-- topbar -->
+
+        <!-- ======= Header ======= -->
+        <header id="header" class="  header d-flex align-items-center fixed-top">
+            <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+                <a href="index.html" class="logo d-flex align-items-center">
+                    <!-- Uncomment the line below if you also wish to use an image logo -->
+                    <!-- <img src="assets/img/logo.png" alt=""> -->
+                    <h1>ZenBlog</h1>
+                </a>
+
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="single-post.html"></a></li>
+                        <li class="dropdown"><a href="category.html"><span>All Course</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                            <ul>
+                                <li><a href="search-result.html">Search Result</a></li>
+                                <li><a href="#">Java Basic</a></li>
+                                <li class="dropdown"><a href="#"><span>Python</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+
+                                </li>
+                                <li><a href="#">Web development</a></li>
+                                <li><a href="#">Drop Down 3</a></li>
+                                <li><a href="#">Drop Down 4</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav><!-- .navbar -->
+
+                <div class="position-relative">
+                    <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
+                    <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
+                    <a href="#" class="mx-2"><span class="bi-instagram"></span></a>
+
+                    <a href="#" class="mx-2 js-search-open"><span class="bi-search"></span></a>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+
+                    <!-- ======= Search Form ======= -->
+                    <div class="search-form-wrap js-search-form-wrap">
+                        <form action="search-result.html" class="search-form">
+                            <span class="icon bi-search"></span>
+                            <input type="text" placeholder="Search" class="form-control">
+                            <button class="btn js-search-close"><span class="bi-x"></span></button>
+                        </form>
+                    </div><!-- End Search Form -->
+
+                </div>
+
+            </div>
+
+        </header><!-- End Header -->
+
+<!--        <div class="topbar">-->
+<!--                <nav class="navbar navbar-expand-lg navbar-light">-->
+<!--                    <div class="full">-->
+<!--                        <div class="right_topbar">-->
+<!--                            <div class="icon_info">-->
+<!--                                <ul>-->
+<!--                                    <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>-->
+<!--                                    <li><a href="#"><i class="fa fa-question-circle"></i></a></li>-->
+<!--                                    <li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>-->
+<!--                                </ul>-->
+<!--                                <ul class="user_profile_dd">-->
+<!--                                    <li>-->
+<!--                                        <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="images/layout_img/user_img.jpg" alt="#" /><span class="name_user">John David</span></a>-->
+<!--                                        <div class="dropdown-menu">-->
+<!--                                            <a class="dropdown-item" href="profile.html">My Profile</a>-->
+<!--                                            <a class="dropdown-item" href="settings.html">Settings</a>-->
+<!--                                            <a class="dropdown-item" href="help.html">Help</a>-->
+<!--                                            <a class="dropdown-item" href="#"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>-->
+<!--                                        </div>-->
+<!--                                    </li>-->
+<!--                                </ul>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </nav>-->
+<!--            </div>-->
+            <!-- end topbar -->
+            <!-- dashboard inner -->
+
+        <div class="midde_cont">
+
+            <div class="container-fluid">
+                <div class="row column_title">
+                    <div class="col-md-12">
+                        <div class="page_title">
+                            <h2>Widgets</h2>
+                        </div>
+                    </div>
+                </div>
+                <!-- row -->
+                <div>
+                    <img src="https://4.bp.blogspot.com/-7OHSFmygfYQ/VtLSb1xe8kI/AAAAAAAABjI/FxaRp5xW2JQ/s320/logo.png" class="fostrap-logo"/>
+                    <h1 class="heading">
+                        MY Course
+                    </h1>
+                </div>
+                <div class="row column1">
+                    <div class="col-md-6 col-lg-4 col-sm-6 col-xs-12" th:href="@{viewDetailDOC}" th:each="student: ${students}">
+                        <div class="card">
+                            <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
+                                <img src="https://play-lh.googleusercontent.com/85WnuKkqDY4gf6tndeL4_Ng5vgRk7PTfmpI4vHMIosyq6XQ7ZGDXNtYG2s0b09kJMw" />
+                            </a>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html"> HTML
+                                    </a>
+                                </h4>
+                                <p class="">
+                                    Tutorial to make a carousel bootstrap by adding more wonderful effect fadein ...
+                                </p>
+                            </div>
+                            <div class="card-read-more">
+                                <a th:href="@{/html}" class="btn btn-link btn-block">
+                                    Read More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row column1" >
+                    <a class="col-md-6 col-lg-4 col-sm-6 col-xs-12" th:href="@{viewDetailDOC}" th:each="student: ${students}">
+                        <div class="full white_shd margin_bottom_30">
+                            <div class="info_people">
+                                <div class="p_info_img">
+                                    <img src="images/layout_img/msg2.png" alt="#" />
+                                </div>
+                                <div class="user_info_cont">
+                                    <h4 th:text="${student.name}"></h4>
+                                    <h4 th:text="${student.age}"></h4>
+                                    <h4 th:text="${student.gender}"></h4>
+                                    <p>developer@gmail.com</p>
+                                    <p class="p_status">Developer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- end row -->
+                <!-- row -->
+                <div class="row margin_bottom_30">
+                    <div class="col-md-12 col-lg-4 widget_progress_section margin_bottom_30">
+                        <div class="white_shd full">
+                            <div class="widget_progress_bar">
+                                <p class="progress_no">73%</p>
+                                <p class="progress_head">Sed ut perspi ciatis unde</p>
+                                <div class="progress_bar">
+                                    <!-- Skill Bars -->
+                                    <span class="skill" style="width:73%;">Lorem ipsum dolor sit amet <span class="info_valume">73%</span></span>
+                                    <div class="progress skill-bar ">
+                                        <div class="progress-bar progress-bar-animated progress-bar-striped" role="progressbar" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100" style="width: 73%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-4 widget_progress_section margin_bottom_30">
+                        <div class="white_shd full">
+                            <div class="widget_progress_bar">
+                                <p class="progress_no">90%</p>
+                                <p class="progress_head">Sed ut perspi ciatis unde</p>
+                                <div class="progress_bar">
+                                    <!-- Skill Bars -->
+                                    <span class="skill" style="width:90%;">Lorem ipsum dolor sit amet <span class="info_valume">90%</span></span>
+                                    <div class="progress skill-bar ">
+                                        <div class="progress-bar progress-bar-animated progress-bar-striped" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-4 widget_progress_section margin_bottom_30">
+                        <div class="white_shd full">
+                            <div class="widget_progress_bar">
+                                <p class="progress_no">85%</p>
+                                <p class="progress_head">Sed ut perspi ciatis unde</p>
+                                <div class="progress_bar">
+                                    <!-- Skill Bars -->
+                                    <span class="skill" style="width:85%;">Lorem ipsum dolor sit amet <span class="info_valume">85%</span></span>
+                                    <div class="progress skill-bar ">
+                                        <div class="progress-bar progress-bar-animated progress-bar-striped" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+                <!-- row -->
+                <div class="row column1 social_media_section">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="full socile_icons fb margin_bottom_30">
+                            <div class="social_icon">
+                                <i class="fa fa-facebook"></i>
+                            </div>
+                            <div class="social_cont">
+                                <ul>
+                                    <li>
+                                        <span><strong>35k</strong></span>
+                                        <span>Friends</span>
+                                    </li>
+                                    <li>
+                                        <span><strong>128</strong></span>
+                                        <span>Feeds</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="full socile_icons tw margin_bottom_30">
+                            <div class="social_icon">
+                                <i class="fa fa-twitter"></i>
+                            </div>
+                            <div class="social_cont">
+                                <ul>
+                                    <li>
+                                        <span><strong>584k</strong></span>
+                                        <span>Followers</span>
+                                    </li>
+                                    <li>
+                                        <span><strong>978</strong></span>
+                                        <span>Tweets</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="full socile_icons linked margin_bottom_30">
+                            <div class="social_icon">
+                                <i class="fa fa-linkedin"></i>
+                            </div>
+                            <div class="social_cont">
+                                <ul>
+                                    <li>
+                                        <span><strong>758+</strong></span>
+                                        <span>Contacts</span>
+                                    </li>
+                                    <li>
+                                        <span><strong>365</strong></span>
+                                        <span>Feeds</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="full socile_icons google_p margin_bottom_30">
+                            <div class="social_icon">
+                                <i class="fa fa-google-plus"></i>
+                            </div>
+                            <div class="social_cont">
+                                <ul>
+                                    <li>
+                                        <span><strong>450</strong></span>
+                                        <span>Followers</span>
+                                    </li>
+                                    <li>
+                                        <span><strong>57</strong></span>
+                                        <span>Circles</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+                <div class="row column4 graph">
+                    <div class="col-md-4">
+                        <div class="white_shd full margin_bottom_30">
+                            <div class="full graph_head">
+                                <div class="heading1 margin_0">
+                                    <h2>Message</h2>
+                                </div>
+                            </div>
+                            <div class="full progress_bar_inner">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="msg_section">
+                                            <div class="msg_list_main">
+                                                <ul class="msg_list">
+                                                    <li>
+                                                        <span><img src="images/layout_img/msg2.png" class="img-responsive" alt="#" /></span>
+                                                        <span>
+                                                   <span class="name_user">John Smith</span>
+                                                   <span class="msg_user">Sed ut perspiciatis unde omnis.</span>
+                                                   <span class="time_ago">12 min ago</span>
+                                                   </span>
+                                                    </li>
+                                                    <li>
+                                                        <span><img src="images/layout_img/msg3.png" class="img-responsive" alt="#" /></span>
+                                                        <span>
+                                                   <span class="name_user">John Smith</span>
+                                                   <span class="msg_user">On the other hand, we denounce.</span>
+                                                   <span class="time_ago">12 min ago</span>
+                                                   </span>
+                                                    </li>
+                                                    <li>
+                                                        <span><img src="images/layout_img/msg2.png" class="img-responsive" alt="#" /></span>
+                                                        <span>
+                                                   <span class="name_user">John Smith</span>
+                                                   <span class="msg_user">Sed ut perspiciatis unde omnis.</span>
+                                                   <span class="time_ago">12 min ago</span>
+                                                   </span>
+                                                    </li>
+                                                    <li>
+                                                        <span><img src="images/layout_img/msg3.png" class="img-responsive" alt="#" /></span>
+                                                        <span>
+                                                   <span class="name_user">John Smith</span>
+                                                   <span class="msg_user">On the other hand, we denounce.</span>
+                                                   <span class="time_ago">12 min ago</span>
+                                                   </span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="white_shd full margin_bottom_30">
+                            <div class="full graph_head">
+                                <div class="heading1 margin_0">
+                                    <h2>Calendar</h2>
+                                </div>
+                            </div>
+                            <div class="full progress_bar_inner">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="full">
+                                            <div class="ui calendar" id="example14"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="white_shd full margin_bottom_30">
+                            <div class="full graph_head">
+                                <div class="heading1 margin_0">
+                                    <h2>Update</h2>
+                                </div>
+                            </div>
+                            <div class="full progress_bar_inner">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="msg_list_main">
+                                            <ul class="msg_list">
+                                                <li>
+                                                <span>
+                                                <span class="name_user">Herman Beck</span>
+                                                <span class="msg_user">Sed ut perspiciatis unde omnis.</span>
+                                                <span class="time_ago">12 min ago</span>
+                                                </span>
+                                                </li>
+                                                <li>
+                                                <span>
+                                                <span class="name_user">John Smith</span>
+                                                <span class="msg_user">On the other hand, we denounce.</span>
+                                                <span class="time_ago">12 min ago</span>
+                                                </span>
+                                                </li>
+                                                <li>
+                                                <span>
+                                                <span class="name_user">John Smith</span>
+                                                <span class="msg_user">Sed ut perspiciatis unde omnis.</span>
+                                                <span class="time_ago">12 min ago</span>
+                                                </span>
+                                                </li>
+                                                <li>
+                                                <span>
+                                                <span class="name_user">John Smith</span>
+                                                <span class="msg_user">On the other hand, we denounce.</span>
+                                                <span class="time_ago">12 min ago</span>
+                                                </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="white_shd full margin_bottom_30">
+                            <div class="full graph_head">
+                                <div class="heading1 margin_0">
+                                    <h2>Daily feed</h2>
+                                </div>
+                            </div>
+                            <div class="full progress_bar_inner">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="msg_list_main">
+                                            <ul class="msg_list">
+                                                <li>
+                                                <span>
+                                                <span class="name_user">Herman Beck</span>
+                                                <span class="msg_user">Sed ut perspiciatis unde omnis.</span>
+                                                <span class="time_ago">12 min ago</span>
+                                                </span>
+                                                </li>
+                                                <li>
+                                                <span>
+                                                <span class="name_user">John Smith</span>
+                                                <span class="msg_user">On the other hand, we denounce.</span>
+                                                <span class="time_ago">12 min ago</span>
+                                                </span>
+                                                </li>
+                                                <li>
+                                                <span>
+                                                <span class="name_user">John Smith</span>
+                                                <span class="msg_user">Sed ut perspiciatis unde omnis.</span>
+                                                <span class="time_ago">12 min ago</span>
+                                                </span>
+                                                </li>
+                                                <li>
+                                                <span>
+                                                <span class="name_user">Sales</span>
+                                                <span class="msg_user">On the other hand, we denounce.</span>
+                                                <span class="time_ago">12 min ago</span>
+                                                </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="white_shd full margin_bottom_30">
+                            <div class="full graph_head">
+                                <div class="heading1 margin_0">
+                                    <h2>Last Comments</h2>
+                                </div>
+                            </div>
+                            <div class="full progress_bar_inner">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="msg_list_main">
+                                            <ul class="msg_list">
+                                                <li>
+                                                <span>
+                                                <span class="name_user">Herman Beck</span>
+                                                <span class="msg_user">Sed ut perspiciatis unde omnis.</span>
+                                                <span class="time_ago">12 min ago</span>
+                                                </span>
+                                                </li>
+                                                <li>
+                                                <span>
+                                                <span class="name_user">John Smith</span>
+                                                <span class="msg_user">On the other hand, we denounce.</span>
+                                                <span class="time_ago">12 min ago</span>
+                                                </span>
+                                                </li>
+                                                <li>
+                                                <span>
+                                                <span class="name_user">John Smith</span>
+                                                <span class="msg_user">Sed ut perspiciatis unde omnis.</span>
+                                                <span class="time_ago">12 min ago</span>
+                                                </span>
+                                                </li>
+                                                <li>
+                                                <span>
+                                                <span class="name_user">John Smith</span>
+                                                <span class="msg_user">On the other hand, we denounce.</span>
+                                                <span class="time_ago">12 min ago</span>
+                                                </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- footer -->
+            <div class="container-fluid">
+                <div class="footer">
+                    <p>Copyright © 2018 Designed by html.design. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+            <!-- end dashboard inner -->
+        </div>
+    </div>
+</div>
+
+<!-- jQuery -->
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{js/popper.min.js}"></script>
+<script th:src="@{js/bootstrap.min.js}"></script>
+<script th:src="@{js/animate.js}"></script>
+<!-- select country -->
+<script th:src="@{js/bootstrap-select.js}"></script>
+<!-- owl carousel -->
+<script th:src="@{js/owl.carousel.js}"></script>
+<!-- chart js -->
+<script th:src="@{js/Chart.min.js}"></script>
+<script th:src="@{js/Chart.bundle.min.js}"></script>
+<script th:src="@{js/utils.js}"></script>
+<script th:src="@{js/analyser.js}"></script>
+<!-- nice scrollbar -->
+<script th:src="@{js/perfect-scrollbar.min.js}"></script>
+<script>
+    var ps = new PerfectScrollbar('#sidebar');
+</script>
+<!-- custom js -->
+<script th:src="@{js/custom.js}"></script>
+<script th:src="@{js/chart_custom_style1.js}"></script>
+</body>
+</html>

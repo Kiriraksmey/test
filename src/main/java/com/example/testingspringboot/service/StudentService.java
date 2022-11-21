@@ -42,5 +42,8 @@ public interface StudentService {
     Student editStudent(Student student);
     Student updateClassRoom(Student student);
     Student editEmployee(Student student);
+//    Student search(Student student);
+List<Student>listAll(String keyword);
+
 
 }

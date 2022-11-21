@@ -15,7 +15,7 @@
 
     <fieldset class="form-group border p-3">
         <legend class="w-auto px-2">Edit Student</legend>
-        <form th:action="@{/updateStudent/{id}(id=${student.id})}" th:object="${student}" method="POST">
+        <form th:action="@{/system/updateStudent/{id}(id=${student.id})}" th:object="${student}" method="POST">
 
             <div class="col">
                 <div class="col-md-6 col-lg-6  col-sm-12">
@@ -36,9 +36,16 @@
                         <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="gender">
                     </div>
                 </div>
+                <div class="col-md-6 col-lg-6 col-sm-12" >
+                    <div class="form-group">
+                        <label for="age">Avatar</label>
+                        <input type="text" class="form-control" id="avtar" th:field="*{avtar}" placeholder="Avatar">
+                    </div>
+                </div>
                 <div class="col-md-12 col-lg-12">
 
                     <button type="submit" class="btn btn-primary">Submit</button>
+
                 </div>
             </div>
         </form>

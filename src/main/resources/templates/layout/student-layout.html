@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <!-- basic -->
+  <!-- site icon -->
+  <link rel="icon" th:href="@{images/fevicon.png}" type="image/png" />
+  <!-- bootstrap css -->
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+  <!-- site css -->
+  <link rel="stylesheet" th:href="@{/style.css}" />
+  <!-- responsive css -->
+  <link rel="stylesheet" th:href="@{/css/responsive.css}" />
+  <!-- color css -->
+  <link rel="stylesheet" th:href="@{/css/colors.css}" />
+  <!-- select bootstrap -->
+  <link rel="stylesheet" th:href="@{/css/bootstrap-select.css}" />
+  <!-- scrollbar css -->
+  <link rel="stylesheet" th:href="@{/css/perfect-scrollbar.css}" />
+  <!-- custom css -->
+  <link rel="stylesheet" th:href="@{/css/custom.css}" />
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body class="dashboard dashboard_1">
+<div class="full_container">
+  <div class="inner_container">
+
+
+<!--    <span th:replace="fragments/student-sidebar::sidebar"/>-->
+
+    <div id="content">
+      <div class="topbar">
+        <span th:replace="fragments/student-header::header"/>
+      </div>
+      <div layout:fragment="content">
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- jQuery -->
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{js/popper.min.js}"></script>
+<script th:src="@{js/bootstrap.min.js}"></script>
+<script th:src="@{js/animate.js}"></script>
+<!-- select country -->
+<script th:src="@{js/bootstrap-select.js}"></script>
+<!-- owl carousel -->
+<script th:src="@{js/owl.carousel.js}"></script>
+<!-- chart js -->
+<script th:src="@{js/Chart.min.js}"></script>
+<script th:src="@{js/Chart.bundle.min.js}"></script>
+<script th:src="@{js/utils.js}"></script>
+<script th:src="@{js/analyser.js}"></script>
+<!-- nice scrollbar -->
+<script th:src="@{js/perfect-scrollbar.min.js}"></script>
+<script>
+  var ps = new PerfectScrollbar('#sidebar');
+</script>
+<!-- custom js -->
+<script th:src="@{js/custom.js}"></script>
+<script th:src="@{js/chart_custom_style1.js}"></script>
+</body>
+</html>

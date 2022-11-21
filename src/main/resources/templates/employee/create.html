@@ -12,7 +12,7 @@
 </head>
 <section layout:fragment="content">
 
-    <form th:action="@{saveEmployee}" th:object="${student}" method="POST">
+    <form th:action="@{/system/saveEmployee}" th:object="${student}" method="POST">
 
         <div class="col">
             <div class="col-md-6 col-lg-6  col-sm-12">
@@ -35,8 +35,12 @@
             </div>
             <div class="col-md-12 col-lg-12">
 
+
                 <button type="submit" class="btn btn-primary">Save</button>
+
             </div>
+
+
         </div>
     </form>
 </section>

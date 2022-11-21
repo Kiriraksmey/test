@@ -23,13 +23,12 @@ public class Login {
         this.status = status;
     }
 
-    public Long getId() {
-        return id;
-    }
+
 
     public void setId(Long id) {
         this.id = id;
     }
+    public  Long getId(){return  id;}
 
     public String getName() {
         return name;
@@ -53,6 +52,7 @@ public class Login {
     public void setStatus(String status) {
         this.status= status;
     }
+
 
 
 }

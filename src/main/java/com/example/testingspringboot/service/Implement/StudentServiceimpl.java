@@ -51,4 +51,12 @@ public class StudentServiceimpl implements StudentService {
     public Student editEmployee(Student student) {
         return null;
     }
+    @Override
+    public List<Student> listAll(String keyword) {
+        if (keyword != null) {
+            return studentRepository.search(keyword);
+        }
+        return studentRepository.findAll();
+    }
+
 }

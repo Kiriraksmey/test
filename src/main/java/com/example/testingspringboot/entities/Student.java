@@ -13,16 +13,18 @@ public class Student {
     private String name;
     private String gender;
     private String age;
+    private  String avtar;
 
 
     public Student() {
     }
 
-    public Student(Long id, String name, String gender, String age) {
+    public Student(Long id, String name, String gender, String age,String avtar) {
         this.id = id;
         this.name = name;
         this.gender = gender;
         this.age = age;
+        this.avtar = avtar;
     }
 
     public Long getId() {
@@ -55,5 +57,13 @@ public class Student {
 
     public void setAge(String age) {
         this.age = age;
+    }
+
+    public String getAvtar() {
+        return avtar;
+    }
+
+    public void setAvtar(String avtar) {
+        this.avtar = avtar;
     }
 }

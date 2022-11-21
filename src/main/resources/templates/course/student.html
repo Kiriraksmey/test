@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/student-layout}">
+<head>
+  <title>HRMS</title>
+  <link rel="stylesheet" th:href="@{/css/student.css}" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+</head>
+<section layout:fragment="content">
+  <section class="wrapper">
+    <div class="container-fostrap">
+      <div>
+        <img src="https://4.bp.blogspot.com/-7OHSFmygfYQ/VtLSb1xe8kI/AAAAAAAABjI/FxaRp5xW2JQ/s320/logo.png" class="fostrap-logo"/>
+        <h1 class="heading">
+          MY Course
+        </h1>
+      </div>
+      <div class="content">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-4">
+              <div class="card">
+                <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
+                  <img src="https://play-lh.googleusercontent.com/85WnuKkqDY4gf6tndeL4_Ng5vgRk7PTfmpI4vHMIosyq6XQ7ZGDXNtYG2s0b09kJMw" />
+                </a>
+                <div class="card-content">
+                  <h4 class="card-title">
+                    <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html"> HTML
+                    </a>
+                  </h4>
+                  <p class="">
+                    Tutorial to make a carousel bootstrap by adding more wonderful effect fadein ...
+                  </p>
+                </div>
+                <div class="card-read-more">
+                  <a th:href="@{/html}" class="btn btn-link btn-block">
+                    Read More
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <div class="card">
+                <a class="img-card" href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png" />
+                </a>
+                <div class="card-content">
+                  <h4 class="card-title">
+                    <a href="http://www.fostrap.com/2016/02/awesome-material-design-responsive-menu.html"> Css
+                    </a>
+                  </h4>
+                  <p class="">
+                    Material Design is a visual programming language made by Google. Language programming...
+                  </p>
+                </div>
+                <div class="card-read-more">
+                  <a th:href="@{/css}" class="btn btn-link btn-block">
+                   Read More
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <div class="card">
+                <a class="img-card" href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
+                  <img style="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/2048px-Unofficial_JavaScript_logo_2.svg.png" />
+                </a>
+                <div class="card-content">
+                  <h4 class="card-title">
+                    <a href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">JavaScript
+                    </a>
+                  </h4>
+                  <p class="">
+                    tutorials button hover animation, although very much a hover button is very beauti...
+                  </p>
+                </div>
+                <div class="card-read-more">
+                  <a th:href="@{/js}" class="btn btn-link btn-block">
+                    Read More
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+</section>
+
+</html>

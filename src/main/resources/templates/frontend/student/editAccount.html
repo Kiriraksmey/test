@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout-frontend/frontend-layout}">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>ZenBlog Bootstrap Template - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <style>
+    body {
+      background: rgb(239, 232, 232)
+    }
+
+    .form-control:focus {
+      box-shadow: none;
+      border-color: #BA68C8
+    }
+
+    .profile-button {
+      background: rgb(99, 39, 120);
+      box-shadow: none;
+      border: none
+    }
+
+    .profile-button:hover {
+      background: #682773
+    }
+
+    .profile-button:focus {
+      background: #682773;
+      box-shadow: none
+    }
+
+    .profile-button:active {
+      background: #682773;
+      box-shadow: none
+    }
+
+    .back:hover {
+      color: #682773;
+      cursor: pointer
+    }
+
+    .labels {
+      font-size: 11px
+    }
+
+    .add-experience:hover {
+      background: #BA68C8;
+      color: #fff;
+      cursor: pointer;
+      border: solid 1px #BA68C8
+    }
+
+  </style>
+</head>
+<body class="inner_page login">
+<section layout:fragment="content">
+
+
+  <!-- ======= Post Grid Section ======= -->
+  <section id="posts" class="posts">
+    <div class="container" data-aos="fade-up">
+      <div class="row g-5">
+        <div class="col-lg-3" style="padding-right:0px !important;">
+          <div class="post-entry-1 lg">
+            <a href="single-post.html"><img th:src="@{/front-end/assets/images/post-landscape-1.jpg}" alt=""
+                                            class="img-fluid"></a>
+            <div class="post-meta">
+              <span>Student</span></div>
+            <h4><a href="single-post.html">Course</a></h4>
+            <h4><a href="single-post.html">Change Information</a></h4>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-9">
+          <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="text-right">Profile Settings</h4>
+              </div>
+              <div class="row mt-2">
+                <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
+                <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="surname"></div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
+                <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" class="form-control" placeholder="enter address line 1" value=""></div>
+                <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
+                <div class="col-md-12"><label class="labels">Postcode</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
+                <div class="col-md-12"><label class="labels">State</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
+                <div class="col-md-12"><label class="labels">Area</label><input type="text" class="form-control" placeholder="enter address line 2" value=""></div>
+                <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value=""></div>
+                <div class="col-md-12"><label class="labels">Education</label><input type="text" class="form-control" placeholder="education" value=""></div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>
+                <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" value="" placeholder="state"></div>
+              </div>
+              <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+            </div>
+          </div>
+          </div>
+
+        </div> <!-- End .row -->
+      </div>
+  </section>
+
+</section>
+
+</body>
+</html>

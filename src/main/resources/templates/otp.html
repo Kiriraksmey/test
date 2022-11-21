@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="icon" th:href="@{images/fevicon.png}" type="image/png" />
+    <!-- bootstrap css -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <!-- site css -->
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <!-- responsive css -->
+    <link rel="stylesheet" th:href="@{/css/responsive.css}" />
+    <!-- color css -->
+    <link rel="stylesheet" th:href="@{/css/colors.css}" />
+    <!-- select bootstrap -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap-select.css}" />
+    <!-- scrollbar css -->
+    <link rel="stylesheet" th:href="@{/css/perfect-scrollbar.css}" />
+    <!-- custom css -->
+    <link rel="stylesheet" th:href="@{/css/custom.css}" />
+    <link rel="stylesheet" th:href="@{/search.css}" />
+    <link rel="stylesheet" th:href="@{/css/otp.css}" />
+
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js}"></script>
+    <script src="@{https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.0.3/tilt.jquery.min.js}"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+
+</head>
+<body>
+<div class="limiter">
+    <div class="container-login100">
+        <div class="d-flex justify-content-center align-item-center container">
+            <div class="card py-5 px-3" >
+                <h3 class="m-0">Email Verification</h3><span>Enter the code we just send you on your email</span>
+                <div class="d-flex flex-row mt-5">
+                    <input name="otpCode" onchange="checkOtpCode();" type="text" maxlength="1" class="form-control">
+                    <input name="otpCode" onchange="checkOtpCode();" type="text" maxlength="1" class="form-control">
+                    <input name="otpCode" onchange="checkOtpCode();" type="text" maxlength="1" class="form-control">
+                    <input name="otpCode" onchange="checkOtpCode();" type="text" maxlength="1" class="form-control">
+                    <input name="otpCode" onchange="checkOtpCode();" type="text" maxlength="1" class="form-control">
+                    <input name="otpCode" onchange="checkOtpCode();" type="text" maxlength="1" class="form-control">
+                </div>
+                <div class="text-center mt-5"><span class="d-block mobile-text">Don't receive the code</span><span onclick="resendotpcode();" class="font-weight-bold text-danger cursor">Resend</span></div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/script.js}"></script>
+<script th:src="@{js/utils.js}"></script>
+<script th:src="@{js/popper.min.js}"></script>
+<script th:src="@{js/bootstrap.min.js}"></script>
+<script th:src="@{js/bootstrap-select.js}"></script>
+
+<script>
+  $(' .js-tilt').tilt({
+      scales:1.1
+  });
+</script>
+
+
+
+</body>
+</html>

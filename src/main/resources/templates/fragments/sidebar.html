@@ -20,6 +20,7 @@
     <!-- custom css -->
     <link rel="stylesheet" th:href="@{/css/custom.css}" />
 
+
 </head>
 <body th:fragment="sidebar">
 <nav id="sidebar" >
@@ -55,17 +56,19 @@
                 </ul>
             </li>
             <li>
-                <a th:href="@{/login}"  >
-                    <i class="fas fa-sign-in-alt"></i>
+                <a th:href="@{/index}" >
+                    <i class="fa fa-sign-out"></i>
                     <span>Login</span>
                 </a>
             </li>
             <li>
                 <a th:href="@{/getTest}">
-                    <span>test</span>
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
                 </a>
             </li>
-            <li><a th:href="@{/studentList}"><i class="fa fa-clock-o orange_color"></i> <span>Student</span></a></li>
+            <li><a th:href="@{/system/studentList}"><i class="fa fa-clock-o orange_color"></i> <span>Student</span></a></li>
+            <li><a th:href="@{/system/courseList}"><i class="fa fa-table purple_color2"></i> <span>Course</span></a></li>
             <li>
                 <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-diamond purple_color"></i> <span>Elements</span></a>
                 <ul class="collapse list-unstyled" id="element">
@@ -99,7 +102,7 @@
                         <a href="project.html">> <span>Projects</span></a>
                     </li>
                     <li>
-                        <a href="login.html">> <span>Login</span></a>
+                        <a th:href="@{/index}" >> <span>Login</span></a>
                     </li>
                     <li>
                         <a href="404_error.html">> <span>404 Error</span></a>
