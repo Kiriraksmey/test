@@ -1,9 +1,8 @@
 package com.example.testingspringboot.controller.admin;
 
-import com.example.testingspringboot.entities.course;
+import com.example.testingspringboot.entities.Course;
 import com.example.testingspringboot.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +22,7 @@ public class CourseController {
     }
     @GetMapping("/courseList")
     public String listEmployee(Model model) {
+        List list = courseService.getAllCourse();
         model.addAttribute("courses", courseService.getAllCourse());
         return "course";
     }
@@ -38,7 +38,7 @@ public class CourseController {
     }
 
     @PostMapping("/saveCourse")
-    public String saveEmploye(@ModelAttribute("course") course course) {
+    public String saveEmploye(@ModelAttribute("course") Course course) {
         courseService.saveCourse(course);
         return "redirect:/system/courseList";
     }
@@ -51,21 +51,21 @@ public class CourseController {
     }
 
     @PostMapping("updateCourse/{id}")
-    public String updateStudent(@PathVariable Long id, course course) {
+    public String updateStudent(@PathVariable Long id, Course course) {
         courseService.saveCourse(course);
         return "redirect:/system/coursetList";
 
     }
-    @PostMapping("/employe/{id}")
-    public String updateClassRoom(@PathVariable long id, @ModelAttribute("course") course course, Model model) {
-        com.example.testingspringboot.entities.course existingEmployee = courseService.getCoursebyID(id);
-        existingEmployee.setImage(course.getImage());
-        existingEmployee.setCourseName(course.getCourseName());
-        existingEmployee.setIntroduce(course.getIntroduce());
-        existingEmployee.setTitle(course.getTitle());
-
-        return "redirect:/system/employee";
-    }
+//    @PostMapping("/employe/{id}")
+//    public String updateClassRoom(@PathVariable long id, @ModelAttribute("course") Course course, Model model) {
+//        Course existingEmployee = courseService.getCoursebyID(id);
+//        existingEmployee.setImage(course.getImage());
+//        existingEmployee.setCourseName(course.getCourseName());
+//        existingEmployee.setIntroduce(course.getIntroduce());
+//        existingEmployee.setTitle(course.getTitle());
+//
+//        return "redirect:/system/employee";
+//    }
 
 //    @PostMapping("/studentList")
 //    public String viewHomePage(Model model, @Param("keyword") String keyword) {

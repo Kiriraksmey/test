@@ -32,7 +32,7 @@ public class MainController {
     public String viewDetailDOC(Model model){
 
         model.addAttribute("students", studentService.getAllStudent());
-        return  "/course/student";
+        return  "/frontend/course/course-detail";
     }
      @RequestMapping("/profile")
      public String viewProfile(Model model){

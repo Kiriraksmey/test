@@ -2,36 +2,37 @@ package com.example.testingspringboot.entities;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
-@Table(name = "user")
-public class User {
+@Table(name="coursedetail")
+public class CourseDetail {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-   private  long id;
+ private  long id;
     private  String name;
-    private  String email;
-    private   String password;
-    private  boolean status;
-    private  Date createDate;
+    private  String description;
+    private Date createDate;
     private  Date updateDate;
-    private String user;
-    private boolean userType;
+    private  String user;
+    private  String videoId;
 
-    public User() {
+    public CourseDetail() {
     }
 
-    public User(long id, String name, String email, String password, boolean status, Date createDate, Date updateDate, String user, boolean userType) {
+    public CourseDetail(long id, String name, String description, Date createDate, Date updateDate, String user, String videoId) {
         this.id = id;
         this.name = name;
-        this.email = email;
-        this.password = password;
-        this.status = status;
+        this.description = description;
         this.createDate = createDate;
         this.updateDate = updateDate;
         this.user = user;
-        this.userType = userType;
+        this.videoId = videoId;
     }
+
+    @OneToMany
+    @JoinColumn(name = "video_id") // we need to duplicate the physical information
+    private Set<Video> videos;
 
     public long getId() {
         return id;
@@ -49,28 +50,12 @@ public class User {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
+    public String getDescription() {
+        return description;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Date getCreateDate() {
@@ -97,11 +82,11 @@ public class User {
         this.user = user;
     }
 
-    public boolean isUserType() {
-        return userType;
+    public String getVideoId() {
+        return videoId;
     }
 
-    public void setUserType(boolean userType) {
-        this.userType = userType;
+    public void setVideoId(String videoId) {
+        this.videoId = videoId;
     }
 }

@@ -1,20 +1,19 @@
 package com.example.testingspringboot.service;
 
-import com.example.testingspringboot.entities.Student;
-import com.example.testingspringboot.entities.course;
+import com.example.testingspringboot.entities.Course;
 
 import java.util.List;
 
 public interface CourseService {
     void deleteCourse(long id);
-    List<course> getAllCourse();
-    course saveCourse(course course);
+    List<Course> getAllCourse();
+    Course saveCourse(Course course);
 
-   course getCoursebyID(long id);
+   Course getCoursebyID(long id);
 
-   course editCourse(course course);
-    course updateClassRoom(course course);
-    course editEmployee(course course);
+   Course editCourse(Course course);
+    Course updateClassRoom(Course course);
+    Course editEmployee(Course course);
     //    Student search(Student student);
-    List<course>listAll(String keyword);
+    List<Course>listAll(String keyword);
 }

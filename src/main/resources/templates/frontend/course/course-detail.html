@@ -1,0 +1,816 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout-frontend/frontend-layout}">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>ZenBlog Bootstrap Template - Index</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
+
+        html,
+        body {
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            height: 100%;
+            width: 100%;
+            background: #FFF;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+        }
+
+        .wrapper {
+            display: table;
+            height: 100%;
+            width: 100%;
+        }
+
+        .container-fostrap {
+            display: table-cell;
+            padding: 1em;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .fostrap-logo {
+            width: 100px;
+            margin-bottom:15px
+        }
+        h1.heading {
+            color: #fff;
+            font-size: 1.15em;
+            font-weight: 900;
+            margin: 0 0 0.5em;
+            color: #505050;
+        }
+        @media (min-width: 450px) {
+            h1.heading {
+                font-size: 3.55em;
+            }
+        }
+        @media (min-width: 760px) {
+            h1.heading {
+                font-size: 3.05em;
+            }
+        }
+        @media (min-width: 900px) {
+            h1.heading {
+                font-size: 3.25em;
+                margin: 0 0 0.3em;
+            }
+        }
+        .card {
+            display: block;
+            margin-bottom: 20px;
+            line-height: 1.42857143;
+            background-color: #fff;
+            border-radius: 2px;
+            box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+            transition: box-shadow .25s;
+        }
+        .card:hover {
+            box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+        .img-card {
+            width: 100%;
+            height:200px;
+            border-top-left-radius:2px;
+            border-top-right-radius:2px;
+            display:block;
+            overflow: hidden;
+        }
+        .img-card img{
+            width: 100%;
+            height: 200px;
+            object-fit:cover;
+            transition: all .25s ease;
+        }
+        .card-content {
+            padding:15px;
+            text-align:left;
+        }
+        .card-title {
+            margin-top:0px;
+            font-weight: 700;
+            font-size: 1.65em;
+        }
+        .card-title a {
+            color: #000;
+            text-decoration: none !important;
+        }
+        .card-read-more {
+            border-top: 1px solid #D4D4D4;
+        }
+        .card-read-more a {
+            text-decoration: none !important;
+            padding:10px;
+            font-weight:600;
+            text-transform: uppercase
+        }
+        body{
+            background: #F4F7FD;
+            margin-top:20px;
+        }
+
+        .card-margin {
+            margin-bottom: 1.875rem;
+        }
+
+        .card {
+            border: 0;
+            box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
+            -webkit-box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
+            -moz-box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
+            -ms-box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
+        }
+        .card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #ffffff;
+            background-clip: border-box;
+            border: 1px solid #e6e4e9;
+            border-radius: 8px;
+        }
+
+        .card .card-header.no-border {
+            border: 0;
+        }
+        .card .card-header {
+            background: none;
+            padding: 0 0.9375rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            min-height: 50px;
+        }
+        .card-header:first-child {
+            border-radius: calc(8px - 1px) calc(8px - 1px) 0 0;
+        }
+
+        .widget-49 .widget-49-title-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-date-primary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: #edf1fc;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-date-primary .widget-49-date-day {
+            color: #4e73e5;
+            font-weight: 500;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-date-primary .widget-49-date-month {
+            color: #4e73e5;
+            line-height: 1;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-date-secondary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: #fcfcfd;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-date-secondary .widget-49-date-day {
+            color: #dde1e9;
+            font-weight: 500;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-date-secondary .widget-49-date-month {
+            color: #dde1e9;
+            line-height: 1;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-date-success {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: #e8faf8;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-date-success .widget-49-date-day {
+            color: #17d1bd;
+            font-weight: 500;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-date-success .widget-49-date-month {
+            color: #17d1bd;
+            line-height: 1;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-date-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: #ebf7ff;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-date-info .widget-49-date-day {
+            color: #36afff;
+            font-weight: 500;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-date-info .widget-49-date-month {
+            color: #36afff;
+            line-height: 1;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-date-warning {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: floralwhite;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-date-warning .widget-49-date-day {
+            color: #FFC868;
+            font-weight: 500;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-date-warning .widget-49-date-month {
+            color: #FFC868;
+            line-height: 1;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-date-danger {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: #feeeef;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-date-danger .widget-49-date-day {
+            color: #F95062;
+            font-weight: 500;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-date-danger .widget-49-date-month {
+            color: #F95062;
+            line-height: 1;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-date-light {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: #fefeff;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-date-light .widget-49-date-day {
+            color: #f7f9fa;
+            font-weight: 500;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-date-light .widget-49-date-month {
+            color: #f7f9fa;
+            line-height: 1;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-date-dark {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: #ebedee;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-date-dark .widget-49-date-day {
+            color: #394856;
+            font-weight: 500;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-date-dark .widget-49-date-month {
+            color: #394856;
+            line-height: 1;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-date-base {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: #f0fafb;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-date-base .widget-49-date-day {
+            color: #68CBD7;
+            font-weight: 500;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-date-base .widget-49-date-month {
+            color: #68CBD7;
+            line-height: 1;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-meeting-info {
+            display: flex;
+            flex-direction: column;
+            margin-left: 1rem;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-meeting-info .widget-49-pro-title {
+            color: #3c4142;
+            font-size: 14px;
+        }
+
+        .widget-49 .widget-49-title-wrapper .widget-49-meeting-info .widget-49-meeting-time {
+            color: #B1BAC5;
+            font-size: 13px;
+        }
+
+        .widget-49 .widget-49-meeting-points {
+            font-weight: 400;
+            font-size: 13px;
+            margin-top: .5rem;
+        }
+
+        .widget-49 .widget-49-meeting-points .widget-49-meeting-item {
+            display: list-item;
+            color: #727686;
+        }
+
+        .widget-49 .widget-49-meeting-points .widget-49-meeting-item span {
+            margin-left: .5rem;
+        }
+
+        .widget-49 .widget-49-meeting-action {
+            text-align: right;
+        }
+
+        .widget-49 .widget-49-meeting-action a {
+            text-transform: uppercase;
+        }
+        @import url(http://fonts.googleapis.com/css?family=Calibri:400,300,700);
+
+        body {
+
+            font-family: 'Calibri', sans-serif !important
+        }
+
+        .container{
+            margin-top:100px;
+        }
+        .card {
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 0px solid transparent;
+            border-radius: 0px;
+        }
+        }
+
+        .card-body {
+            -webkit-box-flex: 1;
+            -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+            padding: 1.25rem;
+        }
+
+        .card .card-title {
+            position: relative;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+
+        .table {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 1rem;
+            background-color: transparent;
+        }
+
+        * {
+            outline: none;
+        }
+
+        .table th, .table thead th {
+            font-weight: 500;
+        }
+
+
+        .table thead th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+
+        .table th {
+            padding: 1rem;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
+        }
+
+
+        .table th, .table thead th {
+            font-weight: 500;
+        }
+
+
+        th {
+            text-align: inherit;
+        }
+
+
+        .m-b-20 {
+            margin-bottom: 20px;
+        }
+
+
+        .customcheckbox {
+            display: block;
+            position: relative;
+            padding-left: 24px;
+            font-weight: 100;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 22px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+
+        .customcheckbox input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: -3px;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            background-color: #CDCDCD;
+            border-radius: 6px;
+        }
+
+
+        .customcheckbox input:checked ~ .checkmark {
+            background-color: #2196BB;
+        }
+
+
+        .customcheckbox .checkmark:after {
+            left: 8px;
+            top: 4px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+    </style>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="container" data-aos="fade-up">
+
+    <div class="section-header d-flex justify-content-between align-items-center mb-5">
+        <h2>HTML</h2>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="d-lg-flex post-entry-2">
+                <div class="holder d-flex align-items-center justify-content-center">
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <div class="col-lg-12 mx-auto">
+
+                                <!-- CHECKBOX LIST -->
+                                <div class="card rounded border-0 shadow-sm position-relative ">
+                                    <div class="card-body p-5">
+                                        <div class="d-flex align-items-center mb-4 pb-4 border-bottom"><i class="far fa-calendar-alt fa-3x"></i>
+                                            <div class="ms-3">
+                                                <h4 class="text-uppercase fw-weight-bold mb-0">Advantages of This Course</h4>
+
+                                            </div>
+                                        </div>
+                                        <div class="menu-container" style="display: flex;">
+                                                <div class="row" style="margin: 0px" >
+                                                    <div class="col-lg-6 mx-auto">
+                                                        <div class="form-check mb-3">
+                                                            <input class="form-check-input" id="flexCheck1" type="checkbox" checked>
+                                                            <label class="form-check-label" for="flexCheck1"><span class="fst-italic pl-1">    HTML helps to build structure of a website and is a widely used Markup language.</span></label>
+                                                        </div>
+                                                        <div class="form-check mb-3">
+                                                            <input class="form-check-input" id="flexChec2" type="checkbox">
+                                                            <label class="form-check-label" for="flexChec2"><span class="fst-italic pl-1">It is easy to learn.</span></label>
+                                                        </div>
+                                                        <div class="form-check mb-3">
+                                                            <input class="form-check-input" id="flexCheck3" type="checkbox">
+                                                            <label class="form-check-label" for="flexCheck3"><span class="fst-italic pl-1">Every browser supports HTML Language.</span></label>
+                                                        </div>
+                                                        <div class="form-check mb-3">
+                                                            <input class="form-check-input" id="flexCheck4" type="checkbox">
+                                                            <label class="form-check-label" for="flexCheck4"><span class="fst-italic pl-1">HTML is light weighted and fast to load.</span></label>
+                                                        </div>
+                                                        <div class="form-check mb-3">
+                                                            <input class="form-check-input" id="flexCheck5" type="checkbox">
+                                                            <label class="form-check-label" for="flexCheck5"><span class="fst-italic pl-1">Storage of big files are allowed because of the application cache feature.</span></label>
+                                                        </div>
+                                                        <div class="form-check mb-3">
+                                                            <input class="form-check-input" id="flexCheck6" type="checkbox">
+                                                            <label class="form-check-label" for="flexCheck6"><span class="fst-italic pl-1">Do not get to purchase any extra software because it’s by default in every window.</span></label>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                        <div class="row">
+                                            <div class="col-lg-6 mx-auto">
+                                                <div class="form-check mb-3">
+                                                    <input class="form-check-input" id="flexCheck7" type="checkbox">
+                                                    <label class="form-check-label" for="flexCheck7"><span class="fst-italic pl-1">Loose syntax (although, being too flexible won’t suit standards).</span></label>
+                                                </div>
+                                                <div class="form-check mb-3">
+                                                    <input class="form-check-input" id="flexCheck8" type="checkbox">
+                                                    <label class="form-check-label" for="flexCheck7"><span class="fst-italic pl-1">Loose syntax (although, being too flexible won’t suit standards).</span></label>
+                                                </div>
+                                                <div class="form-check mb-3">
+                                                    <input class="form-check-input" id="flexCheck9" type="checkbox">
+                                                    <label class="form-check-label" for="flexCheck7"><span class="fst-italic pl-1">Loose syntax (although, being too flexible won’t suit standards).</span></label>
+                                                </div>
+                                                <div class="form-check mb-3">
+                                                    <input class="form-check-input" id="flexCheck10" type="checkbox">
+                                                    <label class="form-check-label" for="flexCheck7"><span class="fst-italic pl-1">Loose syntax (although, being too flexible won’t suit standards).</span></label>
+                                                </div>
+                                                <div class="form-check mb-3">
+                                                    <input class="form-check-input" id="flexCheck11" type="checkbox">
+                                                    <label class="form-check-label" for="flexCheck7"><span class="fst-italic pl-1">Loose syntax (although, being too flexible won’t suit standards).</span></label>
+                                                </div>
+                                                <div class="form-check mb-3">
+                                                    <input class="form-check-input" id="flexCheck12" type="checkbox">
+                                                    <label class="form-check-label" for="flexCheck7"><span class="fst-italic pl-1">Loose syntax (although, being too flexible won’t suit standards).</span></label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                        <div class="content">
+                            <div class="container">
+                                <div class="row">
+
+                                    <div class="col-xs-12 col-sm-12">
+                                        <div class="card">
+                                            <a class="img-card" href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
+                                                <img src="https://play-lh.googleusercontent.com/85WnuKkqDY4gf6tndeL4_Ng5vgRk7PTfmpI4vHMIosyq6XQ7ZGDXNtYG2s0b09kJMw" />
+                                            </a>
+                                            <div class="card-content">
+                                                <h4 class="card-title">
+                                                    <a href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">Price: 30$
+                                                    </a>
+                                                </h4>
+                                                <p class="">
+                                                  Total : 30 Lesson
+                                                </p>
+                                            </div>
+                                            <div class="card-read-more" style="text-align: center">
+                                                <a href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html" class="btn btn-link btn-block">
+                                                    Sign Up Now
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+            </div>
+
+            <div class="row">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-9">
+                            <div class="card card-margin">
+                                <div class="card-header no-border" style="text-align: center">
+                                    <h5 class="card-title">List Of Lesson</h5>
+                                </div>
+
+
+
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="card">
+
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <thead class="thead-light">
+                                                                <tr>
+                                                                    <th>
+                                                                        <label class="customcheckbox m-b-20">
+                                                                            <input type="checkbox" id="mainCheckbox">
+                                                                            <span class="checkmark"></span>
+                                                                        </label>
+                                                                    </th>
+                                                                    <th scope="col"><h3>Unit 1</h3></th>
+
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody class="customtable">
+                                                                <tr>
+                                                                    <th>
+                                                                        <label class="customcheckbox">
+                                                                            <input type="checkbox" class="listCheckbox">
+                                                                            <span class="checkmark"></span>
+                                                                        </label>
+                                                                    </th>
+                                                                    <td>India</td>
+                                                                    <td>Chrome OS</td>
+                                                                    <td>MAC OS</td>
+                                                                    <td>76</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>
+                                                                        <label class="customcheckbox">
+                                                                            <input type="checkbox" class="listCheckbox">
+                                                                            <span class="checkmark"></span>
+                                                                        </label>
+                                                                    </th>
+                                                                    <td>USA</td>
+                                                                    <td>Internet Explorer</td>
+                                                                    <td>Win 2010</td>
+                                                                    <td>10</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>
+                                                                        <label class="customcheckbox">
+                                                                            <input type="checkbox" class="listCheckbox">
+                                                                            <span class="checkmark"></span>
+                                                                        </label>
+                                                                    </th>
+                                                                    <td>UK</td>
+                                                                    <td>Safari</td>
+                                                                    <td>Mac OS</td>
+                                                                    <td>16</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>
+                                                                        <label class="customcheckbox">
+                                                                            <input type="checkbox" class="listCheckbox">
+                                                                            <span class="checkmark"></span>
+                                                                        </label>
+                                                                    </th>
+                                                                    <td>UAE</td>
+                                                                    <td>Google Chrome</td>
+                                                                    <td>Win 2013</td>
+                                                                    <td>76.12</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>
+                                                                        <label class="customcheckbox">
+                                                                            <input type="checkbox" class="listCheckbox">
+                                                                            <span class="checkmark"></span>
+                                                                        </label>
+                                                                    </th>
+                                                                    <td>Canada</td>
+                                                                    <td>Internet Explorer</td>
+                                                                    <td>Win 2010</td>
+                                                                    <td>10</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th>
+                                                                        <label class="customcheckbox">
+                                                                            <input type="checkbox" class="listCheckbox">
+                                                                            <span class="checkmark"></span>
+                                                                        </label>
+                                                                    </th>
+                                                                    <td>Turkey</td>
+                                                                    <td>Internet Explorer 8</td>
+                                                                    <td>Win 2010</td>
+                                                                    <td>8</td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
+            </div>
+    </div>
+
+    </div>
+</section>
+</body>

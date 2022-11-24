@@ -1,8 +1,7 @@
 package com.example.testingspringboot.service.Implement;
 
 import com.example.testingspringboot.Repository.CourseRepository;
-import com.example.testingspringboot.entities.Student;
-import com.example.testingspringboot.entities.course;
+import com.example.testingspringboot.entities.Course;
 import com.example.testingspringboot.service.CourseService;
 import org.springframework.stereotype.Service;
 
@@ -23,41 +22,42 @@ public class Courseimpl implements CourseService {
     }
 
     @Override
-    public List<course> getAllCourse() {
+    public List<Course> getAllCourse() {
         return courseRepository.findAll();
     }
 
     @Override
-    public course saveCourse(course course) {
+    public Course saveCourse(Course course) {
         return courseRepository.save(course);
     }
 
     @Override
-    public course getCoursebyID(long id) {
-        course lst = courseRepository.findById(id).get();
+    public Course getCoursebyID(long id) {
+        Course lst = courseRepository.findById(id).get();
         return  lst;
     }
 
     @Override
-    public course editCourse(course course) {
+    public Course editCourse(Course course) {
         return courseRepository.save(course);
     }
 
     @Override
-    public course updateClassRoom(course course) {
+    public Course updateClassRoom(Course course) {
         return null;
     }
 
     @Override
-    public course editEmployee(course course) {
+    public Course editEmployee(Course course) {
         return null;
     }
 
     @Override
-    public List<course> listAll(String keyword) {
-        if (keyword != null) {
-            return courseRepository.search(keyword);
-        }
-        return courseRepository.findAll();
+    public List<Course> listAll(String keyword) {
+        return  null;
+//        if (keyword != null) {
+//            return courseRepository.search(keyword);
+//        }
+//        return courseRepository.findAll();
     }
 }

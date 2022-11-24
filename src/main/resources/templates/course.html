@@ -19,10 +19,10 @@
 
   <hr/>
   <a th:href="@{/system/create-course}" class="btn btn-primary" style="">Add Course</a>
-  <form th:action="@{/system/studentList}" th:object="${search}" method="POST"  style="position: relative" >
+  <form th:action="@{/system/courseList}" th:object="${search}" method="POST"  style="position: relative" >
     <input type="text" class="form-control " style="width: 500px; position: absolute;top: -33px;left: 300px" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
     <input type="submit" value="Search"  style="position: absolute;top: -33px;left: 820px" class="btn btn-primary"/>
-    <a  th:href="@{/system/studentList}" value="Clear" id="btnClear"  class="btn btn-primary"  style="position: absolute;top: -33px;left: 890px" >Clear</a>
+    <a  th:href="@{/system/courseList}" value="Clear" id="btnClear"  class="btn btn-primary"  style="position: absolute;top: -33px;left: 890px" >Clear</a>
   </form>
 
   <!--    <div class="col-md-6 col-lg-6  col-sm-12" style="position: relative">-->
@@ -36,20 +36,37 @@
   <table class="table table-bordered table-striped">
     <thead>
     <tr>
-      <th>Title</th>
       <th>CourseName</th>
-      <th>Introduce</th>
+      <th>CourseDetailId</th>
       <th>Image</th>
+      <th>Description</th>
+      <th>limitDay</th>
+      <th>Price</th>
+      <th>CreateDate</th>
+      <th>UpdateDate</th>
+      <th>User</th>
+      <th>Status</th>
+      <th>TeacherId</th>
+      <th>CourseDecription</th>
       <th>Action</th>
+
     </tr>
     </thead>
     <tbody>
-    <tr th:each="course: ${courses}">
+    <tr th:each="Course: ${courses}">
+      <td th:text="${Course.courseName}"/>
+      <td th:text="${Course.courseDetailId}"/>
+      <td th:text="${Course.image}"/>
+      <td th:text="${Course.description}"/>
+      <td th:text="${Course.limitDay}"/>
+      <td th:text="${Course.price}"/>
+      <td th:text="${Course.createDate}"/>
+      <td th:text="${Course.updateDate}"/>
+      <td th:text="${Course.user}"/>
+      <td th:text="${Course.status}"/>
+      <td th:text="${Course.teacherId}"/>
+      <td th:text="${Course.descriptionId}"/>
 
-      <td th:text="${course.title}"/>
-      <td th:text="${course.courseName}"/>
-      <td th:text="${course.introduce}"/>
-      <td th:text="${course.image}"/>
       <td>
         <!--                    <a th:href="@{/editEmployee/{student_id}(student_id=${student.id})}" class="btn btn-info">Update</a>-->
         <a class="btn  btn-info btn-sm"
