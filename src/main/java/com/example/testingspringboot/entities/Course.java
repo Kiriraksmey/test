@@ -30,8 +30,6 @@ public class Course {
     private  boolean status;
     @Column(name="teacher_id")
     private long teacherId;
-    @Column(name="course_detail_id")
-    private long courseDetailId;
     @Column(name="description_id")
     private long descriptionId;
 
@@ -39,7 +37,7 @@ public class Course {
    //  Relationship =====================
 
         @OneToMany
-        @JoinColumn(name = "course_detail_id") // we need to duplicate the physical information
+        @JoinColumn(name = "course_id") // we need to duplicate the physical information
         private Set<CourseDetail> courseDetails;
 
         @OneToMany
@@ -53,8 +51,10 @@ public class Course {
     public Course() {
     }
 
-    public Course(long id, String image, String courseName, String description, int limitDay, Double price, Date createDate, Date updateDate, String user, boolean status, long teacherId, long courseDetailId, long descriptionId) {
+
+    public Course(long id, String courseName, String image, String description, int limitDay, Double price, Date createDate, Date updateDate, String user, boolean status, long teacherId, long descriptionId, Set<CourseDetail> courseDetails, Set<Teacher> teachers, Set<Description> descriptions) {
         this.id = id;
+        this.courseName = courseName;
         this.image = image;
         this.description = description;
         this.limitDay = limitDay;
@@ -64,10 +64,10 @@ public class Course {
         this.user = user;
         this.status = status;
         this.teacherId = teacherId;
-        this.courseDetailId = courseDetailId;
         this.descriptionId = descriptionId;
-        this.courseName = courseName;
-
+        this.courseDetails = courseDetails;
+        this.teachers = teachers;
+        this.descriptions = descriptions;
     }
 
     public long getId() {
@@ -76,6 +76,14 @@ public class Course {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
 
     public String getImage() {
@@ -150,14 +158,6 @@ public class Course {
         this.teacherId = teacherId;
     }
 
-    public long getCourseDetailId() {
-        return courseDetailId;
-    }
-
-    public void setCourseDetailId(long courseDetailId) {
-        this.courseDetailId = courseDetailId;
-    }
-
     public long getDescriptionId() {
         return descriptionId;
     }
@@ -174,11 +174,19 @@ public class Course {
         this.courseDetails = courseDetails;
     }
 
-    public String getCourseName() {
-        return courseName;
+    public Set<Teacher> getTeachers() {
+        return teachers;
     }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
+    public void setTeachers(Set<Teacher> teachers) {
+        this.teachers = teachers;
+    }
+
+    public Set<Description> getDescriptions() {
+        return descriptions;
+    }
+
+    public void setDescriptions(Set<Description> descriptions) {
+        this.descriptions = descriptions;
     }
 }

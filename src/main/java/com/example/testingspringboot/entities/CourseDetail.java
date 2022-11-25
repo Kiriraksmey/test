@@ -5,33 +5,38 @@ import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Table(name="coursedetail")
+@Table(name = "course_detail")
 public class CourseDetail {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
- private  long id;
-    private  String name;
-    private  String description;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    private String name;
+    private String description;
     private Date createDate;
-    private  Date updateDate;
-    private  String user;
-    private  String videoId;
+    private Date updateDate;
+    private String user;
+
+    @Column(name = "course_id")
+    private Long courseId;
+
+
 
     public CourseDetail() {
     }
 
-    public CourseDetail(long id, String name, String description, Date createDate, Date updateDate, String user, String videoId) {
+    public CourseDetail(long id, String name, String description, Date createDate, Date updateDate, String user, Long courseId, Set<Video> videos) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.createDate = createDate;
         this.updateDate = updateDate;
         this.user = user;
-        this.videoId = videoId;
+        this.courseId = courseId;
+        this.videos = videos;
     }
 
     @OneToMany
-    @JoinColumn(name = "video_id") // we need to duplicate the physical information
+    @JoinColumn(name = "course_detail_id") // we need to duplicate the physical information
     private Set<Video> videos;
 
     public long getId() {
@@ -82,11 +87,19 @@ public class CourseDetail {
         this.user = user;
     }
 
-    public String getVideoId() {
-        return videoId;
+    public Long getCourseId() {
+        return courseId;
     }
 
-    public void setVideoId(String videoId) {
-        this.videoId = videoId;
+    public void setCourseId(Long courseId) {
+        this.courseId = courseId;
+    }
+
+    public Set<Video> getVideos() {
+        return videos;
+    }
+
+    public void setVideos(Set<Video> videos) {
+        this.videos = videos;
     }
 }

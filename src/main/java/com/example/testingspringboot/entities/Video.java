@@ -15,10 +15,12 @@ public class Video {
     private  String updateDate;
     private  String user;
 
+    @Column(name = "course_detail_id")
+    private Long courseDetailId;
     public Video() {
     }
 
-    public Video(long id, String name, String link, String description, String createDate, String updateDate, String user) {
+    public Video(long id, String name, String link, String description, String createDate, String updateDate, String user, Long courseDetailId) {
         this.id = id;
         this.name = name;
         this.link = link;
@@ -26,6 +28,7 @@ public class Video {
         this.createDate = createDate;
         this.updateDate = updateDate;
         this.user = user;
+        this.courseDetailId = courseDetailId;
     }
 
     public long getId() {
@@ -82,5 +85,13 @@ public class Video {
 
     public void setUser(String user) {
         this.user = user;
+    }
+
+    public Long getCourseDetailId() {
+        return courseDetailId;
+    }
+
+    public void setCourseDetailId(Long courseDetailId) {
+        this.courseDetailId = courseDetailId;
     }
 }

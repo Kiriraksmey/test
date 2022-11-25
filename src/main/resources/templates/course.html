@@ -5,78 +5,79 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/main_layout}">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
 </head>
 <body>
 <section layout:fragment="content">
 
 
-  <h3>List Course</h3>
+    <h3>List Course</h3>
 
-  <hr/>
-  <a th:href="@{/system/create-course}" class="btn btn-primary" style="">Add Course</a>
-  <form th:action="@{/system/courseList}" th:object="${search}" method="POST"  style="position: relative" >
-    <input type="text" class="form-control " style="width: 500px; position: absolute;top: -33px;left: 300px" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
-    <input type="submit" value="Search"  style="position: absolute;top: -33px;left: 820px" class="btn btn-primary"/>
-    <a  th:href="@{/system/courseList}" value="Clear" id="btnClear"  class="btn btn-primary"  style="position: absolute;top: -33px;left: 890px" >Clear</a>
-  </form>
+    <hr/>
+    <a th:href="@{/system/create-course}" class="btn btn-primary" style="">Add Course</a>
+    <form th:action="@{/system/courseList}" th:object="${search}" method="POST" style="position: relative">
+        <input type="text" class="form-control " style="width: 500px; position: absolute;top: -33px;left: 300px"
+               name="keyword" id="keyword" size="50" th:value="${keyword}" required/>
+        <input type="submit" value="Search" style="position: absolute;top: -33px;left: 820px" class="btn btn-primary"/>
+        <a th:href="@{/system/courseList}" value="Clear" id="btnClear" class="btn btn-primary"
+           style="position: absolute;top: -33px;left: 890px">Clear</a>
+    </form>
 
-  <!--    <div class="col-md-6 col-lg-6  col-sm-12" style="position: relative">-->
-  <!--        <div th:action="@{/search}" class="form-group" style="position: absolute;top: -34px;right: 100px">-->
+    <!--    <div class="col-md-6 col-lg-6  col-sm-12" style="position: relative">-->
+    <!--        <div th:action="@{/search}" class="form-group" style="position: absolute;top: -34px;right: 100px">-->
 
-  <!--            <input type="text" class="form-control" id="age" name="age" placeholder="Search">-->
-  <!--            <button type="submit" class="btn btn-primary" style="position: absolute;top: 1px;right: -80px">Search</button>-->
-  <!--        </div>-->
-  <!--    </div>-->
-  <br/><br/>
-  <table class="table table-bordered table-striped">
-    <thead>
-    <tr>
-      <th>CourseName</th>
-      <th>CourseDetailId</th>
-      <th>Image</th>
-      <th>Description</th>
-      <th>limitDay</th>
-      <th>Price</th>
-      <th>CreateDate</th>
-      <th>UpdateDate</th>
-      <th>User</th>
-      <th>Status</th>
-      <th>TeacherId</th>
-      <th>CourseDecription</th>
-      <th>Action</th>
+    <!--            <input type="text" class="form-control" id="age" name="age" placeholder="Search">-->
+    <!--            <button type="submit" class="btn btn-primary" style="position: absolute;top: 1px;right: -80px">Search</button>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <br/><br/>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>CourseName</th>
 
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="Course: ${courses}">
-      <td th:text="${Course.courseName}"/>
-      <td th:text="${Course.courseDetailId}"/>
-      <td th:text="${Course.image}"/>
-      <td th:text="${Course.description}"/>
-      <td th:text="${Course.limitDay}"/>
-      <td th:text="${Course.price}"/>
-      <td th:text="${Course.createDate}"/>
-      <td th:text="${Course.updateDate}"/>
-      <td th:text="${Course.user}"/>
-      <td th:text="${Course.status}"/>
-      <td th:text="${Course.teacherId}"/>
-      <td th:text="${Course.descriptionId}"/>
+            <th>Image</th>
 
-      <td>
-        <!--                    <a th:href="@{/editEmployee/{student_id}(student_id=${student.id})}" class="btn btn-info">Update</a>-->
-        <a class="btn  btn-info btn-sm"
-           th:href="@{/system/editCourse/{id}(id=${course.id})}">Update</a>
+            <th>limitDay</th>
+            <th>Price</th>
+            <th>CreateDate</th>
+            <th>UpdateDate</th>
+            <th>User</th>
+            <th>Status</th>
+            <th>TeacherId</th>
+            <th>Action</th>
 
-        <a th:href="@{/system/deletecourse/{id}(id=${course.id})}" class="btn btn-danger ml-2">Delete</a>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+        </tr>
+        </thead>
+        <tbody th:if="${courses != null}">
+        <tr th:each="course: ${courses}">
+            <td th:text="${course.courseName}"/>
+
+            <td th:text="${course?.image}"/>
+
+            <td th:text="${course?.limitDay}"/>
+            <td th:text="${course?.price}"/>
+            <td th:text="${course?.createDate}"/>
+            <td th:text="${course?.updateDate}"/>
+            <td th:text="${course?.user}"/>
+            <td th:text="${course?.status}"/>
+            <td th:text="${course?.teacherId}"/>
+
+
+            <td>
+                <!--                    <a th:href="@{/editEmployee/{student_id}(student_id=${student.id})}" class="btn btn-info">Update</a>-->
+                <a class="btn  btn-info btn-sm"
+                   th:href="@{/system/editCourse/{id}(id=${course.id})}">Update</a>
+
+                <a th:href="@{/system/deletecourse/{id}(id=${course.id})}" class="btn btn-danger ml-2">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </section>
 
 </body>
