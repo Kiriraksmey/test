@@ -12,28 +12,32 @@
     <title>ZenBlog Bootstrap Template - Index</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
-    <link th:href="@{//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css}" rel="stylesheet" id="bootstrap-css">
+    <link th:href="@{//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css}" rel="stylesheet"
+          id="bootstrap-css">
     <script th:src="@{//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js}"></script>
     <script th:src="@{//code.jquery.com/jquery-1.11.1.min.js}"></script>
     <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js}"></script>
-    <script th:src="@{jquery-3.6.1.min.js}"></script>
+    <!--    <script th:src="@{jquery-3.6.1.min.js}"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
     <style>
-        .panel-heading span
-        {
+        .panel-heading span {
             margin-top: -20px;
             font-size: 15px;
         }
 
-        .row-collape
-        {
+        .row-collape {
             margin-top: 40px;
             padding: 0 10px;
         }
 
-        .clickable
-        {
+        .clickable {
             cursor: pointer;
         }
     </style>
@@ -44,15 +48,15 @@
 <section layout:fragment="content">
     <div class="container " data-aos="fade-up">
 
-    <div class="section-header d-flex justify-content-between align-items-center mb-5">
-        <h2>HTML</h2>
+        <div class="section-header d-flex justify-content-between align-items-center mb-5">
+            <h2 th:text="${course.courseName}"></h2>
 
-    </div>
+        </div>
 
-    <div class="row">
-        <div class="col-lg-12">
+        <div class="row">
+            <div class="col-lg-12">
 
-            <div class="d-lg-flex post-entry-2">
+                <div class="d-lg-flex post-entry-2">
 
 
                     <div class="container">
@@ -64,71 +68,89 @@
                                 <!-- CHECKBOX LIST -->
                                 <div class="card rounded border-0 shadow-sm position-relative ">
                                     <div class="card-body p-5">
-                                        <div class="d-flex align-items-center mb-4 pb-4 border-bottom"><i class="far fa-calendar-alt fa-3x"></i>
+                                        <div class="d-flex align-items-center mb-4 pb-4 border-bottom"><i
+                                                class="far fa-calendar-alt fa-3x"></i>
                                             <div class="ms-3">
-                                                <h4 class="text-uppercase fw-weight-bold mb-0">Advantages of This Course</h4>
+                                                <h4 class="text-uppercase fw-weight-bold mb-0">Advantages of This
+                                                    Course</h4>
 
                                             </div>
                                         </div>
                                         <div class="menu-container" style="display: flex;">
-                                                <div class="row" style="margin: 0px" >
-                                                    <div class=" mx-auto">
-                                                        <div class="form-check mb-3">
-                                                            <input class="form-check-input" id="flexCheck1" type="checkbox" checked>
-                                                            <label class="form-check-label" for="flexCheck1"><span class="fst-italic pl-1">    HTML helps to build structure of a website and is a widely used Markup language.</span></label>
-                                                        </div>
-                                                        <div class="form-check mb-3">
-                                                            <input class="form-check-input" id="flexChec2" type="checkbox">
-                                                            <label class="form-check-label" for="flexChec2"><span class="fst-italic pl-1">It is easy to learn.</span></label>
-                                                        </div>
-                                                        <div class="form-check mb-3">
-                                                            <input class="form-check-input" id="flexCheck3" type="checkbox">
-                                                            <label class="form-check-label" for="flexCheck3"><span class="fst-italic pl-1">Every browser supports HTML Language.</span></label>
-                                                        </div>
-                                                        <div class="form-check mb-3">
-                                                            <input class="form-check-input" id="flexCheck4" type="checkbox">
-                                                            <label class="form-check-label" for="flexCheck4"><span class="fst-italic pl-1">HTML is light weighted and fast to load.</span></label>
-                                                        </div>
-                                                        <div class="form-check mb-3">
-                                                            <input class="form-check-input" id="flexCheck5" type="checkbox">
-                                                            <label class="form-check-label" for="flexCheck5"><span class="fst-italic pl-1">Storage of big files are allowed because of the application cache feature.</span></label>
-                                                        </div>
-                                                        <div class="form-check mb-3">
-                                                            <input class="form-check-input" id="flexCheck6" type="checkbox">
-                                                            <label class="form-check-label" for="flexCheck6"><span class="fst-italic pl-1">Do not get to purchase any extra software because it’s by default in every window.</span></label>
-                                                        </div>
-
+                                            <div class="row" style="margin: 0px">
+                                                <div class=" mx-auto">
+                                                    <div class="form-check mb-3">
+                                                        <input class="form-check-input" id="flexCheck1" type="checkbox"
+                                                               checked>
+                                                        <label class="form-check-label" for="flexCheck1"><span
+                                                                class="fst-italic pl-1">    HTML helps to build structure of a website and is a widely used Markup language.</span></label>
                                                     </div>
-                                                </div>
-                                        <div class="">
-                                            <div class=" mx-auto">
-                                                <div class="form-check mb-3">
-                                                    <input class="form-check-input" id="flexCheck7" type="checkbox">
-                                                    <label class="form-check-label" for="flexCheck7"><span class="fst-italic pl-1">Loose syntax (although, being too flexible won’t suit standards).</span></label>
-                                                </div>
-                                                <div class="form-check mb-3">
-                                                    <input class="form-check-input" id="flexCheck8" type="checkbox">
-                                                    <label class="form-check-label" for="flexCheck7"><span class="fst-italic pl-1">Loose syntax (although, being too flexible won’t suit standards).</span></label>
-                                                </div>
-                                                <div class="form-check mb-3">
-                                                    <input class="form-check-input" id="flexCheck9" type="checkbox">
-                                                    <label class="form-check-label" for="flexCheck7"><span class="fst-italic pl-1">Loose syntax (although, being too flexible won’t suit standards).</span></label>
-                                                </div>
-                                                <div class="form-check mb-3">
-                                                    <input class="form-check-input" id="flexCheck10" type="checkbox">
-                                                    <label class="form-check-label" for="flexCheck7"><span class="fst-italic pl-1">Loose syntax (although, being too flexible won’t suit standards).</span></label>
-                                                </div>
-                                                <div class="form-check mb-3">
-                                                    <input class="form-check-input" id="flexCheck11" type="checkbox">
-                                                    <label class="form-check-label" for="flexCheck7"><span class="fst-italic pl-1">Loose syntax (although, being too flexible won’t suit standards).</span></label>
-                                                </div>
-                                                <div class="form-check mb-3">
-                                                    <input class="form-check-input" id="flexCheck12" type="checkbox">
-                                                    <label class="form-check-label" for="flexCheck7"><span class="fst-italic pl-1">Loose syntax (although, being too flexible won’t suit standards).</span></label>
-                                                </div>
+                                                    <div class="form-check mb-3">
+                                                        <input class="form-check-input" id="flexChec2" type="checkbox">
+                                                        <label class="form-check-label" for="flexChec2"><span
+                                                                class="fst-italic pl-1">It is easy to learn.</span></label>
+                                                    </div>
+                                                    <div class="form-check mb-3">
+                                                        <input class="form-check-input" id="flexCheck3" type="checkbox">
+                                                        <label class="form-check-label" for="flexCheck3"><span
+                                                                class="fst-italic pl-1">Every browser supports HTML Language.</span></label>
+                                                    </div>
+                                                    <div class="form-check mb-3">
+                                                        <input class="form-check-input" id="flexCheck4" type="checkbox">
+                                                        <label class="form-check-label" for="flexCheck4"><span
+                                                                class="fst-italic pl-1">HTML is light weighted and fast to load.</span></label>
+                                                    </div>
+                                                    <div class="form-check mb-3">
+                                                        <input class="form-check-input" id="flexCheck5" type="checkbox">
+                                                        <label class="form-check-label" for="flexCheck5"><span
+                                                                class="fst-italic pl-1">Storage of big files are allowed because of the application cache feature.</span></label>
+                                                    </div>
+                                                    <div class="form-check mb-3">
+                                                        <input class="form-check-input" id="flexCheck6" type="checkbox">
+                                                        <label class="form-check-label" for="flexCheck6"><span
+                                                                class="fst-italic pl-1">Do not get to purchase any extra software because it’s by default in every window.</span></label>
+                                                    </div>
 
+                                                </div>
                                             </div>
-                                        </div>
+                                            <div class="">
+                                                <div class=" mx-auto">
+                                                    <div class="form-check mb-3">
+                                                        <input class="form-check-input" id="flexCheck7" type="checkbox">
+                                                        <label class="form-check-label" for="flexCheck7"><span
+                                                                class="fst-italic pl-1">Loose syntax (although, being too flexible won’t suit standards).</span></label>
+                                                    </div>
+                                                    <div class="form-check mb-3">
+                                                        <input class="form-check-input" id="flexCheck8" type="checkbox">
+                                                        <label class="form-check-label" for="flexCheck7"><span
+                                                                class="fst-italic pl-1">Loose syntax (although, being too flexible won’t suit standards).</span></label>
+                                                    </div>
+                                                    <div class="form-check mb-3">
+                                                        <input class="form-check-input" id="flexCheck9" type="checkbox">
+                                                        <label class="form-check-label" for="flexCheck7"><span
+                                                                class="fst-italic pl-1">Loose syntax (although, being too flexible won’t suit standards).</span></label>
+                                                    </div>
+                                                    <div class="form-check mb-3">
+                                                        <input class="form-check-input" id="flexCheck10"
+                                                               type="checkbox">
+                                                        <label class="form-check-label" for="flexCheck7"><span
+                                                                class="fst-italic pl-1">Loose syntax (although, being too flexible won’t suit standards).</span></label>
+                                                    </div>
+                                                    <div class="form-check mb-3">
+                                                        <input class="form-check-input" id="flexCheck11"
+                                                               type="checkbox">
+                                                        <label class="form-check-label" for="flexCheck7"><span
+                                                                class="fst-italic pl-1">Loose syntax (although, being too flexible won’t suit standards).</span></label>
+                                                    </div>
+                                                    <div class="form-check mb-3">
+                                                        <input class="form-check-input" id="flexCheck12"
+                                                               type="checkbox">
+                                                        <label class="form-check-label" for="flexCheck7"><span
+                                                                class="fst-italic pl-1">Loose syntax (although, being too flexible won’t suit standards).</span></label>
+                                                    </div>
+
+                                                </div>
+                                            </div>
 
                                         </div>
                                     </div>
@@ -138,65 +160,65 @@
                     </div>
 
 
+                    <div class="container   ">
+                        <div class="row">
 
-
-
-
-                            <div class="container   ">
-                                <div class="row" >
-
-                                    <div class="  col-xs-12 col-sm-12">
-                                        <div class="card">
-                                            <a class="img-card" href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
-                                                <img src="https://play-lh.googleusercontent.com/85WnuKkqDY4gf6tndeL4_Ng5vgRk7PTfmpI4vHMIosyq6XQ7ZGDXNtYG2s0b09kJMw" />
+                            <div class="  col-xs-12 col-sm-12">
+                                <div class="card">
+                                    <a class="img-card"
+                                       href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
+                                        <img src="https://play-lh.googleusercontent.com/85WnuKkqDY4gf6tndeL4_Ng5vgRk7PTfmpI4vHMIosyq6XQ7ZGDXNtYG2s0b09kJMw"/>
+                                    </a>
+                                    <div class="card-content">
+                                        <h4 class="card-title">
+                                            <a href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">Price:
+                                                30$
                                             </a>
-                                            <div class="card-content">
-                                                <h4 class="card-title">
-                                                    <a href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">Price: 30$
-                                                    </a>
-                                                </h4>
-                                                <p class="">
-                                                  Total : 30 Lesson
-                                                </p>
-                                            </div>
-                                            <div class="card-read-more" style="text-align: center">
-                                                <a href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html" class="btn btn-link btn-block">
-                                                    Sign Up Now
-                                                </a>
-                                            </div>
-                                        </div>
+                                        </h4>
+                                        <p class="">
+                                            Total : 30 Lesson
+                                        </p>
+                                    </div>
+                                    <div class="card-read-more" style="text-align: center">
+                                        <a href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html"
+                                           class="btn btn-link btn-block">
+                                            Sign Up Now
+                                        </a>
                                     </div>
                                 </div>
-                            </div>
-
-
-
-
-
-            </div>
-            <div class="container">
-                <div class="row-collape">
-                    <div class="col-md-8">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Panel 1</h3>
-                                <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
-                            </div>
-                            <div class="panel-body " style="display: flex;flex-direction: column">
-                                <a >video 1</a>
-                                <a>video 1</a>
-
                             </div>
                         </div>
                     </div>
 
-                    </div>
+
                 </div>
+
+
+
+                <!--            Panel Collaps   -->
+
+
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default" th:each="course: ${courseDetail}"   >
+                        <div class="panel-heading" >
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"  th:text="${course.name}">
+                                    </a>
+
+                            </h4>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse in" th:each="course: ${videos}" >
+                            <div class="panel-body">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!--            Panel Collaps   -->
             </div>
 
 
-
-    </div>
+        </div>
 
     </div>
 </section>

@@ -50,7 +50,7 @@ public class CourseController {
 
     }
 
-    @PostMapping("updateCourse/{id}")
+    @PostMapping("/updateCourse")
     public String updateStudent(@PathVariable Long id, Course course) {
         courseService.saveCourse(course);
         return "redirect:/system/coursetList";

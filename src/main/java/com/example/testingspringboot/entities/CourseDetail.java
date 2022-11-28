@@ -32,12 +32,10 @@ public class CourseDetail {
         this.updateDate = updateDate;
         this.user = user;
         this.courseId = courseId;
-        this.videos = videos;
+
     }
 
-    @OneToMany
-    @JoinColumn(name = "course_detail_id") // we need to duplicate the physical information
-    private Set<Video> videos;
+
 
     public long getId() {
         return id;
@@ -95,11 +93,5 @@ public class CourseDetail {
         this.courseId = courseId;
     }
 
-    public Set<Video> getVideos() {
-        return videos;
-    }
 
-    public void setVideos(Set<Video> videos) {
-        this.videos = videos;
-    }
 }

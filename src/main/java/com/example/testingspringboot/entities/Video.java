@@ -1,6 +1,8 @@
 package com.example.testingspringboot.entities;
 
 import javax.persistence.*;
+import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "videos")
@@ -11,16 +13,21 @@ public class Video {
     private  String name;
     private  String link;
     private  String description;
-    private  String createDate;
-    private  String updateDate;
+    private Date createDate;
+    private  Date updateDate;
     private  String user;
 
     @Column(name = "course_detail_id")
     private Long courseDetailId;
+
+    @OneToMany
+    @JoinColumn(name = "course_detail_id") // we need to duplicate the physical information
+    private Set<CourseDetail> courseDetails;
+
     public Video() {
     }
 
-    public Video(long id, String name, String link, String description, String createDate, String updateDate, String user, Long courseDetailId) {
+    public Video(long id, String name, String link, String description, Date createDate, Date updateDate, String user, Long courseDetailId) {
         this.id = id;
         this.name = name;
         this.link = link;
@@ -63,19 +70,19 @@ public class Video {
         this.description = description;
     }
 
-    public String getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(String createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
 
-    public String getUpdateDate() {
+    public Date getUpdateDate() {
         return updateDate;
     }
 
-    public void setUpdateDate(String updateDate) {
+    public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
     }
 
