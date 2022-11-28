@@ -1,0 +1,62 @@
+<!--<html xmlns="http://www.w3.org/1999/xhtml"-->
+<!--      xmlns:th="http://www.thymeleaf.org"-->
+<!--      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"-->
+<!--      layout:decorate="~{testindex_template}">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <title>Student</title>-->
+<!--  <link rel="stylesheet"-->
+<!--        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"-->
+<!--        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"-->
+<!--        crossorigin="anonymous" />-->
+<!--</head>-->
+<!--<section layout:fragment="content">-->
+
+
+<!--  <fieldset class="form-group border p-3">-->
+<!--    <legend class="w-auto px-2">Edit Student</legend>-->
+<!--    <form th:action="@{/updateCourse/{id}(id=${course.id})}" th:object="${course}" method="POST">-->
+
+<!--      <div class="col">-->
+<!--        <div class="col-md-6 col-lg-6  col-sm-12">-->
+<!--          <div class="form-group">-->
+<!--            <label for="categoryid">categoryid</label>-->
+<!--            <input type="text" class="form-control" id="categoryid" th:field="*{categoryid}" placeholder="Age">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="col-md-6 col-lg-6 col-sm-12" >-->
+<!--          <div class="form-group">-->
+<!--            <label for="coursename">coursename</label>-->
+<!--            <input type="text" class="form-control" id="coursename" th:field="*{coursename}" placeholder="gender">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="col-md-6 col-lg-6 col-sm-12" >-->
+<!--          <div class="form-group">-->
+<!--            <label for="duration">duration</label>-->
+<!--            <input type="text" class="form-control" id="duration" th:field="*{duration}" placeholder="gender">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="col-md-6 col-lg-6  col-sm-12">-->
+<!--          <div class="form-group">-->
+<!--            <label for="instrutorid">instrutorid</label>-->
+<!--            <input type="text" class="form-control" id="instrutorid" th:field="*{instrutorid}" placeholder="Age">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="col-md-6 col-lg-6  col-sm-12">-->
+<!--          <div class="form-group">-->
+<!--            <label for="price">price</label>-->
+<!--            <input type="text" class="form-control" id="price" th:field="*{price}" placeholder="Age">-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="col-md-12 col-lg-12">-->
+
+<!--          <button type="submit" class="btn btn-primary">Submit</button>-->
+
+<!--        </div>-->
+<!--      </div>-->
+<!--    </form>-->
+<!--  </fieldset>-->
+
+<!--</section>-->
+
+
