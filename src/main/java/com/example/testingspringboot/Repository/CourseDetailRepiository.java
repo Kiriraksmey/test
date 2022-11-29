@@ -11,7 +11,7 @@ import java.util.List;
 public interface CourseDetailRepiository extends JpaRepository<CourseDetail , Long> {
 
     @Query("select c from CourseDetail c where c.courseId=?1")
-    public List<CourseDetail> getCoursDetailByCourseId(Long id);
+    public List<CourseDetail> getCourseDetailByCourseId(Long id);
 
 
 }

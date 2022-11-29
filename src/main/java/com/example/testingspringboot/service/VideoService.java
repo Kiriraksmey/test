@@ -10,7 +10,7 @@ public interface VideoService {
         List<Video> getAllVideo();
         Video saveVideo(Video video);
 
-        List<Video> getVideobyID(long id);
+        List<Video> getListVideos(long id);
 
         Video editVideo(Video video);
         Video updateClassRoom(Video video);

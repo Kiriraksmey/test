@@ -31,8 +31,8 @@ public class CourseDetailimpl implements CourseDetailService {
     }
 
     @Override
-    public List<CourseDetail> getCourseDetialbyID(long id) {
-        return courseDetailRepiository.getCoursDetailByCourseId(id);
+    public List<CourseDetail> getCourseDetailByID(long id) {
+        return courseDetailRepiository.getCourseDetailByCourseId(id);
     }
 
     @Override

@@ -20,9 +20,17 @@ public class Video {
     @Column(name = "course_detail_id")
     private Long courseDetailId;
 
-    @OneToMany
-    @JoinColumn(name = "course_detail_id") // we need to duplicate the physical information
-    private Set<CourseDetail> courseDetails;
+//    @ManyToOne
+//    @JoinColumn(name="course_detail_id", nullable=false)
+//    private CourseDetail detail;
+
+//    public CourseDetail getDetail() {
+//        return detail;
+//    }
+//
+//    public void setDetail(CourseDetail detail) {
+//        this.detail = detail;
+//    }
 
     public Video() {
     }

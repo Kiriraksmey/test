@@ -10,7 +10,7 @@ public interface CourseDetailService {
     List<CourseDetail> getAllCourseDetail();
     CourseDetail saveCourseDetail(CourseDetail courseDetail);
 
-    List<CourseDetail> getCourseDetialbyID(long id);
+    List<CourseDetail> getCourseDetailByID(long id);
 
     CourseDetail editCourseDetail(CourseDetail courseDetail);
     CourseDetail updateClassRoom(CourseDetail courseDetail);

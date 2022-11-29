@@ -20,7 +20,6 @@
     <!--    <script th:src="@{jquery-3.6.1.min.js}"></script>-->
 
 
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -194,23 +193,35 @@
                 </div>
 
 
-
                 <!--            Panel Collaps   -->
 
 
                 <div class="panel-group" id="accordion">
-                    <div class="panel panel-default" th:each="course: ${courseDetail}"   >
-                        <div class="panel-heading" >
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"  th:text="${course.name}">
-                                    </a>
+                    <div class="panel panel-default" th:each="detail: ${courseDetail}"
+                         th:if="${detail.videos.size() > 0 }">
+                        <!--                        <div th:if="${#lists.isEmpty(detail.videos)}">-->
 
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" th:href="'#'+ ${detail.id}"
+                                   th:text="${detail.name}"></a>
                             </h4>
                         </div>
-                        <div id="collapse1" class="panel-collapse collapse in" th:each="course: ${videos}" >
+                        <div th:id="${detail.id}" class="panel-collapse collapse in">
                             <div class="panel-body">
+                                <div th:each="video : ${detail.videos}">
+                                    <div style="width: 75%; float: left">
+                                        <p th:text="${video.name}"  ></p>
+                                    </div>
+                                    <div style="width: 20%; float: right">
+                                        <a  th:id="${video.name}" onclick="fullScreen(this)">Load video</a>
+                                    </div>
+                                    <iframe th:id="${video.name}+'-'"  width="660" height="415" style="display:none;" src="" frameborder="0" allowfullscreen></iframe>
+                                </div>
+
                             </div>
                         </div>
+
                     </div>
 
                 </div>
@@ -223,6 +234,51 @@
     </div>
 </section>
 
+<section layout:fragment="script">
+    <script type="application/javascript">
+        function fullScreen(e){
 
+
+
+            //var id = e.attr('id');
+            // console.log(e.id);
+            var $iframe = $("#"+e.id+"-");
+            // var src = e.src;
+
+            $iframe.attr("src", "hello");
+            $iframe.show();
+            alert(e.id);
+            console.log($iframe);
+            //document.getElementById("myButton").attributes
+            // document.getElementById("myButton").style.display = "none";
+        }
+        $(document).ready(function() {
+            $("#myButton").on("click", function() {
+                var $iframe = $("#myIframe");
+                var scr = this.attr('src');
+                console.log(scr);
+                $iframe.attr("src", "https://www.youtube.com/embed/6wUxpFu9Wvo");
+                $iframe.show();
+                 //document.getElementById("myButton").attributes
+                document.getElementById("myButton").style.display = "none";
+            });
+
+            // function fullScreen(){
+            //
+            //     alert("hi");
+            //
+            //     // var id = this.attr('id');
+            //     // var $iframe = $("#"+id);
+            //     // var scr = this.attr('src');
+            //     //
+            //     // $iframe.attr("src", scr);
+            //     // $iframe.show();
+            //     //document.getElementById("myButton").attributes
+            //     // document.getElementById("myButton").style.display = "none";
+            // }
+        });
+    </script>
+</section>
 </body>
+
 

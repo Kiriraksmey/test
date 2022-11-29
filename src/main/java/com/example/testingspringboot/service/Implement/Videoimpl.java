@@ -1,7 +1,8 @@
 package com.example.testingspringboot.service.Implement;
 
+import com.example.testingspringboot.Repository.CourseDetailRepiository;
+import com.example.testingspringboot.Repository.VideoReposiory;
 import com.example.testingspringboot.entities.Video;
-import com.example.testingspringboot.service.CourseDetailService;
 import com.example.testingspringboot.service.VideoService;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +10,13 @@ import java.util.List;
 
 @Service
 public class Videoimpl implements VideoService {
+    private final VideoReposiory videoReposiory;
+
+
+    public Videoimpl(VideoReposiory videoReposiory) {
+        this.videoReposiory = videoReposiory;
+    }
+
     @Override
     public void deleteVideo(long id) {
 
@@ -25,8 +33,8 @@ public class Videoimpl implements VideoService {
     }
 
     @Override
-    public List<Video> getVideobyID(long id) {
-        return null;
+    public List<Video> getListVideos(long id) {
+        return  videoReposiory.getVideoByCourseDetailId(id);
     }
 
     @Override

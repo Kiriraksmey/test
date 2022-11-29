@@ -9,7 +9,9 @@ public interface CourseService {
     List<Course> getAllCourse();
     Course saveCourse(Course course);
 
-   Course getCoursebyID(long id);
+//   Course getCoursebyID(long id);
+   Course getCourseById(Long id);
+
 
    Course editCourse(Course course);
     Course updateClassRoom(Course course);

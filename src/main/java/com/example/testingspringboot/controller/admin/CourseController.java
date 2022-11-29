@@ -45,7 +45,7 @@ public class CourseController {
 
     @GetMapping("editCourse/{id}")
     public String editStudent(@PathVariable Long id, Model model) {
-        model.addAttribute("course", courseService.getCoursebyID(id));
+        model.addAttribute("course", courseService.getCourseById(id));
         return "employee/edit";
 
     }

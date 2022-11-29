@@ -32,10 +32,16 @@ public class Courseimpl implements CourseService {
     }
 
     @Override
-    public Course getCoursebyID(long id) {
+    public Course getCourseById(Long id) {
         Course lst = courseRepository.findById(id).get();
         return  lst;
     }
+
+//    @Override
+//    public Course getCourseById(long id) {
+//        Course lst = courseRepository.findById(id).get();
+//        return  lst;
+//    }
 
     @Override
     public Course editCourse(Course course) {
