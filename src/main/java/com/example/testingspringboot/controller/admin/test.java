@@ -1,7 +1,7 @@
 package com.example.testingspringboot.controller.admin;
 
 import com.example.testingspringboot.entities.Login;
-import com.example.testingspringboot.service.LoginService;
+import com.example.testingspringboot.service.Implement.Loginimple;
 import com.example.testingspringboot.service.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +13,7 @@ import java.util.Objects;
 @Controller
 public class test {
     @Autowired
-    private LoginService userService;
+    private Loginimple userService;
     @Autowired
     private RegisterService registerService;
     @PostMapping("/ttt")

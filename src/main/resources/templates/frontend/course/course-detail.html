@@ -27,18 +27,200 @@
 
     <style>
         .panel-heading span {
-            margin-top: -20px;
+
             font-size: 15px;
         }
 
-        .row-collape {
-            margin-top: 40px;
-            padding: 0 10px;
+
+
+        #page-content{
+
+
         }
 
-        .clickable {
-            cursor: pointer;
+
+        a {
+            color: #448bff;
+            text-decoration: none;
+            background-color: transparent
         }
+
+        a:hover {
+            color: #005ef7;
+            text-decoration: underline
+        }
+
+        a:not([href]):not([tabindex]) {
+            color: inherit;
+            text-decoration: none
+        }
+
+        a:not([href]):not([tabindex]):focus,
+        a:not([href]):not([tabindex]):hover {
+            color: inherit;
+            text-decoration: none
+        }
+
+        a:not([href]):not([tabindex]):focus {
+            outline: 0
+        }
+
+
+
+
+
+
+
+
+
+
+
+        .text-muted {
+            color: #99a0ac!important
+        }
+
+        .block,
+        .card {
+            background: #fff;
+            border-width: 0;
+            border-radius: .25rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .05);
+            margin-bottom: 1.5rem
+        }
+
+        .avatar {
+            position: relative;
+            line-height: 1;
+            border-radius: 500px;
+            white-space: nowrap;
+            font-weight: 700;
+            border-radius: 100%;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -ms-flex-negative: 0;
+            flex-shrink: 0;
+            border-radius: 500px;
+            box-shadow: 0 5px 10px 0 rgba(50, 50, 50, .15)
+        }
+
+        .avatar img {
+            border-radius: inherit;
+            width: 100%
+        }
+
+        .gd-primary {
+            color: #fff;
+            border: none;
+            background: #448bff linear-gradient(45deg, #448bff, #44e9ff)
+        }
+
+
+        .gd-success {
+            color: #fff;
+            border: none;
+            background: #31c971 linear-gradient(45deg, #31c971, #3dc931)
+        }
+
+
+
+        .gd-info {
+            color: #fff;
+            border: none;
+            background: #14bae4 linear-gradient(45deg, #14bae4, #14e4a6)
+        }
+
+
+        .gd-warning {
+            color: #fff;
+            border: none;
+            background: #f4c414 linear-gradient(45deg, #f4c414, #f45414)
+        }
+
+
+        @media (min-width:992px) {
+            .page-container {
+                max-width: 1140px;
+                margin: 0 auto
+            }
+            .page-sidenav {
+                display: block!important
+            }
+        }
+
+
+        .list {
+            padding-left: 0;
+            padding-right: 0
+        }
+
+        .list-item {
+            position: relative;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word
+        }
+
+
+
+
+
+        .list-row .list-item {
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -ms-flex-align: center;
+            align-items: center;
+            padding: .75rem .625rem
+        }
+
+        .list-row .list-item>* {
+            padding-left: .625rem;
+            padding-right: .625rem
+        }
+
+
+
+        .no-wrap {
+            white-space: nowrap
+        }
+
+
+
+        .text-color {
+            color: #5e676f
+        }
+
+
+
+
+
+        .h-1x {
+            height: 1.25rem;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical
+        }
+
+
+        .w-48 {
+            width: 48px!important;
+            height: 48px!important
+        }
+
+
+        a:link{
+
+            text-decoration: none;
+        }
+
+
     </style>
 
 </head>
@@ -52,20 +234,20 @@
 
         </div>
 
-        <div class="row">
-            <div class="col-lg-12">
+        <div class="row" >
+            <div class="col-lg-12" >
 
-                <div class="d-lg-flex post-entry-2">
+                <div class="d-lg-flex post-entry-2" >
 
 
-                    <div class="container">
+                    <div class="container" style="border: 1px solid red">
 
 
                         <div class="row">
                             <div class=" mx-auto">
 
                                 <!-- CHECKBOX LIST -->
-                                <div class="card rounded border-0 shadow-sm position-relative ">
+                                <div class="card rounded border-0 shadow-sm position-relative " >
                                     <div class="card-body p-5">
                                         <div class="d-flex align-items-center mb-4 pb-4 border-bottom"><i
                                                 class="far fa-calendar-alt fa-3x"></i>
@@ -75,79 +257,68 @@
 
                                             </div>
                                         </div>
-                                        <div class="menu-container" style="display: flex;">
-                                            <div class="row" style="margin: 0px">
-                                                <div class=" mx-auto">
-                                                    <div class="form-check mb-3">
-                                                        <input class="form-check-input" id="flexCheck1" type="checkbox"
-                                                               checked>
-                                                        <label class="form-check-label" for="flexCheck1"><span
-                                                                class="fst-italic pl-1">    HTML helps to build structure of a website and is a widely used Markup language.</span></label>
-                                                    </div>
-                                                    <div class="form-check mb-3">
-                                                        <input class="form-check-input" id="flexChec2" type="checkbox">
-                                                        <label class="form-check-label" for="flexChec2"><span
-                                                                class="fst-italic pl-1">It is easy to learn.</span></label>
-                                                    </div>
-                                                    <div class="form-check mb-3">
-                                                        <input class="form-check-input" id="flexCheck3" type="checkbox">
-                                                        <label class="form-check-label" for="flexCheck3"><span
-                                                                class="fst-italic pl-1">Every browser supports HTML Language.</span></label>
-                                                    </div>
-                                                    <div class="form-check mb-3">
-                                                        <input class="form-check-input" id="flexCheck4" type="checkbox">
-                                                        <label class="form-check-label" for="flexCheck4"><span
-                                                                class="fst-italic pl-1">HTML is light weighted and fast to load.</span></label>
-                                                    </div>
-                                                    <div class="form-check mb-3">
-                                                        <input class="form-check-input" id="flexCheck5" type="checkbox">
-                                                        <label class="form-check-label" for="flexCheck5"><span
-                                                                class="fst-italic pl-1">Storage of big files are allowed because of the application cache feature.</span></label>
-                                                    </div>
-                                                    <div class="form-check mb-3">
-                                                        <input class="form-check-input" id="flexCheck6" type="checkbox">
-                                                        <label class="form-check-label" for="flexCheck6"><span
-                                                                class="fst-italic pl-1">Do not get to purchase any extra software because it’s by default in every window.</span></label>
-                                                    </div>
+                                        <div class="menu-container" style="border: 1px solid red">
 
-                                                </div>
-                                            </div>
-                                            <div class="">
-                                                <div class=" mx-auto">
-                                                    <div class="form-check mb-3">
-                                                        <input class="form-check-input" id="flexCheck7" type="checkbox">
-                                                        <label class="form-check-label" for="flexCheck7"><span
-                                                                class="fst-italic pl-1">Loose syntax (although, being too flexible won’t suit standards).</span></label>
-                                                    </div>
-                                                    <div class="form-check mb-3">
-                                                        <input class="form-check-input" id="flexCheck8" type="checkbox">
-                                                        <label class="form-check-label" for="flexCheck7"><span
-                                                                class="fst-italic pl-1">Loose syntax (although, being too flexible won’t suit standards).</span></label>
-                                                    </div>
-                                                    <div class="form-check mb-3">
-                                                        <input class="form-check-input" id="flexCheck9" type="checkbox">
-                                                        <label class="form-check-label" for="flexCheck7"><span
-                                                                class="fst-italic pl-1">Loose syntax (although, being too flexible won’t suit standards).</span></label>
-                                                    </div>
-                                                    <div class="form-check mb-3">
-                                                        <input class="form-check-input" id="flexCheck10"
-                                                               type="checkbox">
-                                                        <label class="form-check-label" for="flexCheck7"><span
-                                                                class="fst-italic pl-1">Loose syntax (although, being too flexible won’t suit standards).</span></label>
-                                                    </div>
-                                                    <div class="form-check mb-3">
-                                                        <input class="form-check-input" id="flexCheck11"
-                                                               type="checkbox">
-                                                        <label class="form-check-label" for="flexCheck7"><span
-                                                                class="fst-italic pl-1">Loose syntax (although, being too flexible won’t suit standards).</span></label>
-                                                    </div>
-                                                    <div class="form-check mb-3">
-                                                        <input class="form-check-input" id="flexCheck12"
-                                                               type="checkbox">
-                                                        <label class="form-check-label" for="flexCheck7"><span
-                                                                class="fst-italic pl-1">Loose syntax (although, being too flexible won’t suit standards).</span></label>
-                                                    </div>
+                                            <div class="page-content page-container" id="page-content" >
+                                                <div class="padding" style="">
+                                                    <div class="row" >
+                                                        <div class="col-sm-6" >
 
+                                                            <div class="list list-row ">
+                                                                <div class="list-item" data-id="19">
+                                                                    <div><a href="#" data-abc="true"><span class="w-48 avatar gd-warning">S</span></a></div>
+                                                                    <div class="flex">
+                                                                        <a href="#" class="item-author text-color" data-abc="true">Sam Kuranjhfjyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk</a>
+                                                                        <div class="item-except text-muted text-sm h-1x">For what reason would it be advisable for me to think about business content?</div>
+                                                                    </div>
+                                                                    <div class="no-wrap">
+                                                                        <div class="item-date text-muted text-sm d-none ">13/12 18</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="list-item" data-id="7">
+                                                                    <div><a href="#" data-abc="true"><span class="w-48 avatar gd-primary"><img src="https://img.icons8.com/color/48/000000/administrator-male.png" alt="."></span></a></div>
+                                                                    <div class="flex">
+                                                                        <a href="#" class="item-author text-color" data-abc="true">Kinley Adolf</a>
+                                                                        <div class="item-except text-muted text-sm h-1x">For what reason would it be advisable for me to think about business content?</div>
+                                                                    </div>
+                                                                    <div class="no-wrap">
+                                                                        <div class="item-date text-muted text-sm d-none d-md-block">21 July</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="list-item" data-id="17">
+                                                                    <div><a href="#" data-abc="true"><span class="w-48 avatar gd-warning">H</span></a></div>
+                                                                    <div class="flex">
+                                                                        <a href="#" class="item-author text-color" data-abc="true">Velden Kamut</a>
+                                                                        <div class="item-except text-muted text-sm h-1x">For what reason would it be advisable for me to think about business content?</div>
+                                                                    </div>
+                                                                    <div class="no-wrap">
+                                                                        <div class="item-date text-muted text-sm d-none d-md-block">13/3/19</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="list-item" data-id="16">
+                                                                    <div><a href="#" data-abc="true"><span class="w-48 avatar gd-info">F</span></a></div>
+                                                                    <div class="flex">
+                                                                        <a href="#" class="item-author text-color" data-abc="true">Stuart Kim</a>
+                                                                        <div class="item-except text-muted text-sm h-1x">For what reason would it be advisable for me to think about business content?</div>
+                                                                    </div>
+                                                                    <div class="no-wrap">
+                                                                        <div class="item-date text-muted text-sm d-none d-md-block">03/1/19</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="list-item" data-id="4">
+                                                                    <div><a href="#" data-abc="true"><span class="w-48 avatar gd-success"><img src="https://img.icons8.com/color/48/000000/guest-male.png" alt="."></span></a></div>
+                                                                    <div class="flex">
+                                                                        <a href="#" class="item-author text-color" data-abc="true">Simply Fry</a>
+                                                                        <div class="item-except text-muted text-sm h-1x">For what reason would it be advisable for me to think about business content?</div>
+                                                                    </div>
+                                                                    <div class="no-wrap">
+                                                                        <div class="item-date text-muted text-sm d-none d-md-block">2 hours ago</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
                                                 </div>
                                             </div>
 
@@ -213,10 +384,12 @@
                                     <div style="width: 75%; float: left">
                                         <p th:text="${video.name}"  ></p>
                                     </div>
-                                    <div style="width: 20%; float: right">
-                                        <a  th:id="${video.name}" onclick="fullScreen(this)">Load video</a>
+                                    <div style="width: 20%; float: right" th:id="${video.id}">
+<!--                                        <input type="hidden"  th:name="${video.id}" th:field="${video.link}">-->
+                                        <input type="hidden" th:value="${video.link}"  th:name="${video.id}" />
+                                        <button  th:name="${video.id}" th:class="${video.id}"  onclick="fullScreen(this)">Load video</button>
                                     </div>
-                                    <iframe th:id="${video.name}+'-'"  width="660" height="415" style="display:none;" src="" frameborder="0" allowfullscreen></iframe>
+                                    <iframe th:class="${video.id}"  width="660" height="415" style="display:none;"  frameborder="0" allowfullscreen></iframe>
                                 </div>
 
                             </div>
@@ -237,19 +410,21 @@
 <section layout:fragment="script">
     <script type="application/javascript">
         function fullScreen(e){
+            const iframObj = document.getElementsByTagName("iframe");
+            var i = 0;
+            for(iframeR of iframObj) {
+                document.getElementsByTagName("iframe")[i].style.display = "none";
+                i++;
+            }
+            // document.getElementsByTagName("iframe").style.display = "none";
+            var src = $('[name="'+e.name+'"]').val();
 
-
-
-            //var id = e.attr('id');
-            // console.log(e.id);
-            var $iframe = $("#"+e.id+"-");
-            // var src = e.src;
-
-            $iframe.attr("src", "hello");
+            var $iframe = $("."+e.name);
+            $iframe.attr("src", src);
             $iframe.show();
-            alert(e.id);
-            console.log($iframe);
-            //document.getElementById("myButton").attributes
+            // alert(e.class);
+            // console.log($iframe);
+            $(this).style.display = "none";
             // document.getElementById("myButton").style.display = "none";
         }
         $(document).ready(function() {

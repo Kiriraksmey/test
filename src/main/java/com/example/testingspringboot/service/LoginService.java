@@ -1,24 +1,25 @@
 package com.example.testingspringboot.service;
 
-import com.example.testingspringboot.Repository.LoginRepository;
+import com.example.testingspringboot.entities.Course;
 import com.example.testingspringboot.entities.Login;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Service;
 
-@Service
-public class LoginService {
-    @Autowired
-    private LoginRepository repo;
+import java.util.List;
 
-    public Login login(String name, String pass) {
-        Login user = repo.findByNameAndPass(name, pass);
-        return user;
-    }
-//    public  Login register(String name , String pass, int id,String status){
-//        Login user = repo.findByNameAndPassAndidAndStatus(name, pass,id,status);
-//        return user;
-//
-//    }
+public interface LoginService {
+    void deleteLogin(long id);
+    List<Login> getAllLogin();
 
+    List<Login> getAllLogin(String name, String pass);
+
+    Login saveLogin(Login login);
+
+    //   Course getCoursebyID(long id);
+    Login getCourseById(Long id);
+
+
+    Login editCourse(Login login);
+    Login updateClassRoom(Login login);
+    Login editEmployee(Login login);
+    //    Student search(Student student);
+    List<Login>listAll(String keyword);
 }

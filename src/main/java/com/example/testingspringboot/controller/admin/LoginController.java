@@ -16,10 +16,11 @@ import java.util.Objects;
 public class LoginController {
 
     @Autowired
-    private LoginService userService;
+    private final LoginService loginService;
     @Autowired
     private  RegisterService registerService;
-    public LoginController(RegisterService registerService) {
+    public LoginController(LoginService loginService, RegisterService registerService) {
+        this.loginService = loginService;
         this.registerService = registerService;
     }
     @GetMapping("/index")
@@ -36,8 +37,8 @@ public class LoginController {
         return "/login/index";
     }
     @PostMapping("/login")
-    public String login(@ModelAttribute("user") Login user) {
-        Login authUser = userService.login(user.getName(), user.getPass());
+    public String login(@ModelAttribute("user") Login login) {
+        Login authUser = (Login) loginService.getAllLogin(login.getName(), login.getPass());
         if (Objects.nonNull(authUser)) {
             return "index";
         } else {

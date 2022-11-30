@@ -3,7 +3,7 @@ package com.example.testingspringboot.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name="user")
+@Table(name="login")
 public class Login {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
