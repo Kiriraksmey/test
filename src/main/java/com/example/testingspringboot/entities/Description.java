@@ -2,6 +2,7 @@ package com.example.testingspringboot.entities;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name="descriptions")
@@ -13,6 +14,9 @@ public class Description {
     private Date createDate;
     private  Date updateDate;
     private String user;
+
+
+
 
     public Description() {
     }

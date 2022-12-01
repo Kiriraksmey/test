@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout-frontend/frontend-layout}">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>ZenBlog Bootstrap Template - Index</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="container" style="display: flex ; justify-content: center">
+        <!-- multistep form -->
+        <form class="msform" >
+            <!-- progressbar -->
+            <ul id="progressbar">
+                <li class="active">Account Setup</li>
+                <li>Social Profiles</li>
+                <li>Personal Details</li>
+            </ul>
+            <!-- fieldsets -->
+            <fieldset>
+                <h2 class="fs-title">Admission Information</h2>
+                <h3 class="fs-subtitle">This is step 1</h3>
+                <input type="text" name="email" placeholder="Name" />
+                <input type="password" name="pass" placeholder="Email" />
+                <input type="password" name="cpass" placeholder="Phone Number" />
+                <input type="button" name="next" class="next action-button" value="Next" />
+            </fieldset>
+
+        </form>
+        <!-- multistep form -->
+        <form class="msform" style="display:flex ; height: 347.6px;margin-top: 65px">
+            <!-- progressbar -->
+
+            <!-- fieldsets -->
+            <fieldset>
+                <h2 class="fs-title">Selected course</h2>
+                <h3 class="fs-subtitle">This is step 2</h3>
+                <input type="text" name="email" placeholder="Course selected" />
+                <input type="password" name="pass" placeholder="Total price" />
+
+                <input type="button" name="next" class="next action-button" value="Add Course" />
+            </fieldset>
+
+        </form>
+    </div>
+
+
+
+</section>
+
+</body>
+</html>

@@ -14,17 +14,21 @@ public class Student {
     private String gender;
     private String age;
     private  String avtar;
+    private  String email;
+    private  String phone;
 
 
     public Student() {
     }
 
-    public Student(Long id, String name, String gender, String age,String avtar) {
+    public Student(Long id, String name, String gender, String age,String avtar,String email,String phone) {
         this.id = id;
         this.name = name;
         this.gender = gender;
         this.age = age;
         this.avtar = avtar;
+        this.email = email;
+        this.phone = phone;
     }
 
     public Long getId() {
@@ -65,5 +69,21 @@ public class Student {
 
     public void setAvtar(String avtar) {
         this.avtar = avtar;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
