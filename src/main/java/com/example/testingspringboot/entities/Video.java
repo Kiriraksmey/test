@@ -16,6 +16,7 @@ public class Video {
     private Date createDate;
     private  Date updateDate;
     private  String user;
+    private  Boolean defualt;
 
     @Column(name = "course_detail_id")
     private Long courseDetailId;
@@ -35,7 +36,7 @@ public class Video {
     public Video() {
     }
 
-    public Video(long id, String name, String link, String description, Date createDate, Date updateDate, String user, Long courseDetailId) {
+    public Video(long id, String name, String link, String description, Date createDate, Date updateDate, String user, Boolean defualt, Long courseDetailId) {
         this.id = id;
         this.name = name;
         this.link = link;
@@ -43,6 +44,7 @@ public class Video {
         this.createDate = createDate;
         this.updateDate = updateDate;
         this.user = user;
+        this.defualt = defualt;
         this.courseDetailId = courseDetailId;
     }
 
@@ -108,5 +110,13 @@ public class Video {
 
     public void setCourseDetailId(Long courseDetailId) {
         this.courseDetailId = courseDetailId;
+    }
+
+    public Boolean getDefualt() {
+        return defualt;
+    }
+
+    public void setDefualt(Boolean defualt) {
+        this.defualt = defualt;
     }
 }

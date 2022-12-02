@@ -18,21 +18,21 @@ public class VerifyTokenImpl  {
     public VerifyTokenImpl(VerifyTokenRepository verifyTokenRepository) {
         this.verifyTokenRepository = verifyTokenRepository;
     }
-    @Transactional
-    public VerifyToken findByToken(String token){
-        return verifyTokenRepository.findByToken(token);
-    }
-    @Transactional
-    public  VerifyToken findByUser(User user){
-        return  verifyTokenRepository.findByUser(user);
-    }
-    @Transactional
-    public  void save(User user, String token){
-        VerifyToken verifyToken=new VerifyToken(token , user);
-        // set expiry date
-        verifyToken.setExperyDate(calculateExpiryDate(24*60));
-        verifyTokenRepository.save(verifyToken);
-    }
+//    @Transactional
+//    public VerifyToken findByToken(String token){
+//        return verifyTokenRepository.findByToken(token);
+//    }
+//    @Transactional
+//    public  VerifyToken findByUser(User user){
+//        return  verifyTokenRepository.findByUser(user);
+//    }
+//    @Transactional
+//    public  void save(User user, String token){
+//        VerifyToken verifyToken=new VerifyToken(token , user);
+//        // set expiry date
+//        verifyToken.setExperyDate(calculateExpiryDate(24*60));
+//        verifyTokenRepository.save(verifyToken);
+//    }
     //calculate expiry date
     private Timestamp calculateExpiryDate(int expiryTimeInMinute){
         Calendar cal = Calendar.getInstance();

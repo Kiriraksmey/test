@@ -48,6 +48,7 @@ public class MainController {
 
         List<CourseDetail> listDetail =  courseDetailService.getCourseDetailByID(id);
         model.addAttribute("courseDetail", listDetail);
+        model.addAttribute("videoDefault", courseDetailService.findDefaultVideo(id));
         return  "/frontend/course/course-detail";
 
      }

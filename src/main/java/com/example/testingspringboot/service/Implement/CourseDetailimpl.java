@@ -2,6 +2,7 @@ package com.example.testingspringboot.service.Implement;
 
 import com.example.testingspringboot.Repository.CourseDetailRepiository;
 import com.example.testingspringboot.entities.CourseDetail;
+import com.example.testingspringboot.entities.Video;
 import com.example.testingspringboot.service.CourseDetailService;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +34,10 @@ public class CourseDetailimpl implements CourseDetailService {
     @Override
     public List<CourseDetail> getCourseDetailByID(long id) {
         return courseDetailRepiository.getCourseDetailByCourseId(id);
+    }
+    @Override
+    public Video findDefaultVideo(long id) {
+        return courseDetailRepiository.findDefaultVideo(id);
     }
 
     @Override
