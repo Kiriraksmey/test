@@ -17,6 +17,9 @@
     <script th:src="@{//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js}"></script>
     <script th:src="@{//code.jquery.com/jquery-1.11.1.min.js}"></script>
     <script th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js}"></script>
+    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css}" />
+
+
     <!--    <script th:src="@{jquery-3.6.1.min.js}"></script>-->
 
 
@@ -83,6 +86,14 @@
             border-radius: .25rem;
             box-shadow: 0 1px 3px rgba(0, 0, 0, .05);
             margin-bottom: 1.5rem
+        }
+        .card-read-more  a:hover  {
+            background-color: #0a9386;
+            color: whitesmoke;
+            text-decoration: none;
+            font-size: large;
+
+
         }
 
         .avatar {
@@ -295,24 +306,27 @@
                     <div class="container   ">
                         <div class="row">
 
-                            <div class="  col-xs-12 col-sm-12">
-                                <div class="card">
+                            <div class="  col-xs-12 col-sm-12" style="border:  1px solid #0a9386;padding: 0px;border-radius:12px ">
+                                <div class="card" >
                                     <a class="img-card"
                                        href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
-                                        <img src="https://play-lh.googleusercontent.com/85WnuKkqDY4gf6tndeL4_Ng5vgRk7PTfmpI4vHMIosyq6XQ7ZGDXNtYG2s0b09kJMw"/>
+                                        <img th:src="${course.image}" style="width: 600px;height: 400px;border-radius:12px"/>
                                     </a>
                                     <div class="card-content">
-                                        <h4 class="card-title">
-                                            <a href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">Price:
+                                        <h4 class="card-title" style="">
+                                            <a href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html" style="line-height: 45px"><i class="fas fa-dollar-sign"></i> Price:
                                                 30$
                                             </a>
+                                            <span></span>
+                                            <p class="">
+                                                <i class="fas fa-book"></i>
+                                                Total : 30 Lesson
+                                            </p>
                                         </h4>
-                                        <p class="">
-                                            Total : 30 Lesson
-                                        </p>
+
                                     </div>
                                     <div class="card-read-more" style="text-align: center">
-                                        <a th:href="@{/register}"
+                                        <a th:href="@{/register}" style="font-size: large"
                                            class="btn btn-link btn-block">
                                             Sign Up Now
                                         </a>
@@ -335,8 +349,10 @@
                     </div>
                     <div class="col-md-6 col-lg-6">
                         <div class="panel-group" id="accordion">
+
                             <div class="panel panel-default" th:each="detail: ${courseDetail}"
                                  th:if="${detail.videos.size() > 0 }">
+
                                 <!--                        <div th:if="${#lists.isEmpty(detail.videos)}">-->
 
                                 <div class="panel-heading">
@@ -355,7 +371,7 @@
                                                 <!--                                        <input type="hidden"  th:name="${video.id}" th:field="${video.link}">-->
                                                 <input type="hidden" th:value="${video.link}" th:name="${video.id}"/>
                                                 <button th:name="${video.id}" th:class="${video.id}"
-                                                        onclick="fullScreen(this)">Load video
+                                                        onclick="fullScreen(this)"  ><img th:src="@{/front-end/assets/images/youtube.jpg} " style="width: 20px;height: 20px">
                                                 </button>
                                             </div>
                                         </div>
@@ -375,7 +391,9 @@
         </div>
 
     </div>
+
 </section>
+
 
 <section layout:fragment="script">
     <script type="application/javascript">
