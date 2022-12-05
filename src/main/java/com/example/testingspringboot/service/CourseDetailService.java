@@ -2,6 +2,7 @@ package com.example.testingspringboot.service;
 
 import com.example.testingspringboot.entities.Course;
 import com.example.testingspringboot.entities.CourseDetail;
+import com.example.testingspringboot.entities.CourseSearch;
 import com.example.testingspringboot.entities.Video;
 
 import java.util.List;
@@ -12,6 +13,7 @@ public interface CourseDetailService {
     CourseDetail saveCourseDetail(CourseDetail courseDetail);
 
     List<CourseDetail> getCourseDetailByID(long id);
+    Double getTotalPriceCourse(List<Long> id);
     Video findDefaultVideo(long id);
 
     CourseDetail editCourseDetail(CourseDetail courseDetail);

@@ -2,6 +2,7 @@ package com.example.testingspringboot.Repository;
 
 import com.example.testingspringboot.entities.Course;
 import com.example.testingspringboot.entities.CourseDetail;
+import com.example.testingspringboot.entities.CourseSearch;
 import com.example.testingspringboot.entities.Video;
 import jdk.nashorn.internal.objects.annotations.Where;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -29,4 +30,9 @@ public interface CourseDetailRepiository extends JpaRepository<CourseDetail , Lo
 //    @Query("SELECT c FROM  Course c  inner join CourseDetail cd On Course .id = CourseDetail .courseId " +
 //            "inner join Video v On v.courseDetailId = CourseDetail .id where c.id=?1")
 //    public List<Video> findDefaultVideo(Long id);
+
+
+    @Query("SELECT SUM(c.price) FROM Course c where c.id IN (:id)")
+    public Double getTotalPriceCourse(@Param("id") List<Long> id);
+
 }
