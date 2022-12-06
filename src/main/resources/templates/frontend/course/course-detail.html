@@ -221,6 +221,7 @@
         }
 
 
+
     </style>
 
 </head>
@@ -252,8 +253,8 @@
                                         <div class="d-flex align-items-center mb-4 pb-4 border-bottom"><i
                                                 class="far fa-calendar-alt fa-3x"></i>
                                             <div class="ms-3">
-                                                <h4 class="text-uppercase fw-weight-bold mb-0">Advantages of This
-                                                    Course</h4>
+                                                <h4 class="text-uppercase fw-weight-bold mb-0">
+                                                    Special support mode</h4>
 
                                             </div>
                                         </div>
@@ -265,17 +266,15 @@
                                                         <div class="col-sm-6">
 
                                                             <div class="list list-row ">
-
-
                                                                 <div class="list-item" data-id="16"
-                                                                     th:each="detail: ${courseDetail}">
+                                                                     >
                                                                     <div><a href="#" data-abc="true"><span
                                                                             class="w-48 avatar gd-info">1</span></a>
                                                                     </div>
                                                                     <div class="flex">
                                                                         <a href="#" class="item-author text-color"
                                                                            data-abc="true"
-                                                                           th:text="${course.courseName}">Stuart Kim</a>
+                                                                           >Stuart Kim</a>
                                                                         <div class="item-except text-muted text-sm h-1x">
                                                                             For what reason would it be advisable for me
                                                                             to think about business content?
@@ -301,40 +300,29 @@
                             </div>
                         </div>
                     </div>
+                    <div class="container-card">
+                        <div class="card">
+                            <div class="imgBx">
+                                <img th:src="${course.image}" style="width: 300px;height: 130px">
+                            </div>
+                            <div class="contentBx">
+                                <h2>BUY HERE</h2>
+                                <div class="size">
+                                    <h3>Price :</h3>
+                                    <span>30$</span>
 
-
-                    <div class="container   ">
-                        <div class="row">
-
-                            <div class="  col-xs-12 col-sm-12" style="border:  1px solid #0a9386;padding: 0px;border-radius:12px ">
-                                <div class="card" >
-                                    <a class="img-card"
-                                       href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html">
-                                        <img th:src="${course.image}" style="width: 600px;height: 400px;border-radius:12px"/>
-                                    </a>
-                                    <div class="card-content">
-                                        <h4 class="card-title" style="">
-                                            <a href="http://www.fostrap.com/2016/03/5-button-hover-animation-effects-css3.html" style="line-height: 45px"><i class="fas fa-dollar-sign"></i> Price:
-                                                30$
-                                            </a>
-                                            <span></span>
-                                            <p class="">
-                                                <i class="fas fa-book"></i>
-                                                Total : 30 Lesson
-                                            </p>
-                                        </h4>
-
-                                    </div>
-                                    <div class="card-read-more" style="text-align: center">
-                                        <a th:href="@{/register}" style="font-size: large"
-                                           class="btn btn-link btn-block">
-                                            Sign Up Now
-                                        </a>
-                                    </div>
                                 </div>
+                                <div class="color" >
+                                    <h3>Total :</h3>
+                                    <span style="padding-top: 5px">30 lesson</span>
+
+                                </div>
+                                <a th:href="@{/register}" style="margin-top: 10px">Sign Up Now</a>
                             </div>
                         </div>
                     </div>
+
+
 
 
                 </div>

@@ -3,11 +3,7 @@ package com.example.testingspringboot.controller.fontEnd;
 
 import com.example.testingspringboot.entities.CourseDetail;
 import com.example.testingspringboot.entities.CourseSearch;
-import com.example.testingspringboot.entities.Video;
-import com.example.testingspringboot.service.CourseDetailService;
-import com.example.testingspringboot.service.CourseService;
-import com.example.testingspringboot.service.StudentService;
-import com.example.testingspringboot.service.VideoService;
+import com.example.testingspringboot.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -16,8 +12,6 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,15 +21,17 @@ public class MainController {
     private final StudentService studentService;
     private final CourseService courseService;
     private final VideoService videoService;
+    private final DescriptionService descriptionService;
 
     private final CourseDetailService courseDetailService;
 
     //
-    public MainController(StudentService studentService, CourseService courseService, VideoService videoService, CourseDetailService courseDetailService) {
+    public MainController(StudentService studentService, CourseService courseService, VideoService videoService, DescriptionService descriptionService, CourseDetailService courseDetailService) {
         this.studentService = studentService;
 
         this.courseService = courseService;
         this.videoService = videoService;
+        this.descriptionService = descriptionService;
         this.courseDetailService = courseDetailService;
     }
 
@@ -110,6 +106,7 @@ public class MainController {
     public String viewDetailDOC(Model model, @PathVariable Long id) {
 
         model.addAttribute("course", courseService.getCourseById(id));
+        model.addAttribute("descriptions",descriptionService.getDescriptionById(id));
 
         List<CourseDetail> listDetail = courseDetailService.getCourseDetailByID(id);
         model.addAttribute("courseDetail", listDetail);

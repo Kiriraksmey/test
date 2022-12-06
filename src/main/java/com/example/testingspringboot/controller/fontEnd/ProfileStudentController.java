@@ -75,4 +75,15 @@ public class ProfileStudentController {
 //    }
 
 
+    @GetMapping("/activated")
+    public String saveEmploy(@ModelAttribute("student") Student student) {
+        studentService.saveStudent(student);
+        return "/frontend/course/activated";
+    }
+    @GetMapping("/login")
+    public String savEmploy(@ModelAttribute("student") Student student) {
+        studentService.saveStudent(student);
+        return "/frontend/course/login";
+    }
+
 }

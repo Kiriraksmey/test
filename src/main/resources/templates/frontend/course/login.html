@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout-frontend/frontend-layout}">
+
+<head>
+  <!-- basic -->
+  <!-- site icon -->
+  <link rel="icon" th:href="@{images/fevicon.png}" type="image/png" />
+  <!-- bootstrap css -->
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+  <!-- site css -->
+  <link rel="stylesheet" th:href="@{/style.css}" />
+  <!-- responsive css -->
+  <link rel="stylesheet" th:href="@{/css/responsive.css}" />
+  <!-- color css -->
+  <link rel="stylesheet" th:href="@{/css/colors.css}" />
+  <!-- select bootstrap -->
+  <link rel="stylesheet" th:href="@{/css/bootstrap-select.css}" />
+  <!-- scrollbar css -->
+  <link rel="stylesheet" th:href="@{/css/perfect-scrollbar.css}" />
+  <!-- custom css -->
+  <link rel="stylesheet" th:href="@{/css/custom.css}" />
+  <link rel="stylesheet" th:href="@{/search.css}" />
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+  <![endif]-->
+</head>
+<body class="inner_page login">
+<section layout:fragment="content">
+  <div class="full_container">
+    <div class="container">
+      <div class="center verticle_center full_height">
+        <div class="login_section">
+          <div class="logo_login">
+            <div class="center">
+              <img width="210" src="images/logo/logo.png" alt="#" />
+            </div>
+          </div>
+          <div class="login_form" style="position: relative">
+            <form action="#" th:action="@{/system/login}" th:object="${user}" method="post">
+              <fieldset>
+                <div class="field">
+                  <label class="label_field">User Name</label>
+                  <input type="text" name="user" placeholder="Name" id="name"/>
+                </div>
+                <div class="field">
+                  <label class="label_field">Password</label>
+                  <input type="password" name="pass" placeholder="Password" id="pass" />
+                </div>
+                <div class="field">
+                  <label class="label_field hidden">hidden label</label>
+                  <label class="form-check-label"><input type="checkbox" class="form-check-input"> Remember Me</label>
+                  <a class="forgot" href="">Forgotten Password?</a>
+                </div>
+                <div class="field margin_0">
+                  <label class="label_field hidden">hidden label</label>
+                  <button class="main_bt" type="submit" >Sing In</button>
+
+                </div>
+              </fieldset>
+            </form>
+
+            <a th:href="@{/system/register}" class="main_bt" style="position: absolute;bottom: 15%;left: 70%">Sign Up</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- jQuery -->
+  <script th:src="@{/js/jquery.min.js}"></script>
+  <script th:src="@{js/popper.min.js}"></script>
+  <script th:src="@{js/bootstrap.min.js}"></script>
+  <script th:src="@{js/animate.js}"></script>
+  <!-- select country -->
+  <script th:src="@{js/bootstrap-select.js}"></script>
+  <!-- owl carousel -->
+  <script th:src="@{js/owl.carousel.js}"></script>
+  <!-- chart js -->
+  <script th:src="@{js/Chart.min.js}"></script>
+  <script th:src="@{js/Chart.bundle.min.js}"></script>
+  <script th:src="@{js/utils.js}"></script>
+  <script th:src="@{js/analyser.js}"></script>
+  <!-- nice scrollbar -->
+  <script th:src="@{js/perfect-scrollbar.min.js}"></script>
+  <script>
+    var ps = new PerfectScrollbar('#sidebar');
+  </script>
+  <!-- custom js -->
+  <script th:src="@{js/custom.js}"></script>
+  <script th:src="@{js/chart_custom_style1.js}"></script>
+
+</section>
+
+</body>
+</html>
