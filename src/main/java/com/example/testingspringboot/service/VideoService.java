@@ -1,5 +1,6 @@
 package com.example.testingspringboot.service;
 
+import com.example.testingspringboot.entities.Course;
 import com.example.testingspringboot.entities.CourseDetail;
 import com.example.testingspringboot.entities.Video;
 
@@ -11,7 +12,7 @@ public interface VideoService {
         Video saveVideo(Video video);
 
         List<Video> getListVideos(long id);
-
+        Video getVideoById(Long id);
         Video editVideo(Video video);
         Video updateClassRoom(Video video);
         Video editEmployee(Video video);

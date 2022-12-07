@@ -13,47 +13,50 @@
 </head>
 <body>
 <section layout:fragment="content">
-  <h3>List CourseDetail</h3>
+
+
+  <h3>List Video</h3>
+
   <hr/>
-  <a th:href="@{/system/create-courseDetail}" class="btn btn-primary" style="">Add Course</a>
-  <form th:action="@{/system/courseList}" th:object="${search}" method="POST" style="position: relative">
+  <a th:href="@{/system/create-video}" class="btn btn-primary" style="">Add Video</a>
+  <form th:action="@{/system/VideoList}" th:object="${search}" method="POST" style="position: relative">
     <input type="text" class="form-control " style="width: 500px; position: absolute;top: -33px;left: 300px"
            name="keyword" id="keyword" size="50" th:value="${keyword}" required/>
     <input type="submit" value="Search" style="position: absolute;top: -33px;left: 820px" class="btn btn-primary"/>
-    <a th:href="@{/system/courseList}" value="Clear" id="btnClear" class="btn btn-primary"
+    <a th:href="@{/system/videoList}" value="Clear" id="btnClear" class="btn btn-primary"
        style="position: absolute;top: -33px;left: 890px">Clear</a>
   </form>
+
+  <!--    <div class="col-md-6 col-lg-6  col-sm-12" style="position: relative">-->
+  <!--        <div th:action="@{/search}" class="form-group" style="position: absolute;top: -34px;right: 100px">-->
+
+  <!--            <input type="text" class="form-control" id="age" name="age" placeholder="Search">-->
+  <!--            <button type="submit" class="btn btn-primary" style="position: absolute;top: 1px;right: -80px">Search</button>-->
+  <!--        </div>-->
+  <!--    </div>-->
   <br/><br/>
   <table class="table table-bordered table-striped">
     <thead>
     <tr>
-      <th>Course Id</th>
-
-      <th>Name</th>
-
-
       <th>CreateDate</th>
       <th>UpdateDate</th>
       <th>Description</th>
+      <th>Link</th>
+      <th>Name</th>
       <th>User</th>
-
-
+      <th>Course Detail Id</th>
       <th>Action</th>
-
     </tr>
     </thead>
-    <tbody th:if="${courseDetails != null}">
-    <tr th:each="course: ${courseDetails}">
-      <td th:text="${course.courseId}"/>
-
-      <td th:text="${course?.name}"/>
-
-      <td th:text="${course?.createDate}"/>
-      <td th:text="${course?.updateDate}"/>
-      <td th:text="${course?.description}"/>
-
-      <td th:text="${course?.user}"/>
-
+    <tbody th:if="${videos != null}">
+    <tr th:each="video: ${videos}">
+      <td th:text="${video.createDate}"/>
+      <td th:text="${video?.updateDate}"/>
+      <td th:text="${video?.description}"/>
+      <td th:text="${video?.link}"/>
+      <td th:text="${video?.name}"/>
+      <td th:text="${video?.user}"/>
+      <td th:text="${video?.courseDetailId}"/>
 
 
 
@@ -68,6 +71,7 @@
     </tr>
     </tbody>
   </table>
-</section>
+  </section>
+
 </body>
 </html>

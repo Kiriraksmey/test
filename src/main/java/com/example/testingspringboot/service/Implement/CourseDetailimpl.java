@@ -24,7 +24,7 @@ public class CourseDetailimpl implements CourseDetailService {
 
     @Override
     public List<CourseDetail> getAllCourseDetail() {
-        return null;
+        return courseDetailRepiository.findAll();
     }
 
     @Override

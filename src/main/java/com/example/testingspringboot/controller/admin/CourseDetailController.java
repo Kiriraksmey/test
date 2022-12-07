@@ -27,7 +27,7 @@ public class CourseDetailController {
     @GetMapping("/courseDetailList")
     public String listEmployee(Model model) {
         List list = courseDetailService.getAllCourseDetail();
-        model.addAttribute("courses", courseDetailService.getAllCourseDetail());
+        model.addAttribute("courseDetails", courseDetailService.getAllCourseDetail());
         return "courseDetail";
     }
 

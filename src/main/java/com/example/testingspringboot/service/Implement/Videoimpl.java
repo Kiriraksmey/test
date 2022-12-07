@@ -2,6 +2,7 @@ package com.example.testingspringboot.service.Implement;
 
 import com.example.testingspringboot.Repository.CourseDetailRepiository;
 import com.example.testingspringboot.Repository.VideoReposiory;
+import com.example.testingspringboot.entities.Course;
 import com.example.testingspringboot.entities.Video;
 import com.example.testingspringboot.service.VideoService;
 import org.springframework.stereotype.Service;
@@ -24,12 +25,12 @@ public class Videoimpl implements VideoService {
 
     @Override
     public List<Video> getAllVideo() {
-        return null;
+        return videoReposiory.findAll();
     }
 
     @Override
     public Video saveVideo(Video video) {
-        return null;
+        return videoReposiory.save(video);
     }
 
     @Override
@@ -38,8 +39,14 @@ public class Videoimpl implements VideoService {
     }
 
     @Override
+    public Video getVideoById(Long id) {
+        Video lst = videoReposiory.findById(id).get();
+        return  lst;
+    }
+
+    @Override
     public Video editVideo(Video video) {
-        return null;
+        return videoReposiory.save(video);
     }
 
     @Override

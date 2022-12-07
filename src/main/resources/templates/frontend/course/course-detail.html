@@ -254,7 +254,7 @@
                                                 class="far fa-calendar-alt fa-3x"></i>
                                             <div class="ms-3">
                                                 <h4 class="text-uppercase fw-weight-bold mb-0">
-                                                    Special support mode</h4>
+                                                    What do you get?</h4>
 
                                             </div>
                                         </div>
@@ -265,29 +265,40 @@
                                                     <div class="row">
                                                         <div class="col-sm-6">
 
-                                                            <div class="list list-row ">
-                                                                <div class="list-item" data-id="16"
-                                                                     >
+                                                            <div class="list list-row  " style="display: flex;flex-direction: row;width: 730px">
+                                                                <div class="list-item " >
+
                                                                     <div><a href="#" data-abc="true"><span
                                                                             class="w-48 avatar gd-info">1</span></a>
                                                                     </div>
-                                                                    <div class="flex">
-                                                                        <a href="#" class="item-author text-color"
-                                                                           data-abc="true"
-                                                                           >Stuart Kim</a>
-                                                                        <div class="item-except text-muted text-sm h-1x">
-                                                                            For what reason would it be advisable for me
-                                                                            to think about business content?
+                                                                    <div >
+
+                                                                        <div >
+                                                                            Understand the original theory of Html, Css in building web interfaces
                                                                         </div>
                                                                     </div>
-                                                                    <div class="no-wrap">
-                                                                        <div class="item-date text-muted text-sm d-none d-md-block">
-                                                                            03/1/19
+
+
+                                                                </div>
+                                                                <div class="list-item ">
+
+                                                                    <div><a href="#" data-abc="true"><span
+                                                                            class="w-48 avatar gd-info">2</span></a>
+                                                                    </div>
+                                                                    <div >
+
+                                                                        <div >
+                                                                            You can share the experience of coding html, css quickly and professionally
                                                                         </div>
                                                                     </div>
+
+
                                                                 </div>
 
+
                                                             </div>
+
+
                                                         </div>
 
                                                     </div>
@@ -309,7 +320,7 @@
                                 <h2>BUY HERE</h2>
                                 <div class="size">
                                     <h3>Price :</h3>
-                                    <span>30$</span>
+                                    <span th:text="${course.price}+${'$'}"></span>
 
                                 </div>
                                 <div class="color" >
