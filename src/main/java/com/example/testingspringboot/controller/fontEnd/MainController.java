@@ -1,8 +1,10 @@
 package com.example.testingspringboot.controller.fontEnd;
 
 
+import com.example.testingspringboot.entities.Course;
 import com.example.testingspringboot.entities.CourseDetail;
 import com.example.testingspringboot.entities.CourseSearch;
+import com.example.testingspringboot.response.AjaxCourseResponseBody;
 import com.example.testingspringboot.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -45,68 +47,41 @@ public class MainController {
         return "/index";
     }
 
-    /*
-    @RequestMapping("/getCourseTotalPrice")
-    @ResponseBody
-    public String check(@RequestParam String id[], HttpServletRequest request, HttpServletResponse response, Model model) {
-//        boolean a = getSomeResult();
-//        if (a == true) {
-//            model.addAttribute("alreadySaved", true);
-//            return view;
-//        } else {
-//            model.addAttribute("alreadySaved", false);
-//            return view;
-//        }
-        Long a = 9L;
-        Long ad = 9L;
-        return null;
-    }
-
-    */
 
     @PostMapping("/getCourseTotalPrice")
-    public ResponseEntity<?> getSearchResultViaAjax(
-            @Validated @RequestBody CourseSearch courseSearch, Errors errors) {
-            Double amount = 0D;
-            List arrCourseId = courseSearch.getCourseId();
-            List<Long> cID = new ArrayList<>();
+    public ResponseEntity<?> getSearchResultViaAjax(@Validated @RequestBody CourseSearch courseSearch, Errors errors) {
+        Double amount = 0D;
+        List arrCourseId = courseSearch.getCourseId();
+        List<Long> cID = new ArrayList<>();
+        AjaxCourseResponseBody result = new AjaxCourseResponseBody();
 
-            if(arrCourseId.size() > 0){
-                for (int i = 0; i < arrCourseId.size(); i++) {
-                    cID.add(Long.parseLong((String) arrCourseId.get(0)));
-                }
-                amount = courseDetailService.getTotalPriceCourse(cID);
+        if(arrCourseId == null){
+            result.setMessage("No course to select ");
+            result.setAmount(0D);
+            return ResponseEntity.ok(result);
+        }
+        if (arrCourseId.size() > 0) {
+            for (int i = 0; i < arrCourseId.size(); i++) {
+                cID.add(Long.parseLong((String) arrCourseId.get(i)));
             }
+            amount = courseDetailService.getTotalPriceCourse(cID);
+        }
+        if (errors.hasErrors()) {
+            result.setMessage("Not found 404 ");
+            return ResponseEntity.badRequest().body(result);
+        }
 
-//        AjaxResponseBody result = new AjaxResponseBody();
-//
-//        //If error, just return a 400 bad request, along with the error message
-//        if (errors.hasErrors()) {
-//
-//            result.setMsg(errors.getAllErrors()
-//                    .stream().map(x -> x.getDefaultMessage())
-//                    .collect(Collectors.joining(",")));
-//
-//            return ResponseEntity.badRequest().body(result);
-//
-//        }
-//
-//        List<User> users = userService.findByUserNameOrEmail(search.getUsername());
-//        if (users.isEmpty()) {
-//            result.setMsg("no user found!");
-//        } else {
-//            result.setMsg("success");
-//        }
-//        result.setResult(users);
-
-        return ResponseEntity.ok(true);
-
+        result.setAmount(amount);
+        //If error, just return a 400 bad request, along with the error message
+        result.setMessage("success");
+        return ResponseEntity.ok(result);
     }
+
     @RequestMapping("/viewCourseDetailDOC/{id}")
     public String viewDetailDOC(Model model, @PathVariable Long id) {
 
         model.addAttribute("course", courseService.getCourseById(id));
-        model.addAttribute("descriptions",descriptionService.getDescriptionById(id));
+        model.addAttribute("descriptions", descriptionService.getDescriptionById(id));
 
         List<CourseDetail> listDetail = courseDetailService.getCourseDetailByID(id);
         model.addAttribute("courseDetail", listDetail);
