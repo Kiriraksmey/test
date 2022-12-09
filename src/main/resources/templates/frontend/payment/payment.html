@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout-frontend/frontend-layout}">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css}" />
+
+  <title>ZenBlog Bootstrap Template - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+</head>
+<body>
+<section layout:fragment="content">
+  <div class="row justify-content-center">
+    <div class="col-11 col-sm-9 col-md-7
+col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
+      <div class="px-0 pt-4 pb-0 mt-3 mb-3">
+        <form id="form" style="margin-left: 130px">
+          <ul id="progressbar">
+            <li class="active" id="step1">
+              <strong>Information</strong>
+            </li>
+            <li class="active" id="step2"><strong>Payment</strong></li>
+            <li id="step3"><strong>Sucess</strong></li>
+
+          </ul>
+
+        </form>
+        <div class="form-bank" style="display: flex;flex-direction: row">
+        <div class="msform">
+          <!-- progressbar -->
+          <!--                    <ul id="progressbar">-->
+          <!--                        <li class="active">Account Setup</li>-->
+          <!--                        <li>Social Profiles</li>-->
+          <!--                        <li>Personal Details</li>-->
+          <!--                    </ul>-->
+          <!-- fieldsets -->
+          <fieldset style="min-height: 350px">
+            <h1 class="fs-title"> To start learning now you follow the information below!</h1>
+            <h2 style="font-size: medium" class="fs-subtitle">Bank transfer</h2>
+            <table class="table table-bordered table-striped">
+              <thead>
+              <tr>
+                <th>Bank</th>
+
+                <th>Information Receiver</th>
+
+                <th>Account Number</th>
+
+
+              </tr>
+              </thead>
+                <tr>
+               <td><img style="width: 40px;height: 40px" th:src="@{https://play-lh.googleusercontent.com/M8sf8G2_naFCFD17x_7CTIMYWBJvAyyMb9m8HmM2x5KFITvbJ2ctLOIckPK6utkidMU}"></td>
+              <td>MECH KIRIRAKSMEY <br>
+                <span style="font-size: small">(ABA BANK)</span></td>
+              <td>537264726476</td>
+                </tr>
+              <tr>
+                <td><img style="width: 40px;height: 40px" th:src="@{https://www.acledabank.com.kh/kh/assets/layout/logo-white.png}"></td>
+                <td>MECH KIRIRAKSMEY <br>
+                  <span style="font-size: small">(ACLEDA BANK)</span>
+
+                </td>
+                <td>742751672475</td>
+              </tr>
+              <tr>
+                <td><img style="width: 40px;height: 40px" th:src="@{https://cdn6.aptoide.com/imgs/e/2/0/e200381fe323b2bb300d374b6df378ac_icon.png}"></td>
+                <td>MECH KIRIRAKSMEY <br>
+                  <span style="font-size: small">(EMONEY)</span></td>
+                <td>0713450563</td>
+              </tr>
+
+
+
+              </tr>
+              </tbody>
+            </table>
+            <div style="text-align:justify">
+              <h2></h2>
+
+              <ul>
+                <span><i class="fas fa-star" style="color: #0b7dda"></i><i class="fas fa-star" style="color: #0b7dda"></i><i class="fas fa-star" style="color: #0b7dda"></i>NOTE:</span>
+                <li>You pay for the course according to one of the above banks. If you do not use Internet banking or
+                  Mobile banking, you just need to go to the nearest bank's transaction counter to pay.</li>
+                <li>As soon as payment is received, We will email activation instructions to your email to start learning in 5-10 minutes.</li>
+                <li>If you need assistance in the payment process, please click <a>here</a> to meet unitop.vn support, or call the hotline 09888.59.692</li>
+              </ul>
+
+
+            </div>
+            <button type="button" class="btn btn-success"
+                    style="width: 100px; vertical-align: middle; text-align: center; align-items: center" >
+              <a style="text-decoration: none" th:href="@{/paymentsucess}">Completed</a>
+            </button>
+
+
+          </fieldset>
+
+
+        </div>
+        <div class="msform">
+          <!-- progressbar -->
+          <!--                    <ul id="progressbar">-->
+          <!--                        <li class="active">Account Setup</li>-->
+          <!--                        <li>Social Profiles</li>-->
+          <!--                        <li>Personal Details</li>-->
+          <!--                    </ul>-->
+          <!-- fieldsets -->
+          <fieldset style="height: 150px;width: 150px;margin-left: 10px">
+            <h2 class="fs-title"></h2>
+            <span class="fs-subtitle"style="color: red;font-weight: bold">Total price is:</span>
+            <input type="text" name="email" placeholder=""/>
+
+          </fieldset>
+
+
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  </div>
+
+  </section>
+
+</body>
+</html>

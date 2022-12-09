@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout-frontend/frontend-layout}">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css}" />
+
+  <title>ZenBlog Bootstrap Template - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+</head>
+<body>
+<section layout:fragment="content">
+  <div class="row justify-content-center">
+    <div class="col-11 col-sm-9 col-md-7
+col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
+      <div class="px-0 pt-4 pb-0 mt-3 mb-3">
+        <form id="form" style="margin-left: 130px">
+          <ul id="progressbar">
+            <li class="active" id="step1">
+              <strong>Infomation</strong>
+            </li>
+            <li class="active" id="step2"><strong>Payment</strong></li>
+            <li id="step3" class="active"><strong>Sucess</strong></li>
+
+
+          </ul>
+
+        </form>
+        <fieldset>
+          <div><img style="width: 100px;height: 150px" th:src="@{https://static9.depositphotos.com/1029663/1091/i/450/depositphotos_10916813-stock-photo-green-check-mark-symbol.jpg}"></div>
+          <h3>Sucess Registration</h3>
+          <div>You has successfully registered for the course.</div>
+          <div>We will email and assist you to activated the course  as soon as possible</div>
+        </fieldset>
+        <div class="container bg-light" style="margin-top:10px ">
+          <div class="col-lg-12 text-center"  >
+            <button type="button" class="btn btn-success"
+                    style="width: 130px; vertical-align: middle; text-align: center; align-items: center" >
+              <a style="text-decoration: none" th:href="@{/}">More Course</a>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  </section>
+
+</body>
+</html>
