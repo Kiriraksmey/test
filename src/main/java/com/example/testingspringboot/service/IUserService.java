@@ -13,6 +13,8 @@ public interface IUserService {
 
     public User findByUserName(String name) ;
     public User saveUser(User newUser);
+    public User updateUser(int UserId, User newUser);
+    public User deleteUser(int UserIdr);
 
 
 }

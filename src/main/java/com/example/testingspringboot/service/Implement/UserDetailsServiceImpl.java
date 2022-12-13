@@ -27,6 +27,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             System.out.println("exception thrown");
             throw new UsernameNotFoundException(name + "not found");
         }
-        return new UserDetailsServiceImpl(user);
+        return (UserDetails) new UserDetailsServiceImpl();
     }
 }

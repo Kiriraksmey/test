@@ -31,7 +31,7 @@ public class UserRestController {
 
     @PostMapping("/users")
     public ResponseEntity<User> saveusers(@RequestBody User newUser, Authentication auth) {
-        System.out.println(newUser.getName()+"  "+auth.g);
+        System.out.println(newUser.getName()+"  "+auth.name());
         return ResponseEntity.status(HttpStatus.CREATED).body((userService.saveUser(newUser)));
 
     }
@@ -60,7 +60,7 @@ public class UserRestController {
     @GetMapping("/users/search")
     @PostAuthorize("returnObject.body.userName==authenticated.user")
     public ResponseEntity<User> userDetails(Authentication authentication, @RequestParam("cname") String cName) throws Exception {
-        System.out.println(authentication.getName().toString());
+        System.out.println(authentication.name().toString());
         User User=userService.findByUserName(cName);
         if(User==null) {
             ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");

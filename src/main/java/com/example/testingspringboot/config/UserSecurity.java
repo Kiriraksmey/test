@@ -12,7 +12,7 @@ public class UserSecurity {
 
     public boolean hasUserId(Authentication authentication, Long id) {
 
-        long userID=userRepository.findByUserName(authentication.g);
+        long userID= userRepository.findByUserName(authentication.name()).getId();
 //		System.out.println(userId+"  "+userID);
         if(userID==id)
             return true;
