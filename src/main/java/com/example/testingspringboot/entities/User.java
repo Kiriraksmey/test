@@ -8,7 +8,7 @@ import java.util.Date;
 public class User {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-   private  long id;
+   private  int id;
     private  String name;
     private  String email;
     private   String password;
@@ -17,11 +17,13 @@ public class User {
     private  Date updateDate;
     private String user;
     private boolean userType;
+    @Column(name="role")
+    private String role;
 
     public User() {
     }
 
-    public User(long id, String name, String email, String password, boolean status, Date createDate, Date updateDate, String user, boolean userType) {
+    public User(int id, String name,String role, String email, String password, boolean status, Date createDate, Date updateDate, String user, boolean userType) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -31,14 +33,23 @@ public class User {
         this.updateDate = updateDate;
         this.user = user;
         this.userType = userType;
+        this.role=role;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getName() {
@@ -104,4 +115,23 @@ public class User {
     public void setUserType(boolean userType) {
         this.userType = userType;
     }
+
+    @Override
+    public int hashCode() {
+
+        return this.id;
+    }
+
+
+    @Override
+    public boolean equals(Object obj) {
+
+
+        if(obj==null || !(obj instanceof User) )
+            return false;
+        return this.id==((User)obj).getId();
+    }
+
+
+
 }
