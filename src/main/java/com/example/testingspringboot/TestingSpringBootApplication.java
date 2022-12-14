@@ -1,20 +1,7 @@
 package com.example.testingspringboot;
 
-import com.example.testingspringboot.Repository.LoginRepository;
-import com.example.testingspringboot.Repository.UserRepository;
-import com.example.testingspringboot.entities.Login;
-import com.example.testingspringboot.entities.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import static java.lang.Boolean.TRUE;
-import java.util.Date;
 
 @SpringBootApplication
 public class TestingSpringBootApplication {

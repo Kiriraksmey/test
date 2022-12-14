@@ -13,7 +13,7 @@
   <div class="full">
     <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
     <div class="logo_section">
-      <a href="testindex_template.html"><img class="img-responsive" src="images/logo/logo.png" alt="#" /></a>
+      <a href="testindex_template.html"><img class="img-responsive" th:src="@{../images/logo/logo.png}" alt="#" /></a>
     </div>
     <div class="right_topbar">
       <div class="icon_info">
@@ -39,27 +39,27 @@
 </nav>
 
 <!-- jQuery -->
-<script th:src="@{/js/jquery.min.js}"></script>
-<script th:src="@{js/popper.min.js}"></script>
-<script th:src="@{js/bootstrap.min.js}"></script>
-<script th:src="@{js/animate.js}"></script>
+<script th:src="@{../js/jquery.min.js}"></script>
+<script th:src="@{../js/popper.min.js}"></script>
+<script th:src="@{../js/bootstrap.min.js}"></script>
+<script th:src="@{../js/animate.js}"></script>
 <!-- select country -->
-<script th:src="@{js/bootstrap-select.js}"></script>
+<script th:src="@{../js/bootstrap-select.js}"></script>
 <!-- owl carousel -->
-<script th:src="@{js/owl.carousel.js}"></script>
+<script th:src="@{../js/owl.carousel.js}"></script>
 <!-- chart js -->
-<script th:src="@{js/Chart.min.js}"></script>
-<script th:src="@{js/Chart.bundle.min.js}"></script>
-<script th:src="@{js/utils.js}"></script>
-<script th:src="@{js/analyser.js}"></script>
+<script th:src="@{../js/Chart.min.js}"></script>
+<script th:src="@{../js/Chart.bundle.min.js}"></script>
+<script th:src="@{../js/utils.js}"></script>
+<script th:src="@{../js/analyser.js}"></script>
 <!-- nice scrollbar -->
-<script th:src="@{js/perfect-scrollbar.min.js}"></script>
+<script th:src="@{../js/perfect-scrollbar.min.js}"></script>
 <script>
   var ps = new PerfectScrollbar('#sidebar');
 </script>
 <!-- custom js -->
-<script th:src="@{js/custom.js}"></script>
-<script th:src="@{js/chart_custom_style1.js}"></script>
+<!--<script th:src="@{js/custom.js}"></script>-->
+<!--<script th:src="@{js/chart_custom_style1.js}"></script>-->
 
 </body>
 </html>

@@ -4,12 +4,14 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
    private  int id;
     private  String name;
+    private  String firstName;
+    private  String lastName;
     private  String email;
     private   String password;
     private  boolean status;
@@ -132,6 +134,19 @@ public class User {
         return this.id==((User)obj).getId();
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 }

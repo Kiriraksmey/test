@@ -37,7 +37,7 @@ public class MainController {
         this.courseDetailService = courseDetailService;
     }
 
-    @RequestMapping("/")
+    @GetMapping("/")
     public String homePage(Model model) {
 
         model.addAttribute("courses", courseService.getAllCourse());
