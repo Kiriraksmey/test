@@ -39,15 +39,15 @@ public class LoginController {
         model.addAttribute("responseBody", responseBody);
         return "/login/index";
     }
-    @PostMapping("/login")
-    public String login(@ModelAttribute("user") Login login) {
-        Login authUser = (Login) loginService.getAllLogin(login.getName(), login.getPass());
-        if (Objects.nonNull(authUser)) {
-            return "index";
-        } else {
-            return "redirect:/system/studentList";
-        }
-    }
+//    @PostMapping("/login")
+//    public String login(@ModelAttribute("user") Login login) {
+//        Login authUser = (Login) loginService.getAllLogin(login.getName(), login.getPass());
+//        if (Objects.nonNull(authUser)) {
+//            return "index";
+//        } else {
+//            return "redirect:/system/studentList";
+//        }
+//    }
 
 
     @PostMapping("/registerUser")

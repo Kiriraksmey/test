@@ -25,6 +25,15 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 
     <![endif]-->
+    <script>
+        function validateForm() {
+            let x = document.forms["myForm"]["fname"].value;
+            if (x == "") {
+                alert("You have To fill all information");
+                return false;
+            }
+        }
+    </script>
 </head>
 <body class="inner_page login">
 <div class="full_container">
@@ -38,6 +47,7 @@
                 </div>
 
                 <div class="login_form" style="position: relative">
+
                     <div th:if="${param.error}">
                         <div class="alert alert-danger">Invalid Email or Password</div>
                     </div>
@@ -45,6 +55,7 @@
                         <div class="alert alert-success"> You have been logged out.</div>
                     </div>
                     <form action="#" th:action="@{/system/login}" th:object="${user}" method="post">
+
                         <fieldset>
                             <div class="field">
                                 <label class="label_field">Email</label>

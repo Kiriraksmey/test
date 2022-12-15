@@ -20,32 +20,13 @@ public class User {
     private String user;
     private boolean userType;
 
-
-    public User() {
-    }
-
-    public User(long id, String name,String role, String email, String password, boolean status, Date createDate, Date updateDate, String user, boolean userType) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.status = status;
-        this.createDate = createDate;
-        this.updateDate = updateDate;
-        this.user = user;
-        this.userType = userType;
-
-    }
-
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
-
-
 
     public String getName() {
         return name;
@@ -53,6 +34,22 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -109,22 +106,5 @@ public class User {
 
     public void setUserType(boolean userType) {
         this.userType = userType;
-    }
-
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 }

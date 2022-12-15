@@ -19,7 +19,13 @@
             <div class="icon_info">
                 <ul>
                     <li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
-                    <li><a href="#"><i class="fa fa-question-circle"></i></a></li>
+                    <li>
+<!--                        <a href="#"><i class="fa fa-question-circle"></i></a>-->
+                        <form th:action="@{/logout}" method="post">
+                            <input type="submit" value="Sign Out">
+                        </form>
+                    </li>
+
                     <li><a th:href="@{/}" target="_blank"><i class="fa fa-home" title="Go to home page"></i> </a></li>
                 </ul>
                 <ul class="user_profile_dd">

@@ -27,14 +27,14 @@ public class AppController {
         return "front-end/course/list";
     }
 
-//    @GetMapping("/login")
-//    public String login(Model model) {
-//        UserResponeBody responseBody = new UserResponeBody();
-//        responseBody.setErrorCode("02");
-//        responseBody.setErrorMessage("");
-//        model.addAttribute("responseBody", responseBody);
-//        return "front-end/login/login";
-//    }
+    @GetMapping("/login")
+    public String login(Model model) {
+        UserResponeBody responseBody = new UserResponeBody();
+        responseBody.setErrorCode("02");
+        responseBody.setErrorMessage("");
+        model.addAttribute("responseBody", responseBody);
+        return "frontend/login/login";
+    }
 
     @PostMapping("/login")
     public String loginPage(Model model, User user) {
@@ -44,7 +44,7 @@ public class AppController {
             responseBody.setErrorCode("01");
             responseBody.setErrorMessage("Wrong email or password !");
             model.addAttribute("responseBody", responseBody);
-            return "front-end/login/login";
+            return "frontend/login/login";
         }
         String userEnteredPasswordWithoutEncryted = user.getPassword();
         String encryptedPasswordFromDb = list.getPassword();
@@ -52,8 +52,9 @@ public class AppController {
         boolean isPasswordMatches = bcrypt.matches(userEnteredPasswordWithoutEncryted, encryptedPasswordFromDb);
         if(!isPasswordMatches){
             responseBody.setErrorCode("01");
-            responseBody.setErrorMessage("Wrong email or password !");
-            return "front-end/login/login";
+            responseBody.setErrorMessage("Wrong email or password !");   model.addAttribute("responseBody", responseBody);
+            model.addAttribute("responseBody", responseBody);
+            return "frontend/login/login";
         }
         model.addAttribute("responseBody", responseBody);
         return "redirect:/";
