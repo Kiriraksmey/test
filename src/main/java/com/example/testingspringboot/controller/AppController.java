@@ -4,6 +4,7 @@ package com.example.testingspringboot.controller;
 import com.example.testingspringboot.Repository.UserRepository;
 import com.example.testingspringboot.entities.User;
 import com.example.testingspringboot.entities.UserResponeBody;
+import com.example.testingspringboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,12 @@ public class AppController {
 
     @Autowired
     private UserRepository userRepo;
+    @Autowired
+    private final UserService userService;
+
+    public AppController(UserService userService) {
+        this.userService = userService;
+    }
 
 
     @GetMapping("/course")
@@ -65,6 +72,13 @@ public class AppController {
         model.addAttribute("user", new User());
         return "Register";
     }
+    @GetMapping ("/register_permission")
+    public String createEmploye(Model model)
+    {
+        model.addAttribute("user", new User());
+        return "frontend/register/Register";
+    }
+
 
     @PostMapping("/process_register")
     public String processRegister(User user) {
@@ -83,6 +97,11 @@ public class AppController {
         List<User> listUsers = userRepo.findAll();
         model.addAttribute("listUsers", listUsers);
 
-        return "users";
+        return "User/addUsers";
+    }
+    @GetMapping("/userList")
+    public String listEmployee(Model model) {
+        model.addAttribute("users", userService.getAllUser());
+        return "User/index";
     }
 }
