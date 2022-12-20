@@ -2,6 +2,7 @@ package com.example.testingspringboot.service.Implement;
 
 
 import com.example.testingspringboot.Repository.UserRepository;
+import com.example.testingspringboot.entities.Course;
 import com.example.testingspringboot.entities.User;
 import com.example.testingspringboot.service.UserService;
 import org.springframework.stereotype.Service;
@@ -34,17 +35,18 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User saveUser(User user) {
-        return null;
+        return userRepository.save(user);
     }
 
     @Override
     public List<User> getListUser(long id) {
-        return null;
+    return null;
     }
 
     @Override
     public User getUserById(Long id) {
-        return null;
+        User lst = userRepository.findById(id).get();
+        return  lst;
     }
 
     @Override

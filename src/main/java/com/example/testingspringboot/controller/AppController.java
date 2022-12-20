@@ -4,6 +4,8 @@ package com.example.testingspringboot.controller;
 import com.example.testingspringboot.Repository.UserRepository;
 import com.example.testingspringboot.entities.User;
 import com.example.testingspringboot.entities.UserResponeBody;
+import com.example.testingspringboot.service.CourseService;
+import com.example.testingspringboot.service.StudentService;
 import com.example.testingspringboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -11,8 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class AppController {
@@ -21,9 +22,14 @@ public class AppController {
     private UserRepository userRepo;
     @Autowired
     private final UserService userService;
-
-    public AppController(UserService userService) {
+    @Autowired
+    private  final CourseService courseService;
+    @Autowired
+    private  final StudentService studentService ;
+    public AppController(UserService userService, CourseService courseService, StudentService studentService) {
         this.userService = userService;
+        this.courseService = courseService;
+        this.studentService = studentService;
     }
 
 
@@ -72,12 +78,24 @@ public class AppController {
         model.addAttribute("user", new User());
         return "Register";
     }
-    @GetMapping ("/register_permission")
-    public String createEmploye(Model model)
-    {
-        model.addAttribute("user", new User());
-        return "frontend/register/Register";
-    }
+//    @GetMapping ("/register_permission")
+//    public String createEmploye(Model model)
+//    {
+//        model.addAttribute("courses", courseService.getAllCourse());
+//        model.addAttribute("students", studentService.getAllStudent());
+//
+//        return "frontend/register/Register";
+//    }
+//    @RequestMapping("/register_permission")
+//    public String homePage(Model model){
+//
+//        model.addAttribute("courses", courseService.getAllCourse());
+//        //return "course";
+//        model.addAttribute("students", studentService.getAllStudent());
+//
+//        return  "/frontend/register/Register";
+//    }
+
 
 
     @PostMapping("/process_register")
@@ -92,16 +110,5 @@ public class AppController {
         return "register_success";
     }
 
-    @GetMapping("/users")
-    public String listUsers(Model model) {
-        List<User> listUsers = userRepo.findAll();
-        model.addAttribute("listUsers", listUsers);
 
-        return "User/addUsers";
-    }
-    @GetMapping("/userList")
-    public String listEmployee(Model model) {
-        model.addAttribute("users", userService.getAllUser());
-        return "User/index";
-    }
 }
