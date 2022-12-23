@@ -1,6 +1,8 @@
 package com.example.testingspringboot.controller.admin;
 
 import com.example.testingspringboot.entities.Login;
+import com.example.testingspringboot.entities.User;
+import com.example.testingspringboot.entities.UserResponeBody;
 import com.example.testingspringboot.service.LoginService;
 import com.example.testingspringboot.service.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,26 +31,23 @@ public class LoginController {
         mav.addObject("user", new Login());
         return mav;
     }
-
-
     @GetMapping("/login")
-    public String index(Model model){
-
+    public String login(Model model) {
+        UserResponeBody responseBody = new UserResponeBody();
+        responseBody.setErrorCode("02");
+        responseBody.setErrorMessage("");
+        model.addAttribute("responseBody", responseBody);
         return "/login/index";
     }
-    @PostMapping("/login")
-    public String login(@ModelAttribute("user") Login login) {
-        Login authUser = (Login) loginService.getAllLogin(login.getName(), login.getPass());
-        if (Objects.nonNull(authUser)) {
-            return "index";
-        } else {
-            return "redirect:/system/studentList";
-        }
-    }
-    @GetMapping ("/register")
-    public String createEmployee(Model model) {
-        return "Register";
-    }
+//    @PostMapping("/login")
+//    public String login(@ModelAttribute("user") Login login) {
+//        Login authUser = (Login) loginService.getAllLogin(login.getName(), login.getPass());
+//        if (Objects.nonNull(authUser)) {
+//            return "index";
+//        } else {
+//            return "redirect:/system/studentList";
+//        }
+//    }
 
 
     @PostMapping("/registerUser")
@@ -61,5 +60,9 @@ public class LoginController {
     public String getTest(Model model){
 
         return "test";
+    }
+    @GetMapping("")
+    public String main(){
+        return "layout/dashboard";
     }
 }

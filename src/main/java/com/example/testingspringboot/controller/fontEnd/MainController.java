@@ -6,6 +6,7 @@ import com.example.testingspringboot.entities.CourseDetail;
 import com.example.testingspringboot.entities.CourseSearch;
 import com.example.testingspringboot.response.AjaxCourseResponseBody;
 import com.example.testingspringboot.service.*;
+import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +29,8 @@ public class MainController {
 
     private final CourseDetailService courseDetailService;
 
+
+  
     //
     public MainController(StudentService studentService, CourseService courseService, VideoService videoService, DescriptionService descriptionService, CourseDetailService courseDetailService) {
         this.studentService = studentService;
@@ -37,7 +41,7 @@ public class MainController {
         this.courseDetailService = courseDetailService;
     }
 
-    @RequestMapping("/")
+    @GetMapping("/")
     public String homePage(Model model) {
 
         model.addAttribute("courses", courseService.getAllCourse());

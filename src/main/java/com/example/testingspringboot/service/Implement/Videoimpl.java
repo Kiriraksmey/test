@@ -1,8 +1,6 @@
 package com.example.testingspringboot.service.Implement;
 
-import com.example.testingspringboot.Repository.CourseDetailRepiository;
 import com.example.testingspringboot.Repository.VideoReposiory;
-import com.example.testingspringboot.entities.Course;
 import com.example.testingspringboot.entities.Video;
 import com.example.testingspringboot.service.VideoService;
 import org.springframework.stereotype.Service;

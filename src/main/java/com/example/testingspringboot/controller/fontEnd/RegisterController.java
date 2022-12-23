@@ -25,7 +25,7 @@ public class RegisterController {
         this.courseDetailService = courseDetailService;
     }
 
-    @RequestMapping("/register")
+    @RequestMapping("/register_permission")
     public String homePage(Model model){
 
         model.addAttribute("courses", courseService.getAllCourse());
@@ -34,6 +34,8 @@ public class RegisterController {
 
         return  "/frontend/register/Register";
     }
+
+
 
 
 }

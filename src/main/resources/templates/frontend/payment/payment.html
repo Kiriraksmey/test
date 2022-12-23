@@ -16,21 +16,24 @@
 </head>
 <body>
 <section layout:fragment="content">
+  <div style="margin-left:780px"><h2>Payment Transactional</h2> </div>
   <div class="row justify-content-center">
     <div class="col-11 col-sm-9 col-md-7
 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
       <div class="px-0 pt-4 pb-0 mt-3 mb-3">
         <form id="form" style="margin-left: 130px">
+
           <ul id="progressbar">
             <li class="active" id="step1">
               <strong>Information</strong>
             </li>
             <li class="active" id="step2"><strong>Payment</strong></li>
-            <li id="step3"><strong>Sucess</strong></li>
+            <li id="step3"><strong>Sucess </strong></li>
 
           </ul>
 
         </form>
+
         <div class="form-bank" style="display: flex;flex-direction: row">
         <div class="msform">
           <!-- progressbar -->
@@ -86,6 +89,7 @@ col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
 
               <ul>
                 <span><i class="fas fa-star" style="color: #0b7dda"></i><i class="fas fa-star" style="color: #0b7dda"></i><i class="fas fa-star" style="color: #0b7dda"></i>NOTE:</span>
+                <li>Please note in description payment about your course, EX:HTML or HTML+CSS</li>
                 <li>You pay for the course according to one of the above banks. If you do not use Internet banking or
                   Mobile banking, you just need to go to the nearest bank's transaction counter to pay.</li>
                 <li>As soon as payment is received, We will email activation instructions to your email to start learning in 5-10 minutes.</li>
@@ -95,8 +99,8 @@ col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
 
             </div>
             <button type="button" class="btn btn-success"
-                    style="width: 100px; vertical-align: middle; text-align: center; align-items: center" >
-              <a style="text-decoration: none" th:href="@{/paymentsucess}">Completed</a>
+                    style="width: 175px; vertical-align: middle; text-align: center; align-items: center" >
+              <a style="text-decoration: none" th:href="@{/paymentsucess}">Payment Completed</a>
             </button>
 
 

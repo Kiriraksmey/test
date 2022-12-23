@@ -20,4 +20,6 @@ public class LoginServiceimpl implements RegisterService {
     public Login registerUser(Login user) {
         return loginRepository.save(user);
     }
+
+
 }

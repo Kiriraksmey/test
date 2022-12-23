@@ -63,7 +63,7 @@
   </style>
 
 </head>
-<body>
+<body >
 <section layout:fragment="content">
   <div class="container">
     <div class="row content">
@@ -73,20 +73,23 @@
       </div>
       <div class="col-md-6">
         <h3 class="signin-text mb-3"> Sign In</h3>
-        <form>
+        <div th:if="${responseBody.errorCode == '01'}">
+          <div class="alert alert-danger">Invalid Email or Password</div>
+        </div>
+        <form action="#" th:action="@{/login}" th:object="${user}" method="post">
           <div class="form-group">
             <label for="email">Account Name</label>
-            <input type="email" name="email" class="form-control">
+            <input type="email" name="email" id="email" class="form-control">
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" name="password" class="form-control">
+            <input type="password" name="password" id="password" class="form-control">
           </div>
           <div class="form-group form-check">
             <input type="checkbox" name="checkbox" class="form-check-input" id="checkbox">
             <label class="form-check-label" for="checkbox">Remember Me</label>
           </div>
-          <button class="btn btn-class">Login</button>
+          <button class="btn btn-class" >Login</button>
         </form>
       </div>
     </div>
@@ -96,4 +99,5 @@
 </section>
 
 </body>
+
 </html>
