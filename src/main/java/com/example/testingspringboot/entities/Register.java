@@ -14,14 +14,14 @@ public class Register {
     private  long courseId;
     private Date createDate;
 
-    @OneToMany
-    @JoinColumn(name = "course_id") // we need to duplicate the physical information
-    private Set<Course> courses;
-
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
+//    @OneToMany
+//    @JoinColumn(name = "course_id") // we need to duplicate the physical information
+//    private Set<Course> courses;
+//
+//
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "user_id", referencedColumnName = "id")
+//    private User user;
 
     public Register() {
     }

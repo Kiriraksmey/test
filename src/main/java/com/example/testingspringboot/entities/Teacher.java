@@ -14,7 +14,7 @@ public class Teacher {
     private String gender;
     private Integer age;
 
-    @Column(name="description", length=500 )
+    @Column(name="address", length=500 )
     private String address;
     private String email;
     private String maritalStatus;

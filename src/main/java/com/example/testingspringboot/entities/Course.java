@@ -36,17 +36,17 @@ public class Course {
 
    //  Relationship =====================
 
-        @OneToMany
-        @JoinColumn(name = "course_id") // we need to duplicate the physical information
-        private Set<CourseDetail> courseDetails;
-
-        @OneToMany
-        @JoinColumn(name = "teacher_id") // we need to duplicate the physical information
-        private Set<Teacher> teachers;
-
-       @OneToMany
-       @JoinColumn(name = "description_id") // we need to duplicate the physical information
-      private Set<Description> descriptions;
+//        @OneToMany
+//        @JoinColumn(name = "course_id") // we need to duplicate the physical information
+//        private Set<CourseDetail> courseDetails;
+//
+//        @OneToMany
+//        @JoinColumn(name = "teacher_id") // we need to duplicate the physical information
+//        private Set<Teacher> teachers;
+//
+//       @OneToMany
+//       @JoinColumn(name = "description_id") // we need to duplicate the physical information
+//      private Set<Description> descriptions;
 
     public Course() {
     }
@@ -65,9 +65,9 @@ public class Course {
         this.status = status;
         this.teacherId = teacherId;
         this.descriptionId = descriptionId;
-        this.courseDetails = courseDetails;
-        this.teachers = teachers;
-        this.descriptions = descriptions;
+//        this.courseDetails = courseDetails;
+//        this.teachers = teachers;
+//        this.descriptions = descriptions;
     }
 
     public long getId() {
@@ -166,27 +166,27 @@ public class Course {
         this.descriptionId = descriptionId;
     }
 
-    public Set<CourseDetail> getCourseDetails() {
-        return courseDetails;
-    }
-
-    public void setCourseDetails(Set<CourseDetail> courseDetails) {
-        this.courseDetails = courseDetails;
-    }
-
-    public Set<Teacher> getTeachers() {
-        return teachers;
-    }
-
-    public void setTeachers(Set<Teacher> teachers) {
-        this.teachers = teachers;
-    }
-
-    public Set<Description> getDescriptions() {
-        return descriptions;
-    }
-
-    public void setDescriptions(Set<Description> descriptions) {
-        this.descriptions = descriptions;
-    }
+//    public Set<CourseDetail> getCourseDetails() {
+//        return courseDetails;
+//    }
+//
+//    public void setCourseDetails(Set<CourseDetail> courseDetails) {
+//        this.courseDetails = courseDetails;
+//    }
+//
+//    public Set<Teacher> getTeachers() {
+//        return teachers;
+//    }
+//
+//    public void setTeachers(Set<Teacher> teachers) {
+//        this.teachers = teachers;
+//    }
+//
+//    public Set<Description> getDescriptions() {
+//        return descriptions;
+//    }
+//
+//    public void setDescriptions(Set<Description> descriptions) {
+//        this.descriptions = descriptions;
+//    }
 }
