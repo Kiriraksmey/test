@@ -52,34 +52,7 @@ public class MainController {
     }
 
 
-    @PostMapping("/getCourseTotalPrice")
-    public ResponseEntity<?> getSearchResultViaAjax(@Validated @RequestBody CourseSearch courseSearch, Errors errors) {
-        Double amount = 0D;
-        List arrCourseId = courseSearch.getCourseId();
-        List<Long> cID = new ArrayList<>();
-        AjaxCourseResponseBody result = new AjaxCourseResponseBody();
 
-        if(arrCourseId == null){
-            result.setMessage("No course to select ");
-            result.setAmount(0D);
-            return ResponseEntity.ok(result);
-        }
-        if (arrCourseId.size() > 0) {
-            for (int i = 0; i < arrCourseId.size(); i++) {
-                cID.add(Long.parseLong((String) arrCourseId.get(i)));
-            }
-            amount = courseDetailService.getTotalPriceCourse(cID);
-        }
-        if (errors.hasErrors()) {
-            result.setMessage("Not found 404 ");
-            return ResponseEntity.badRequest().body(result);
-        }
-
-        result.setAmount(amount);
-        //If error, just return a 400 bad request, along with the error message
-        result.setMessage("success");
-        return ResponseEntity.ok(result);
-    }
 
     @RequestMapping("/viewCourseDetailDOC/{id}")
     public String viewDetailDOC(Model model, @PathVariable Long id) {

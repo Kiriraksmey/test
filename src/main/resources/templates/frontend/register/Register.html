@@ -7,8 +7,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
+    <meta th:name="_csrf" th:content="${_csrf.token}"/>
+    <meta th:name="_csrf_header" th:content="${_csrf.headerName}"/>
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>ZenBlog Bootstrap Template - Index</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
@@ -58,7 +61,6 @@
         }
 
 
-
     </style>
 </head>
 <body>
@@ -86,9 +88,6 @@ col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
                                     </ul>
 
 
-
-
-
                                 </form>
                             </div>
                         </div>
@@ -107,6 +106,7 @@ col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
                             <h2 class="fs-title">Admission Information</h2>
                             <h3 class="fs-subtitle">This is step 1</h3>
                             <input type="text" name="email" placeholder="Name"/>
+                            <input type="password" name="cpass" placeholder="Password"/>
                             <input type="password" name="pass" placeholder="Email"/>
                             <input type="password" name="cpass" placeholder="Phone Number"/>
                         </fieldset>
@@ -138,9 +138,9 @@ col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
 
                 <!--                <button  class="btn btn-primary" name="btn_submit" >Submit</button>-->
                 <div class="container bg-light" style="margin-top:10px ">
-                    <div class="col-lg-12 text-center"  >
+                    <div class="col-lg-12 text-center">
                         <button type="button" class="btn btn-success"
-                                style="width: 100px; vertical-align: middle; text-align: center; align-items: center" >
+                                style="width: 100px; vertical-align: middle; text-align: center; align-items: center">
                             <a style="text-decoration: none" th:href="@{/payment}">Submit</a>
                         </button>
                     </div>
@@ -171,46 +171,109 @@ col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
 
 
         $("#course_id").change(function (e) {
-            // var course_id = $(this).val();
+
             var data = {};
             data["courseId"] = $(this).val();
             console.log(data);
+            var token = $("meta[name='_csrf']").attr("content");
+            var header = $("meta[name='_csrf_header']").attr("content");
             $.ajax({
                 type: "POST",
                 contentType: "application/json",
-                url: "/getCourseTotalPrice",
+                url: "/api/getCourseTotalPrice",
+                beforeSend: function(xhr) {
+                    xhr.setRequestHeader(header, token)
+                },
                 data: JSON.stringify(data),
-                //  data : {
-                //      "id" : course_id
-                //  },
+
                 dataType: 'json',
                 cache: false,
                 timeout: 600000,
                 success: function (data) {
 
-                    // var json = "<h4>Ajax Response</h4>&lt;pre&gt;"
-                    //     + JSON.stringify(data, null, 4) + "&lt;/pre&gt;";
-                    // $('#feedback').html(json);
                     $("#totalPrice").val(data.amount);
-                    console.log("logs : ", data);
-                    // $("#btn-search").prop("disabled", false);
-
                 },
                 error: function (e) {
-
-                    var json = "<h4>Ajax Response</h4>&lt;pre&gt;"
-                        + e.responseText + "&lt;/pre&gt;";
-                    $('#feedback').html(json);
-
                     console.log("ERROR : ", e);
                     $("#btn-search").prop("disabled", false);
 
                 }
             });
 
-
         });
 
+
+        // function voteViaAjax() {
+        //     var vote = {"courseId" : $(this).val()};
+        //     var token = $("meta[name='_csrf']").attr("content");
+        //     var header = $("meta[name='_csrf_header']").attr("content");
+        //
+        //     $.ajax({
+        //         type : "POST",
+        //         contentType : "application/json",
+        //         beforeSend: function(xhr) {
+        //             xhr.setRequestHeader(header, token)
+        //         },
+        //         url : "/api/getCourseTotalPrices",
+        //         data : JSON.stringify(vote),
+        //         dataType : 'json',
+        //         timeout : 100000,
+        //         success : function(data) {
+        //             console.log("SUCCESS: ", data);
+        //             $('#info').html(data);
+        //         },
+        //         error : function(e) {
+        //             console.log("ERROR: ", e);
+        //
+        //         },
+        //         done : function(e) {
+        //             console.log("DONE");
+        //         }
+        //     });
+
+
+        /*
+                $("#course_id").change(function (e) {
+                    // var course_id = $(this).val();
+                    var data = {};
+                    data["courseId"] = $(this).val();
+                    console.log(data);
+                    $.ajax({
+
+
+                        type: "DELETE",
+                        contentType: "application/json",
+                        url: "/api/getCourseTotalPrices",
+                        data: JSON.stringify(data),
+                         // data : {
+                         //     "courseIdStr" : $(this).val()
+                         // },
+                        dataType: 'json',
+                        cache: false,
+                        timeout: 600000,
+                        success: function (data) {
+
+                            // var json = "<h4>Ajax Response</h4>&lt;pre&gt;"
+                            //     + JSON.stringify(data, null, 4) + "&lt;/pre&gt;";
+                            // $('#feedback').html(json);
+                            $("#totalPrice").val(data.amount);
+                            console.log("logs : ", data);
+                            // $("#btn-search").prop("disabled", false);
+
+                        },
+                        error: function (e) {
+                            var json = "<h4>Ajax Response</h4>&lt;pre&gt;"
+                                + e.responseText + "&lt;/pre&gt;";
+                            $('#feedback').html(json);
+
+                            console.log("ERROR : ", e);
+                            $("#btn-search").prop("disabled", false);
+
+                        }
+                    });
+
+                });
+        */
         // function getCourse(e){
         //     // var val = $(e).val();
         //     console.log(e);
@@ -238,17 +301,6 @@ col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
             width: null
         })
         /////////////
-
-
-
-
-
-
-
-
-
-
-
 
 
     </script>
