@@ -10,17 +10,19 @@ public class PaymentUser {
     private Long id;
     private String userName;
     private String email;
+    private String password;
     private  long phoneNumber;
     private long transactionId;
     private  long CourseId;
     private  Double TotalPrice;
 
-    public PaymentUser(Long id, String userName, String email, long phoneNumber, long transactionId, long courseId, Double totalPrice) {
+    public PaymentUser(Long id, String userName, String email,String password, long phoneNumber, long transactionId, long courseId, Double totalPrice) {
         this.id = id;
         this.userName = userName;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.transactionId= transactionId;
+        this.password=password;
         CourseId = courseId;
         TotalPrice = totalPrice;
     }
@@ -83,5 +85,21 @@ public class PaymentUser {
 
     public void setTotalPrice(Double totalPrice) {
         TotalPrice = totalPrice;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public long getTransactionId() {
+        return transactionId;
+    }
+
+    public void setTransactionId(long transactionId) {
+        this.transactionId = transactionId;
     }
 }
