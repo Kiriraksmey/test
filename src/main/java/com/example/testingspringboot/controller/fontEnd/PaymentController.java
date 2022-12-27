@@ -32,9 +32,16 @@ public class PaymentController {
         model.addAttribute("payments", paymentUserService.getAllPaymentUser());
         return "frontend/payment/payment";
     }
-    @PostMapping("/savePaymentUser")
-    public String saveEmploye(@ModelAttribute("payment") PaymentUser paymentUser) {
+//    @PostMapping("/savePaymentUser")
+//    public String saveEmploye(@ModelAttribute("payment") PaymentUser paymentUser) {
+//        paymentUserService.savePaymentUser(paymentUser);
+//        return "redirect:/frontend/payment/payment";
+//    }
+    @PostMapping("/savePaymentRegister")
+    public String saveEmploy(@ModelAttribute("payments") PaymentUser paymentUser) {
+        String a = "sd";
         paymentUserService.savePaymentUser(paymentUser);
-        return "redirect:/frontend/payment/payment";
+        return "redirect:/payment";
     }
+
 }

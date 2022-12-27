@@ -37,13 +37,11 @@ public class RegisterController {
 
         return  "frontend/register/Register";
     }
-    @PostMapping("/savePayment")
-    public String saveEmploye(@ModelAttribute("payment") PaymentUser paymentUser) {
-        paymentUserService.savePaymentUser(paymentUser);
-        return "redirect:/frontend/register/Register";
-    }
-
-
+//    @PostMapping("/savePayment")
+//    public String saveEmploye(@ModelAttribute("payment") PaymentUser paymentUser) {
+//        paymentUserService.savePaymentUser(paymentUser);
+//        return "redirect:/payment";
+//    }
 
 
 }
