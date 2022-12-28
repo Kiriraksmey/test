@@ -19,7 +19,7 @@
 
   <hr/>
   <a th:href="@{/system/create-video}" class="btn btn-primary" style="">Add Video</a>
-  <form th:action="@{/system/VideoList}" th:object="${search}" method="POST" style="position: relative">
+  <form th:action="@{/system/videoList}" th:object="${videos}" method="POST" style="position: relative">
     <input type="text" class="form-control " style="width: 500px; position: absolute;top: -33px;left: 300px"
            name="keyword" id="keyword" size="50" th:value="${keyword}" required/>
     <input type="submit" value="Search" style="position: absolute;top: -33px;left: 820px" class="btn btn-primary"/>
@@ -48,15 +48,16 @@
       <th>Action</th>
     </tr>
     </thead>
-    <tbody th:if="${videos != null}">
+
+
     <tr th:each="video: ${videos}">
       <td th:text="${video.createDate}"/>
-      <td th:text="${video?.updateDate}"/>
-      <td th:text="${video?.description}"/>
-      <td th:text="${video?.link}"/>
-      <td th:text="${video?.name}"/>
-      <td th:text="${video?.user}"/>
-      <td th:text="${video?.courseDetailId}"/>
+      <td th:text="${video.updateDate}"/>
+      <td th:text="${video.description}"/>
+      <td th:text="${video.link}"/>
+      <td th:text="${video.name}"/>
+    <td th:text="${video.user}"/>
+    <td th:text="${video.courseDetailId}"/>
 
 
 
@@ -64,12 +65,12 @@
       <td>
         <!--                    <a th:href="@{/editEmployee/{student_id}(student_id=${student.id})}" class="btn btn-info">Update</a>-->
         <a class="btn  btn-info btn-sm"
-           th:href="@{/system/editCourse/{id}(id=${course.id})}">Update</a>
+           th:href="@{/system/editVideo/{id}(id=${video.id})}">Update</a>
 
-        <a th:href="@{/system/deletecourse/{id}(id=${course.id})}" class="btn btn-danger ml-2">Delete</a>
+        <a th:href="@{/system/deleteVideo/{id}(id=${video.id})}" class="btn btn-danger ml-2">Delete</a>
       </td>
     </tr>
-    </tbody>
+
   </table>
   </section>
 

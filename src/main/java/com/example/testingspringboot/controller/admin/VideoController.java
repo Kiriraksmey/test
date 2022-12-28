@@ -1,6 +1,5 @@
 package com.example.testingspringboot.controller.admin;
 
-import com.example.testingspringboot.entities.Course;
 import com.example.testingspringboot.entities.Video;
 import com.example.testingspringboot.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +22,9 @@ public class VideoController {
     public String listVideo(Model model) {
         List list = videoService.getAllVideo();
         model.addAttribute("videos", videoService.getAllVideo());
-        return "video";
+        return "frontend/Video/video";
     }
+
     @GetMapping("/deletevideo/{id}")
     public String deleteVideo(@PathVariable Long id) {
         videoService.deleteVideo(id);
@@ -33,18 +33,18 @@ public class VideoController {
 
     @GetMapping("/create-video")
     public String createEmployee(Model model) {
-        return "Create";
+        return null;
     }
 
     @PostMapping("/saveVideo")
-    public String saveEmploye(@ModelAttribute("video") Video video) {
+    public String saveEmploye(@ModelAttribute("videos") Video video) {
         videoService.saveVideo(video);
         return "redirect:/system/videoList";
     }
 
     @GetMapping("editVideo/{id}")
     public String editStudent(@PathVariable Long id, Model model) {
-        model.addAttribute("course", videoService.getVideoById(id));
+        model.addAttribute("videos", videoService.getVideoById(id));
         return "employee/edit";
 
     }

@@ -2,9 +2,11 @@ package com.example.testingspringboot.controller.admin;
 
 import com.example.testingspringboot.Repository.UserRepository;
 import com.example.testingspringboot.entities.CourseDetail;
+import com.example.testingspringboot.entities.Student;
 import com.example.testingspringboot.entities.User;
 import com.example.testingspringboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -22,18 +24,20 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
-    @GetMapping("/users")
-    public String listUsers(Model model) {
-        List<User> listUsers = userRepo.findAll();
-        model.addAttribute("listUsers", listUsers);
-
-        return "User/addUsers";
-    }
+//    @GetMapping("/users")
+//    public String listUsers(Model model) {
+//        List<User> listUsers = userRepo.findAll();
+//        model.addAttribute("listUsers", listUsers);
+//
+//        return "User/addUsers";
+//    }
     @GetMapping("/userList")
     public String listEmployee(Model model) {
+        List list = userService.getAllUser();
         model.addAttribute("users", userService.getAllUser());
         return "User/index";
     }
+
     @GetMapping("/deletecUser/{id}")
     public String deleteStudent(@PathVariable Long id) {
         userService.deleteUser(id);
@@ -57,6 +61,7 @@ public class UserController {
 
     }
 
+
 //    @GetMapping("editCourseDetail/{id}")
 //    public String editStudent(@PathVariable Long id, Model model) {
 //        model.addAttribute("course", courseDetailService.getCourseDetailbyID(id));
@@ -70,4 +75,6 @@ public class UserController {
         return "redirect:/system/userList";
 
     }
+
+
 }

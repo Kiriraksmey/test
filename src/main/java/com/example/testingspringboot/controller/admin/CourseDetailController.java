@@ -1,10 +1,7 @@
 package com.example.testingspringboot.controller.admin;
 
-import com.example.testingspringboot.entities.Course;
 import com.example.testingspringboot.entities.CourseDetail;
-import com.example.testingspringboot.entities.Student;
 import com.example.testingspringboot.service.CourseDetailService;
-import com.example.testingspringboot.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
@@ -28,7 +25,7 @@ public class CourseDetailController {
     public String listEmployee(Model model) {
         List list = courseDetailService.getAllCourseDetail();
         model.addAttribute("courseDetails", courseDetailService.getAllCourseDetail());
-        return "courseDetail";
+        return "courseDetail/courseDetail";
     }
 
     @PostMapping("/courseDetailList")
@@ -51,7 +48,7 @@ public class CourseDetailController {
         return "courseDetail/courseDetailCreate";
     }
 
-    @PostMapping("/saveCourseDetail/{id}")
+    @PostMapping("/saveCourseDetail")
     public String saveEmploye(@ModelAttribute("courseDetail") CourseDetail courseDetail) {
         courseDetailService.saveCourseDetail(courseDetail);
         return "redirect:/system/courseDetailList";
