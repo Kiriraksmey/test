@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 public class AppController {
 
@@ -50,7 +52,7 @@ public class AppController {
     }
 
     @PostMapping("/login")
-    public String loginPage(Model model, User user) {
+    public String loginPage(Model model, User user, HttpServletRequest request) {
         UserResponeBody responseBody = new UserResponeBody();
         User list = userRepo.findUserByEmail(user.getEmail());
         if (list == null) {
@@ -67,6 +69,9 @@ public class AppController {
             responseBody.setErrorCode("01");
             responseBody.setErrorMessage("Wrong email or password !");   model.addAttribute("responseBody", responseBody);
             model.addAttribute("responseBody", responseBody);
+
+
+            request.getSession().setAttribute("username", list.getName());
             return "frontend/login/login";
         }
         model.addAttribute("responseBody", responseBody);

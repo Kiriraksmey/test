@@ -11,7 +11,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -41,8 +43,11 @@ public class PaymentController {
     public String listEmployee(Model model) {
         List list = paymentUserService.getAllPaymentUser();
         model.addAttribute("payments", paymentUserService.getAllPaymentUser());
+
         return "frontend/payment/payment";
     }
+
+
 //    @PostMapping("/savePaymentUser")
 //    public String saveEmploye(@ModelAttribute("payment") PaymentUser paymentUser) {
 //        paymentUserService.savePaymentUser(paymentUser);
