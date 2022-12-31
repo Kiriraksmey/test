@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -39,20 +40,14 @@ public class MainController {
     }
 
     @GetMapping("/")
-    public String homePage(Model model,  HttpServletRequest request) {
-
-        HttpSession session = httpSessionFactory.getObject();
-         String notes = (String) request.getSession().getAttribute("username");
-        String obj = (String) session.getAttribute("name");
-        final String currentUserName = SecurityContextHolder.getContext().getAuthentication().getName();
-        
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-        if (principal instanceof UserDetails) {
-            String username = ((UserDetails)principal).getUsername();
-        } else {
-            String username = principal.toString();
+    public String homePage(Model model,  HttpSession session) {
+        @SuppressWarnings("unchecked")
+        List<String> messages = (List<String>) session.getAttribute("MY_SESSION_MESSAGES");
+        if (messages == null) {
+            messages = new ArrayList<>();
         }
+        model.addAttribute("sessionMessages", messages);
+
 
         model.addAttribute("courses", courseService.getAllCourse());
         //return "course";

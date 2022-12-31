@@ -1,6 +1,10 @@
 package com.example.testingspringboot.entities;
 
+
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,8 +14,11 @@ public class PaymentUser {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
+
     private String userName;
+    @Column(name="email", unique=true)
     private String email;
+
     private String password;
     private  String phoneNumber;
     private long transactionId;

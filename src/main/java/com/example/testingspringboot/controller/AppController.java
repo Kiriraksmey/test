@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class AppController {
@@ -53,6 +55,7 @@ public class AppController {
 
     @PostMapping("/login")
     public String loginPage(Model model, User user, HttpServletRequest request) {
+        @SuppressWarnings("unchecked")
         UserResponeBody responseBody = new UserResponeBody();
         User list = userRepo.findUserByEmail(user.getEmail());
         if (list == null) {
@@ -74,6 +77,14 @@ public class AppController {
             request.getSession().setAttribute("username", list.getName());
             return "frontend/login/login";
         }
+
+        List<String> messages = (List<String>) request.getSession().getAttribute("MY_SESSION_MESSAGES");
+        if (messages == null) {
+            messages = new ArrayList<>();
+            request.getSession().setAttribute("MY_SESSION_MESSAGES", messages);
+        }
+        messages.add(list.getName());
+        request.getSession().setAttribute("MY_SESSION_MESSAGES", messages);
         model.addAttribute("responseBody", responseBody);
         return "redirect:/";
     }

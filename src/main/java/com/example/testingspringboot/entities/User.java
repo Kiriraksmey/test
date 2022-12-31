@@ -12,7 +12,9 @@ public class User {
     private  String name;
     private  String firstName;
     private  String lastName;
+    @Column(name="email", unique=true)
     private  String email;
+
     private   String password;
     private  boolean status;
     private  Date createDate;

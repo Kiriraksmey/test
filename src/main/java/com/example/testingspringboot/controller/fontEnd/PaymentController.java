@@ -6,34 +6,47 @@ import com.example.testingspringboot.Repository.UserRepository;
 import com.example.testingspringboot.entities.*;
 import com.example.testingspringboot.service.CourseService;
 import com.example.testingspringboot.service.PaymentUserService;
+
+import com.example.testingspringboot.validator.PaymentUserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-public class PaymentController {
+public class PaymentController implements WebMvcConfigurer {
     @Autowired
     private final PaymentUserService paymentUserService;
     private final UserRepository userRepository;
     private final CourseService courseService;
     private final PaymentUserRepository paymentUserRepository;
+
+    private final PaymentUserValidator paymentUserValidator;
+//    private final UserValidator userValidator;
     @Autowired
     private PaymentUserDetailsRepository paymentUserDetailsRepository;
 
-    public PaymentController(PaymentUserService paymentUserService, UserRepository userRepository, CourseService courseService, PaymentUserRepository paymentUserRepository) {
+    public PaymentController(PaymentUserService paymentUserService, UserRepository userRepository, CourseService courseService, PaymentUserRepository paymentUserRepository, PaymentUserValidator paymentUserValidator) {
         this.paymentUserService = paymentUserService;
         this.userRepository = userRepository;
         this.courseService = courseService;
         this.paymentUserRepository = paymentUserRepository;
+//        this.userValidator = userValidator;
+        this.paymentUserValidator = paymentUserValidator;
     }
-
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/results").setViewName("results");
+    }
 
     @GetMapping("/paymentsucess")
     public String createEmploye(Model model) {
@@ -61,7 +74,18 @@ public class PaymentController {
 //    }
 
     @PostMapping("/savePaymentRegister")
-    public String processRegister(PaymentUser paymentUser) {
+    public String processRegister(@Valid PaymentUser paymentUser, BindingResult bindingResult, Model model) {
+    // validation user ============================
+        UserResponeBody responseBody = new UserResponeBody();
+//        userValidator.validate(paymentUser,bindingResult);
+        boolean checkEmail =  paymentUserValidator.isValid(paymentUser.getEmail());
+        if (checkEmail) {
+            responseBody.setErrorCode("01");
+            responseBody.setErrorMessage("Error ");
+            model.addAttribute("responseBody", responseBody);
+            model.addAttribute("courses", courseService.getAllCourse());
+            return  "frontend/register/Register";
+        }
         User user = new User();
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(paymentUser.getPassword());

@@ -87,6 +87,9 @@ col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
                         <!--                        <li>Personal Details</li>-->
                         <!--                    </ul>-->
                         <!-- fieldsets -->
+                        <div th:if="${responseBody.errorCode == '01'}">
+                            <div class="alert alert-danger">Email is already exists, Please try another email.</div>
+                        </div>
                         <form th:action="@{/savePaymentRegister}" th:object="${PaymentUser}" method="POST" >
                             <h2 class="fs-title">Admission Information</h2>
 
