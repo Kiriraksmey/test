@@ -28,7 +28,7 @@ public class CourseDetailimpl implements CourseDetailService {
 
     @Override
     public CourseDetail saveCourseDetail(CourseDetail courseDetail) {
-        return null;
+        return courseDetailRepository.save(courseDetail);
     }
 
     @Override
@@ -42,7 +42,7 @@ public class CourseDetailimpl implements CourseDetailService {
 
     @Override
     public CourseDetail editCourseDetail(CourseDetail courseDetail) {
-        return null;
+        return courseDetailRepository.save(courseDetail);
     }
 
     @Override

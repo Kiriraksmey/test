@@ -1,6 +1,7 @@
 package com.example.testingspringboot.controller.fontEnd;
 
 import com.example.testingspringboot.entities.PaymentUser;
+import com.example.testingspringboot.entities.UserResponeBody;
 import com.example.testingspringboot.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,7 +30,10 @@ public class RegisterController {
 
     @RequestMapping("/register_permission")
     public String homePage(Model model){
-
+        UserResponeBody responseBody = new UserResponeBody();
+        responseBody.setErrorCode("00");
+        responseBody.setErrorMessage("Error ");
+        model.addAttribute("responseBody", responseBody);
         model.addAttribute("courses", courseService.getAllCourse());
         //return "course";
         model.addAttribute("students", studentService.getAllStudent());

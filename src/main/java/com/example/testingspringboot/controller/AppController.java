@@ -7,6 +7,7 @@ import com.example.testingspringboot.entities.UserResponeBody;
 import com.example.testingspringboot.service.CourseService;
 import com.example.testingspringboot.service.StudentService;
 import com.example.testingspringboot.service.UserService;
+import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class AppController {
@@ -23,13 +29,22 @@ public class AppController {
     @Autowired
     private final UserService userService;
     @Autowired
-    private  final CourseService courseService;
+    private final CourseService courseService;
     @Autowired
-    private  final StudentService studentService ;
+    private final StudentService studentService;
+
+    @Autowired
+    ObjectFactory<HttpSession> httpSessionFactory;
+
     public AppController(UserService userService, CourseService courseService, StudentService studentService) {
         this.userService = userService;
         this.courseService = courseService;
         this.studentService = studentService;
+    }
+
+    public User getSession() {
+        HttpSession session = httpSessionFactory.getObject();
+        return (User) session.getAttribute("userSession");
     }
 
 
@@ -38,6 +53,14 @@ public class AppController {
 //        model.addAttribute("user", new User());
 
         return "front-end/course/list";
+    }
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
+        return "redirect:/";  //Where you go after logout here.
     }
 
     @GetMapping("/login")
@@ -51,6 +74,9 @@ public class AppController {
 
     @PostMapping("/login")
     public String loginPage(Model model, User user) {
+
+        HttpSession session = httpSessionFactory.getObject();
+
         UserResponeBody responseBody = new UserResponeBody();
         User list = userRepo.findUserByEmail(user.getEmail());
         if (list == null) {
@@ -63,39 +89,34 @@ public class AppController {
         String encryptedPasswordFromDb = list.getPassword();
         BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
         boolean isPasswordMatches = bcrypt.matches(userEnteredPasswordWithoutEncryted, encryptedPasswordFromDb);
-        if(!isPasswordMatches){
+        if (!isPasswordMatches) {
             responseBody.setErrorCode("01");
-            responseBody.setErrorMessage("Wrong email or password !");   model.addAttribute("responseBody", responseBody);
+            responseBody.setErrorMessage("Wrong email or password !");
+            model.addAttribute("responseBody", responseBody);
             model.addAttribute("responseBody", responseBody);
             return "frontend/login/login";
         }
+        session.setAttribute("userSession", list);
+        session.setAttribute("name", list.getName());
         model.addAttribute("responseBody", responseBody);
         return "redirect:/";
     }
-    @GetMapping ("/register")
-    public String createEmployee(Model model)
-    {
+
+    @GetMapping("/register")
+    public String createEmployee(Model model) {
         model.addAttribute("user", new User());
         return "Register";
     }
-//    @GetMapping ("/register_permission")
-//    public String createEmploye(Model model)
-//    {
-//        model.addAttribute("courses", courseService.getAllCourse());
-//        model.addAttribute("students", studentService.getAllStudent());
-//
-//        return "frontend/register/Register";
-//    }
-//    @RequestMapping("/register_permission")
-//    public String homePage(Model model){
-//
-//        model.addAttribute("courses", courseService.getAllCourse());
-//        //return "course";
-//        model.addAttribute("students", studentService.getAllStudent());
-//
-//        return  "/frontend/register/Register";
-//    }
 
+    @GetMapping("/testSession")
+    public String testSession(Model model) {
+
+        HttpSession session = httpSessionFactory.getObject();
+        User userName = (User) session.getAttribute("userName");
+
+        model.addAttribute("user", new User());
+        return "Register";
+    }
 
 
     @PostMapping("/process_register")

@@ -1,20 +1,17 @@
 package com.example.testingspringboot.controller.fontEnd;
 
 
-import com.example.testingspringboot.entities.Course;
 import com.example.testingspringboot.entities.CourseDetail;
-import com.example.testingspringboot.entities.CourseSearch;
-import com.example.testingspringboot.response.AjaxCourseResponseBody;
 import com.example.testingspringboot.service.*;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,21 +25,29 @@ public class MainController {
     private final DescriptionService descriptionService;
 
     private final CourseDetailService courseDetailService;
-
+    private final ObjectFactory<HttpSession> httpSessionFactory;
 
   
     //
-    public MainController(StudentService studentService, CourseService courseService, VideoService videoService, DescriptionService descriptionService, CourseDetailService courseDetailService) {
+    public MainController(StudentService studentService, CourseService courseService, VideoService videoService, DescriptionService descriptionService, CourseDetailService courseDetailService, ObjectFactory<HttpSession> httpSessionFactory) {
         this.studentService = studentService;
 
         this.courseService = courseService;
         this.videoService = videoService;
         this.descriptionService = descriptionService;
         this.courseDetailService = courseDetailService;
+        this.httpSessionFactory = httpSessionFactory;
     }
 
     @GetMapping("/")
-    public String homePage(Model model) {
+    public String homePage(Model model,  HttpSession session) {
+        @SuppressWarnings("unchecked")
+        List<String> messages = (List<String>) session.getAttribute("MY_SESSION_MESSAGES");
+        if (messages == null) {
+            messages = new ArrayList<>();
+        }
+        model.addAttribute("sessionMessages", messages);
+
 
         model.addAttribute("courses", courseService.getAllCourse());
         //return "course";

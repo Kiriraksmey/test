@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getListUser(long id) {
-    return null;
+    return userRepository.findAll();
     }
 
     @Override

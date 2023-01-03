@@ -9,11 +9,21 @@
           href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
           crossorigin="anonymous" />
+
+    <!--    <script>-->
+    <!--        function validateForm() {-->
+    <!--            let x = document.forms["myForm"]["fname"].value;-->
+    <!--            if (x == "") {-->
+    <!--                alert("You have To fill all information");-->
+    <!--                return false;-->
+    <!--            }-->
+    <!--        }-->
+    <!--    </script>-->
 </head>
 <section layout:fragment="content">
 
 
-    <fieldset class="form-group border p-3">
+
         <legend class="w-auto px-2">Edit Student</legend>
         <form th:action="@{/system/updateStudent/{id}(id=${student.id})}" th:object="${student}" method="POST">
 
@@ -49,7 +59,7 @@
                 </div>
             </div>
         </form>
-    </fieldset>
+
 
 </section>
 

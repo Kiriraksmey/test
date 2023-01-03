@@ -6,6 +6,8 @@
       layout:decorate="~{layout-frontend/frontend-layout}">
 
 <head>
+  <meta th:name="_csrf" th:content="${_csrf.token}"/>
+  <meta th:name="_csrf_header" th:content="${_csrf.headerName}"/>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
     body{
@@ -76,7 +78,7 @@
         <div th:if="${responseBody.errorCode == '01'}">
           <div class="alert alert-danger">Invalid Email or Password</div>
         </div>
-        <form action="#" th:action="@{/login}" th:object="${user}" method="post">
+        <form th:action="@{/login}" th:object="${User}" method="POST" >
           <div class="form-group">
             <label for="email">Account Name</label>
             <input type="email" name="email" id="email" class="form-control">

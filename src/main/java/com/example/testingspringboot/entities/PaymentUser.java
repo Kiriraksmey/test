@@ -1,6 +1,10 @@
 package com.example.testingspringboot.entities;
 
+
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "payment_user")
@@ -8,27 +12,31 @@ public class PaymentUser {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
-    private String userName;
-    private String email;
-    private String password;
-    private  long phoneNumber;
-    private long transactionId;
-    private  long CourseId;
-    private  Double TotalPrice;
 
-    public PaymentUser(Long id, String userName, String email,String password, long phoneNumber, long transactionId, long courseId, Double totalPrice) {
+    private String userName;
+    @Column(name="email", unique=true)
+    private String email;
+
+    private String password;
+    private  String phoneNumber;
+    private long transactionId;
+
+    @ElementCollection
+    private List<String> courseId;
+
+    private  Double totalPrice;
+    public PaymentUser() {
+
+    }
+    public PaymentUser(Long id, String userName, String email, String password, String phoneNumber, long transactionId, List<String> coursId, Double totalPrice) {
         this.id = id;
         this.userName = userName;
         this.email = email;
+        this.password = password;
         this.phoneNumber = phoneNumber;
-        this.transactionId= transactionId;
-        this.password=password;
-        CourseId = courseId;
-        TotalPrice = totalPrice;
-    }
-
-    public PaymentUser() {
-
+        this.transactionId = transactionId;
+        this.courseId = courseId;
+        this.totalPrice = totalPrice;
     }
 
     public Long getId() {
@@ -55,38 +63,6 @@ public class PaymentUser {
         this.email = email;
     }
 
-    public long getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(long phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public long getCodePayment() {
-        return transactionId;
-    }
-
-    public void setCodePayment(long codePayment) {
-        this.transactionId = codePayment;
-    }
-
-    public long getCourseId() {
-        return CourseId;
-    }
-
-    public void setCourseId(long courseId) {
-        CourseId = courseId;
-    }
-
-    public Double getTotalPrice() {
-        return TotalPrice;
-    }
-
-    public void setTotalPrice(Double totalPrice) {
-        TotalPrice = totalPrice;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -95,11 +71,35 @@ public class PaymentUser {
         this.password = password;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     public long getTransactionId() {
         return transactionId;
     }
 
     public void setTransactionId(long transactionId) {
         this.transactionId = transactionId;
+    }
+
+    public List<String> getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(List<String> courseId) {
+        this.courseId = courseId;
+    }
+
+    public Double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(Double totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }

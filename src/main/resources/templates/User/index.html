@@ -12,15 +12,15 @@
 
 </head>
 <section layout:fragment="content">
-    <h3>List Students</h3>
+    <h3>List User</h3>
 
-    <hr/>
-    <a th:href="@{/system/create-employee}" class="btn btn-primary" style="">Add Student</a>
-    <form th:action="@{/system/studentList}" th:object="${users}" method="POST"  style="position: relative" >
-        <input type="text" class="form-control " style="width: 500px; position: absolute;top: -33px;left: 300px" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
-        <input type="submit" value="Search"  style="position: absolute;top: -33px;left: 820px" class="btn btn-primary"/>
-        <a  th:href="@{/system/studentList}" value="Clear" id="btnClear"  class="btn btn-primary"  style="position: absolute;top: -33px;left: 890px" >Clear</a>
-    </form>
+<!--    <hr/>-->
+<!--    <a th:href="@{/system/create-User}" class="btn btn-primary" style="">Add Student</a>-->
+<!--    <form th:action="@{/system/userList}" th:object="${users}" method="POST"  style="position: relative" >-->
+<!--        <input type="text" class="form-control " style="width: 500px; position: absolute;top: -33px;left: 300px" name="keyword" id="keyword" size="50" th:value="${keyword}" required />-->
+<!--        <input type="submit" value="Search"  style="position: absolute;top: -33px;left: 820px" class="btn btn-primary"/>-->
+<!--        <a  th:href="@{/system/userList}" value="Clear" id="btnClear"  class="btn btn-primary"  style="position: absolute;top: -33px;left: 890px" >Clear</a>-->
+<!--    </form>-->
 
     <!--    <div class="col-md-6 col-lg-6  col-sm-12" style="position: relative">-->
     <!--        <div th:action="@{/search}" class="form-group" style="position: absolute;top: -34px;right: 100px">-->
@@ -51,9 +51,9 @@
             <td>
                 <!--                    <a th:href="@{/editEmployee/{student_id}(student_id=${student.id})}" class="btn btn-info">Update</a>-->
                 <a class="btn  btn-info btn-sm"
-                   th:href="@{/system/editUser/{id}(id=${users.id})}">Update</a>
+                   th:href="@{/system/editUser/{id}(id=${user.id})}">Update</a>
 
-                <a th:href="@{/system/deletecUser/{id}(id=${users.id})}" class="btn btn-danger ml-2">Delete</a>
+                <a th:href="@{/system/deletecUser/{id}(id=${user.id})}" class="btn btn-danger ml-2">Delete</a>
             </td>
         </tr>
         </tbody>

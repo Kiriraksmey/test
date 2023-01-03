@@ -87,30 +87,35 @@ col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
                         <!--                        <li>Personal Details</li>-->
                         <!--                    </ul>-->
                         <!-- fieldsets -->
-                        <form th:action="@{/savePaymentRegister}" th:object="${PaymentUser}" method="POST" name="myForm" action="/action_page.php"    >
+                        <div th:if="${responseBody.errorCode == '01'}">
+                            <div class="alert alert-danger">Email is already exists, Please try another email.</div>
+                        </div>
+                        <form th:action="@{/savePaymentRegister}" th:object="${PaymentUser}" method="POST" >
                             <h2 class="fs-title">Admission Information</h2>
 
                             <h2 id="transactionId" class="fs-title" >Your Code Transation:</h2>
-                            <input type="text" name="fname" id="userName" placeholder="Name" required />
-                            <input type="password" name="fname" id="password" placeholder="Password" required />
-                            <input type="text" name="fname" id="email" placeholder="Email" required/>
-                            <input type="text" name="fname" id="phoneNumber" placeholder="Phone Number" oninput="this.value=this.value.replace(/[^0-9]/g, '')" required/>
+                            <input type="text" name="userName" id="userName" placeholder="Name" required />
+                            <input type="password" name="password" id="password" placeholder="Password" required />
+                            <input type="email" name="email" id="email" placeholder="Email" required/>
+                            <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" oninput="this.value=this.value.replace(/[^0-9]/g, '')" required/>
 
                             <div class="col-md-12 col-lg-12">
                                 <button type="submit" class="btn btn-primary">submit</button>
-
 <!--                                <input type="submit"  value="Submit">-->
+                            </div>
+                            <div class="col-md-12 col-lg-12">
+                                <p>Already have an account? <a th:href="@{/login}"> Log In</a></p>
                             </div>
                             <div class="form-group" style="position: absolute;top: 37px;right: -340px;width: 300px;height: 20px" >
                                 <label>Course</label>
                                 <select multiple class="form-control select2_multi" placeholder="Choose Course"
                                         id="course_id"
-                                        data-allow-clear="1" th:name="course" action="/action_page.php">
+                                        data-allow-clear="1" th:name="courseId" action="/action_page.php">
                                     <option   th:each="course: ${courses}" th:value="${course.id}"
                                             th:text="${course.courseName}"  ></option>
                                 </select>
                             </div>
-                            <div class="form-group" style="position: absolute;top: 100px;right: -250px">
+                            <div class="form-group" style="position: absolute;top: 130px;right: -250px">
                                 <label>Total Price</label>
                                 <input type="text" class="form-control" id="totalPrice" th:name="totalPrice"
                                        placeholder="Total price" readonly/>
