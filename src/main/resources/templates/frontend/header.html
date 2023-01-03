@@ -23,8 +23,16 @@
             <li><a th:href="@{/activated}">Activated</a></li>
 
 
-            <li><a th:href="@{/login}">Login</a></li>
+            <li  th:if="${#session.getAttribute('userSession') == null}">
+                <a th:href="@{/login}"  >Login</a>
+            </li>
+            <li th:unless="${#session.getAttribute('userSession') == null}">
+                <a th:href="@{/logout}" >Logout</a>
+            </li>
+
             <li><a href="contact.html">Contact</a></li>
+            <li><a th:href="test" th:text="${#session.getAttribute('userSession')?.name}"> </a></li>
+<!--            <input type="text"  th:value="@{__${@urlUtil.doSomthing()}__}" name="test" />-->
         </ul>
     </nav><!-- .navbar -->
 

@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import javax.validation.Valid;
+
 import java.util.List;
 
 @Controller
@@ -74,7 +74,7 @@ public class PaymentController implements WebMvcConfigurer {
 //    }
 
     @PostMapping("/savePaymentRegister")
-    public String processRegister(@Valid PaymentUser paymentUser, BindingResult bindingResult, Model model) {
+    public String processRegister(PaymentUser paymentUser, BindingResult bindingResult, Model model) {
     // validation user ============================
         UserResponeBody responseBody = new UserResponeBody();
 //        userValidator.validate(paymentUser,bindingResult);

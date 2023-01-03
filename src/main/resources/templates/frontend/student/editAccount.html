@@ -47,10 +47,6 @@
       cursor: pointer
     }
 
-    .labels {
-      font-size: 11px
-    }
-
     .add-experience:hover {
       background: #BA68C8;
       color: #fff;
@@ -87,7 +83,7 @@
                 <h4 class="text-right">Profile Settings</h4>
               </div>
               <div class="row mt-2">
-                <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
+                <div class="col-md-12"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" th:value="${userSession?.name}" ></div>
 
               </div>
               <div class="row mt-3">
