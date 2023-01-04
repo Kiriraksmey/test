@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout-frontend/frontend-layout}">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css}"></script>
+  <script th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js}"></script>
+  <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js}"></script>
+  <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css}"></script>
+  <title>ZenBlog Bootstrap Template - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+</head>
+<body>
+<section layout:fragment="content">
+
+  <section id="gallery">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4" th:each="course: ${courses}">
+          <div class="card" style="height: 400px;">
+            <img style="width: 416px;height: 247px" th:src="${course.image}"
+
+                 alt="" class="card-img-top">
+            <div class="card-body" style="position: relative">
+              <h5 class="card-title" style="font-weight: bold"
+                  th:text="${course.courseName}"></h5>
+              <!--                                            <p class="card-text" style="font-size: 16px;  text-align: justify; font-family: sans-serif"-->
+              <!--                                               th:text="${course.description}"></p>-->
+              <p class="card-text"
+                 style="font-size: 16px; font-weight: bold;  text-align: left; color: #ff1800a3">Teacher
+                Name</p>
+              <div>
+                <span class="bi bi-star check-star"></span>
+                <span class="bi bi-star check-star"></span>
+                <span class="bi bi-star check-star"></span>
+                <span class="bi bi-star check-star"></span>
+                <span class="bi bi-star"></span>
+              </div>
+              <p class="card-text"
+                 style="font-size: 16px; text-align: left;">(100)  people are studying</p>
+              <a th:href="@{/viewCourseDetailDOC/{id}(id=${course.id})}" style="position: absolute; right: 172px;bottom: 5px"
+                 class="btn btn-outline-success btn-sm">Read More</a>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</section>
+
+</body>
+</html>

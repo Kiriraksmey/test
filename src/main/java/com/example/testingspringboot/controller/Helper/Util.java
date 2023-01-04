@@ -7,6 +7,6 @@ import org.springframework.stereotype.Component;
 public class Util {
     String doSomething() {
 
-        return "Hel";
+        return "Help";
     }
 }

@@ -5,6 +5,7 @@ package com.example.testingspringboot.entities;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "payment_user")
@@ -21,6 +22,7 @@ public class PaymentUser {
     private  String phoneNumber;
     private long transactionId;
 
+
     @ElementCollection
     private List<String> courseId;
 
@@ -28,6 +30,8 @@ public class PaymentUser {
     public PaymentUser() {
 
     }
+
+
     public PaymentUser(Long id, String userName, String email, String password, String phoneNumber, long transactionId, List<String> coursId, Double totalPrice) {
         this.id = id;
         this.userName = userName;
