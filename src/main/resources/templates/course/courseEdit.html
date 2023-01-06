@@ -1,7 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{testindex_template}">
+      layout:decorate="~{layout/main_layout}">
 <head>
   <meta charset="UTF-8">
   <title>Student</title>
@@ -19,28 +19,24 @@
 
       <div class="col">
 
-        <div class="col-md-6 col-lg-6 col-sm-12" >
-          <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" class="form-control" id="title" th:field="*{title}" placeholder="Title">
-          </div>
-        </div>
+
         <div class="col-md-6 col-lg-6  col-sm-12">
           <div class="form-group">
             <label for="courseName">CourseName</label>
             <input type="text" class="form-control" id="courseName" th:field="*{courseName}" placeholder="Course Name">
           </div>
         </div>
-        <div class="col-md-6 col-lg-6 col-sm-12" >
-          <div class="form-group">
-            <label for="introduce">Introduce</label>
-            <input type="text" class="form-control" id="introduce" th:field="*{introduce}" placeholder="Introduce">
-          </div>
-        </div>
+
         <div class="col-md-6 col-lg-6 col-sm-12" >
           <div class="form-group">
             <label for="image">Image</label>
             <input type="text" class="form-control" id="image" th:field="*{image}" placeholder="Image">
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-6 col-sm-12" >
+          <div class="form-group">
+            <label for="introduce">Introduce</label>
+            <input type="text" class="form-control" id="introduce" th:field="*{price}" placeholder="Introduce">
           </div>
         </div>
         <div class="col-md-12 col-lg-12">

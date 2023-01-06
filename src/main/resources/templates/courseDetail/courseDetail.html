@@ -15,7 +15,7 @@
 <section layout:fragment="content">
   <h3>List CourseDetail</h3>
   <hr/>
-  <a th:href="@{/system/create-courseDetail}" class="btn btn-primary" style="">Add Course</a>
+  <a th:href="@{/system/create-courseDetail}" class="btn btn-primary" style="">Add CourseDetail</a>
   <form th:action="@{/system/courseList}" th:object="${search}" method="POST" style="position: relative">
     <input type="text" class="form-control " style="width: 500px; position: absolute;top: -33px;left: 300px"
            name="keyword" id="keyword" size="50" th:value="${keyword}" required/>

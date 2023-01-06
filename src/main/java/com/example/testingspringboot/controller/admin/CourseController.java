@@ -1,6 +1,7 @@
 package com.example.testingspringboot.controller.admin;
 
 import com.example.testingspringboot.entities.Course;
+import com.example.testingspringboot.entities.Student;
 import com.example.testingspringboot.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -46,16 +47,18 @@ public class CourseController {
     @GetMapping("editCourse/{id}")
     public String editStudent(@PathVariable Long id, Model model) {
         model.addAttribute("course", courseService.getCourseById(id));
-        return "employee/edit";
+        return "course/courseEdit";
 
     }
 
-    @PostMapping("/updateCourse")
+    @PostMapping("/updateCourse/{id}")
     public String updateStudent(@PathVariable Long id, Course course) {
         courseService.saveCourse(course);
-        return "redirect:/system/coursetList";
+        return "redirect:/system/courseList";
+
 
     }
+
 //    @PostMapping("/employe/{id}")
 //    public String updateClassRoom(@PathVariable long id, @ModelAttribute("course") Course course, Model model) {
 //        Course existingEmployee = courseService.getCoursebyID(id);

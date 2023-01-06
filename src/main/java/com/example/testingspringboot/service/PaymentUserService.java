@@ -1,21 +1,22 @@
 package com.example.testingspringboot.service;
 
 import com.example.testingspringboot.entities.Course;
+import com.example.testingspringboot.entities.PaymentUser;
 
 import java.util.List;
 
 public interface PaymentUserService {
-    void deleteCourse(long id);
-    List<Course> getAllCourse();
-    Course saveCourse(Course course);
+    void deletePaymentUser(long id);
+    List<PaymentUser> getAllPaymentUser();
+    PaymentUser savePaymentUser(PaymentUser paymentUser);
 
     //   Course getCoursebyID(long id);
-    Course getCourseById(Long id);
+    PaymentUser getPaymentUserById(Long id);
 
 
-    Course editCourse(Course course);
-    Course updateClassRoom(Course course);
-    Course editEmployee(Course course);
+    PaymentUser editPaymentUser(PaymentUser paymentUser);
+    PaymentUser updateClassRoom(PaymentUser paymentUser);
+
     //    Student search(Student student);
-    List<Course>listAll(String keyword);
+    List<PaymentUser>listAll(String keyword);
 }

@@ -1,7 +1,9 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{testindex_template}">
+      layout:decorate="~{layout/main_layout}">
 <head>
   <meta charset="UTF-8">
   <title>Student</title>
@@ -10,6 +12,11 @@
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
         crossorigin="anonymous" />
 </head>
+
+
+
+
+
 <section layout:fragment="content">
 
   <form th:action="@{/system/saveCourseDetail}" th:object="${courseDetail}" method="POST">
@@ -18,47 +25,59 @@
 
       <div class="col-md-6 col-lg-6  col-sm-12">
         <div class="form-group">
-          <label for="courseID">Input Course Id</label>
-          <input type="text" class="form-control" id="courseId" name="courseId" placeholder="Course Id">
+          <label for="courseId">Input Course ID</label>
+          <input type="text" class="form-control" id="courseId" name="courseId" placeholder="courseId">
         </div>
       </div>
 
       <div class="col-md-6 col-lg-6 col-sm-12" >
         <div class="form-group">
           <label for="createDate">Input CreateDate</label>
-          <input type="text" class="form-control" id="createDate" name="createDate" placeholder="CreateDate">
+          <input type="text" class="form-control" id="createDate" name="createDate"  placeholder="createDate">
         </div>
       </div>
       <div class="col-md-6 col-lg-6 col-sm-12" >
         <div class="form-group">
           <label for="description">Input Description</label>
-          <input type="text" class="form-control" id="description" name="description" placeholder="Description">
+          <input type="text" class="form-control" id="description" name="description" placeholder="description">
         </div>
       </div>
       <div class="col-md-6 col-lg-6 col-sm-12" >
         <div class="form-group">
           <label for="name">Input Name</label>
-          <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+          <input type="text" class="form-control" id="name" name="name" placeholder="name">
         </div>
       </div>
+      <!--      <div class="col-md-6 col-lg-6 col-sm-12" >-->
+      <!--        <div class="form-group">-->
+      <!--          <label for="createDate">Input CreateDate</label>-->
+      <!--          <input type="text" class="form-control" id="createDate" name="createDate" placeholder="CreateDate">-->
+      <!--        </div>-->
+      <!--      </div>-->
+
+
+
+
+
+      <!--      <div class="col-md-6 col-lg-6 col-sm-12" >-->
+      <!--        <div class="form-group">-->
+      <!--          <label for="updateDate">Input UpdateDate</label>-->
+      <!--          <input type="text" class="form-control" id="updateDate" name="updateDate" placeholder="UpdateDate">-->
+      <!--        </div>-->
+      <!--      </div>-->
       <div class="col-md-6 col-lg-6 col-sm-12" >
         <div class="form-group">
           <label for="updateDate">Input UpdateDate</label>
-          <input type="text" class="form-control" id="updateDate" name="updateDate" placeholder="UpdateDate">
+          <input type="text" class="form-control" id="updateDate" name="updateDate" placeholder="updateDate">
         </div>
       </div>
-
-
-
-
-
-
       <div class="col-md-6 col-lg-6 col-sm-12" >
         <div class="form-group">
           <label for="user">Input User</label>
-          <input type="text" class="form-control" id="user" name="user" placeholder="User">
+          <input type="text" class="form-control" id="user" name="user" placeholder="user">
         </div>
       </div>
+
 
 
       <div class="col-md-12 col-lg-12">

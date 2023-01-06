@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main_layout}">
+<head>
+    <title>HRMS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+
+</head>
+<section layout:fragment="content">
+    <h3>List User</h3>
+
+<!--    <hr/>-->
+<!--    <a th:href="@{/system/create-User}" class="btn btn-primary" style="">Add Student</a>-->
+<!--    <form th:action="@{/system/userList}" th:object="${users}" method="POST"  style="position: relative" >-->
+<!--        <input type="text" class="form-control " style="width: 500px; position: absolute;top: -33px;left: 300px" name="keyword" id="keyword" size="50" th:value="${keyword}" required />-->
+<!--        <input type="submit" value="Search"  style="position: absolute;top: -33px;left: 820px" class="btn btn-primary"/>-->
+<!--        <a  th:href="@{/system/userList}" value="Clear" id="btnClear"  class="btn btn-primary"  style="position: absolute;top: -33px;left: 890px" >Clear</a>-->
+<!--    </form>-->
+
+    <!--    <div class="col-md-6 col-lg-6  col-sm-12" style="position: relative">-->
+    <!--        <div th:action="@{/search}" class="form-group" style="position: absolute;top: -34px;right: 100px">-->
+
+    <!--            <input type="text" class="form-control" id="age" name="age" placeholder="Search">-->
+    <!--            <button type="submit" class="btn btn-primary" style="position: absolute;top: 1px;right: -80px">Search</button>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <br/><br/>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>User</th>
+            <th>UserType</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user: ${users}">
+            <td th:text="${user.name}"/>
+            <td th:text="${user.email}"/>
+            <td th:text="${user.password}"/>
+            <td th:text="${user.user}"/>
+            <td th:text="${user.userType}"/>
+            <td>
+                <!--                    <a th:href="@{/editEmployee/{student_id}(student_id=${student.id})}" class="btn btn-info">Update</a>-->
+                <a class="btn  btn-info btn-sm"
+                   th:href="@{/system/editUser/{id}(id=${user.id})}">Update</a>
+
+                <a th:href="@{/system/deletecUser/{id}(id=${user.id})}" class="btn btn-danger ml-2">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    </section>
+
+</body>
+</html>

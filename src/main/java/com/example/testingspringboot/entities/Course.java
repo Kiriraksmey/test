@@ -19,7 +19,7 @@ public class Course {
     @Column(name="limit_day")
     private int limitDay;
     @Column(name="price")
-    private int price;
+    private double price;
     @Column(name="create_date")
     private Date createDate;
     @Column(name="update_date")
@@ -52,7 +52,7 @@ public class Course {
     }
 
 
-    public Course(long id, String courseName, String image, String description, int limitDay, int price, Date createDate, Date updateDate, String user, boolean status, long teacherId, long descriptionId, Set<CourseDetail> courseDetails, Set<Teacher> teachers, Set<Description> descriptions) {
+    public Course(long id, String courseName, String image, String description, int limitDay, double price, Date createDate, Date updateDate, String user, boolean status, long teacherId, long descriptionId, Set<CourseDetail> courseDetails, Set<Teacher> teachers, Set<Description> descriptions) {
         this.id = id;
         this.courseName = courseName;
         this.image = image;
@@ -110,11 +110,11 @@ public class Course {
         this.limitDay = limitDay;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

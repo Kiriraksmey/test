@@ -1,6 +1,8 @@
 package com.example.testingspringboot.controller.fontEnd;
-
+import com.example.testingspringboot.controller.AppController;
+import com.example.testingspringboot.entities.PaymentUser;
 import com.example.testingspringboot.entities.Student;
+import com.example.testingspringboot.entities.User;
 import com.example.testingspringboot.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,8 +15,11 @@ public class ProfileStudentController {
     @Autowired
     private final StudentService studentService;
 
-    public ProfileStudentController(StudentService studentService) {
+    private final AppController appController;
+
+    public ProfileStudentController(StudentService studentService, AppController appController) {
         this.studentService = studentService;
+        this.appController = appController;
     }
 //    @GetMapping("/test")
 //    public String list(Model model) {
@@ -37,8 +42,10 @@ public class ProfileStudentController {
     }
 
     @GetMapping("/updateProfile")
-    public String listEmploye(Model model) {
-        model.addAttribute("students", studentService.getAllStudent());
+    public String userProfile(Model model) {
+        User user = appController.getSession();
+        model.addAttribute("userSession", user);
+
         return "frontend/student/editAccount";
     }
 
@@ -80,10 +87,12 @@ public class ProfileStudentController {
         studentService.saveStudent(student);
         return "/frontend/course/activated";
     }
-    @GetMapping("/login")
-    public String savEmploy(@ModelAttribute("student") Student student) {
-        studentService.saveStudent(student);
-        return "/frontend/course/login";
-    }
+//    @GetMapping("/login")
+//    public String savEmploy(@ModelAttribute("student") Student student) {
+//        studentService.saveStudent(student);
+//        return "/frontend/course/login";
+//    }
+
+
 
 }

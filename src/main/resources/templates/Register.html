@@ -4,46 +4,46 @@
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
-          crossorigin="anonymous" />
+          crossorigin="anonymous"/>
 </head>
 <body class="hold-transition register-page">
-<form th:action="@{registerUser}" th:object="${user}" method="POST">
-
-    <div class="col">
-        <div class="col-md-6 col-lg-6  col-sm-12">
-            <div class="form-group">
-                <label for="age">Input Age</label>
-                <input type="text" class="form-control" id="age" name="age" placeholder="Age">
+<form th:action="@{/process_register}" th:object="${user}"
+      method="post" style="max-width: 600px; margin: 0 auto;">
+    <div>
+        <h1>User Registration - Sign Up</h1>
+    </div>
+    <div class="m-3">
+        <div class="form-group row">
+            <label class="col-4 col-form-label">E-mail: </label>
+            <div class="col-8">
+                <input type="email" th:field="*{email}" class="form-control" required/>
             </div>
         </div>
-        <div class="col-md-6 col-lg-6 col-sm-12" >
-            <div class="form-group">
-                <label for="age">Input Pass</label>
-                <input type="text" class="form-control" id="pass" name="pass"  placeholder="Pass">
+        <div class="form-group row">
+            <label class="col-4 col-form-label">Password: </label>
+            <div class="col-8">
+                <input type="password" th:field="*{password}" class="form-control"
+                       required minlength="6"/>
             </div>
         </div>
-        <div class="col-md-6 col-lg-6 col-sm-12" >
-            <div class="form-group">
-                <label for="age">Input Name</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+        <div class="form-group row">
+            <label class="col-4 col-form-label">First Name: </label>
+            <div class="col-8">
+                <input type="text" th:field="*{firstName}" class="form-control"
+                       required minlength="2" maxlength="20"/>
             </div>
         </div>
-        <div class="col-md-6 col-lg-6 col-sm-12" >
-            <div class="form-group">
-                <label for="age">Input Status</label>
-                <input type="text" class="form-control" id="status" name="status" placeholder="Status">
+        <div class="form-group row">
+            <label class="col-4 col-form-label">Last Name: </label>
+            <div class="col-8">
+                <input type="text" th:field="*{lastName}" class="form-control"
+                       required minlength="2" maxlength="20"/>
             </div>
         </div>
-        <div class="col-md-12 col-lg-12">
-
-
-            <button type="submit" class="btn btn-primary">Save</button>
-
+        <div>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
         </div>
-
-
     </div>
 </form>
-
 </body>
 </html>

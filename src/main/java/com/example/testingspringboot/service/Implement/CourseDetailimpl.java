@@ -1,8 +1,7 @@
 package com.example.testingspringboot.service.Implement;
 
-import com.example.testingspringboot.Repository.CourseDetailRepiository;
+import com.example.testingspringboot.Repository.CourseDetailRepository;
 import com.example.testingspringboot.entities.CourseDetail;
-import com.example.testingspringboot.entities.CourseSearch;
 import com.example.testingspringboot.entities.Video;
 import com.example.testingspringboot.service.CourseDetailService;
 import org.springframework.stereotype.Service;
@@ -11,10 +10,10 @@ import java.util.List;
 
 @Service
 public class CourseDetailimpl implements CourseDetailService {
-    private final CourseDetailRepiository courseDetailRepiository;
+    private final CourseDetailRepository courseDetailRepository;
 
-    public CourseDetailimpl(CourseDetailRepiository courseDetailRepiository) {
-        this.courseDetailRepiository = courseDetailRepiository;
+    public CourseDetailimpl(CourseDetailRepository courseDetailRepository) {
+        this.courseDetailRepository = courseDetailRepository;
     }
 
     @Override
@@ -24,26 +23,26 @@ public class CourseDetailimpl implements CourseDetailService {
 
     @Override
     public List<CourseDetail> getAllCourseDetail() {
-        return courseDetailRepiository.findAll();
+        return courseDetailRepository.findAll();
     }
 
     @Override
     public CourseDetail saveCourseDetail(CourseDetail courseDetail) {
-        return null;
+        return courseDetailRepository.save(courseDetail);
     }
 
     @Override
     public List<CourseDetail> getCourseDetailByID(long id) {
-        return courseDetailRepiository.getCourseDetailByCourseId(id);
+        return courseDetailRepository.getCourseDetailByCourseId(id);
     }
     @Override
     public Video findDefaultVideo(long id) {
-        return courseDetailRepiository.findDefaultVideo(id);
+        return courseDetailRepository.findDefaultVideo(id);
     }
 
     @Override
     public CourseDetail editCourseDetail(CourseDetail courseDetail) {
-        return null;
+        return courseDetailRepository.save(courseDetail);
     }
 
     @Override
@@ -63,6 +62,6 @@ public class CourseDetailimpl implements CourseDetailService {
 
     @Override
     public Double getTotalPriceCourse(List<Long> id) {
-        return courseDetailRepiository.getTotalPriceCourse(id);
+        return courseDetailRepository.getTotalPriceCourse(id);
     }
 }

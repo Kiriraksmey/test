@@ -1,19 +1,18 @@
 package com.example.testingspringboot.controller.fontEnd;
 
 
-import com.example.testingspringboot.entities.Course;
 import com.example.testingspringboot.entities.CourseDetail;
-import com.example.testingspringboot.entities.CourseSearch;
-import com.example.testingspringboot.response.AjaxCourseResponseBody;
 import com.example.testingspringboot.service.*;
+import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,19 +25,29 @@ public class MainController {
     private final DescriptionService descriptionService;
 
     private final CourseDetailService courseDetailService;
+    private final ObjectFactory<HttpSession> httpSessionFactory;
 
+  
     //
-    public MainController(StudentService studentService, CourseService courseService, VideoService videoService, DescriptionService descriptionService, CourseDetailService courseDetailService) {
+    public MainController(StudentService studentService, CourseService courseService, VideoService videoService, DescriptionService descriptionService, CourseDetailService courseDetailService, ObjectFactory<HttpSession> httpSessionFactory) {
         this.studentService = studentService;
 
         this.courseService = courseService;
         this.videoService = videoService;
         this.descriptionService = descriptionService;
         this.courseDetailService = courseDetailService;
+        this.httpSessionFactory = httpSessionFactory;
     }
 
-    @RequestMapping("/")
-    public String homePage(Model model) {
+    @GetMapping("/")
+    public String homePage(Model model,  HttpSession session) {
+        @SuppressWarnings("unchecked")
+        List<String> messages = (List<String>) session.getAttribute("MY_SESSION_MESSAGES");
+        if (messages == null) {
+            messages = new ArrayList<>();
+        }
+        model.addAttribute("sessionMessages", messages);
+
 
         model.addAttribute("courses", courseService.getAllCourse());
         //return "course";
@@ -48,34 +57,7 @@ public class MainController {
     }
 
 
-    @PostMapping("/getCourseTotalPrice")
-    public ResponseEntity<?> getSearchResultViaAjax(@Validated @RequestBody CourseSearch courseSearch, Errors errors) {
-        Double amount = 0D;
-        List arrCourseId = courseSearch.getCourseId();
-        List<Long> cID = new ArrayList<>();
-        AjaxCourseResponseBody result = new AjaxCourseResponseBody();
 
-        if(arrCourseId == null){
-            result.setMessage("No course to select ");
-            result.setAmount(0D);
-            return ResponseEntity.ok(result);
-        }
-        if (arrCourseId.size() > 0) {
-            for (int i = 0; i < arrCourseId.size(); i++) {
-                cID.add(Long.parseLong((String) arrCourseId.get(i)));
-            }
-            amount = courseDetailService.getTotalPriceCourse(cID);
-        }
-        if (errors.hasErrors()) {
-            result.setMessage("Not found 404 ");
-            return ResponseEntity.badRequest().body(result);
-        }
-
-        result.setAmount(amount);
-        //If error, just return a 400 bad request, along with the error message
-        result.setMessage("success");
-        return ResponseEntity.ok(result);
-    }
 
     @RequestMapping("/viewCourseDetailDOC/{id}")
     public String viewDetailDOC(Model model, @PathVariable Long id) {
