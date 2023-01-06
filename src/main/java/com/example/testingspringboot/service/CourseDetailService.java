@@ -13,6 +13,8 @@ public interface CourseDetailService {
     CourseDetail saveCourseDetail(CourseDetail courseDetail);
 
     List<CourseDetail> getCourseDetailByID(long id);
+
+    List<CourseDetail> getCourseDetailByStudentID(long id, long studentId);
     Double getTotalPriceCourse(List<Long> id);
     Video findDefaultVideo(long id);
 

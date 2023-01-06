@@ -2,6 +2,7 @@ package com.example.testingspringboot.controller.fontEnd;
 
 
 import com.example.testingspringboot.entities.CourseDetail;
+import com.example.testingspringboot.entities.User;
 import com.example.testingspringboot.service.*;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,6 +70,20 @@ public class MainController {
         model.addAttribute("courseDetail", listDetail);
         model.addAttribute("videoDefault", courseDetailService.findDefaultVideo(id));
         return "/frontend/course/course-detail";
+
+    }
+    @RequestMapping("/viewCourseByStudent/{course_id}")
+    public String viewCourseByStudent(Model model, @PathVariable Long course_id) {
+        HttpSession session = httpSessionFactory.getObject();
+        User user = (User) session.getAttribute("userSession");
+        Long userId = user != null ? user.getId() : 0L;
+        model.addAttribute("course", courseService.getCourseById(course_id));
+        model.addAttribute("descriptions", descriptionService.getDescriptionById(course_id));
+
+        List<CourseDetail> listDetail = courseDetailService.getCourseDetailByStudentID(course_id,userId);
+        model.addAttribute("courseDetail", listDetail);
+        model.addAttribute("videoDefault", courseDetailService.findDefaultVideo(course_id));
+        return "/frontend/course/course-detail-by-student";
 
     }
 

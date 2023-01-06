@@ -36,6 +36,10 @@ public class CourseDetailimpl implements CourseDetailService {
         return courseDetailRepository.getCourseDetailByCourseId(id);
     }
     @Override
+    public List<CourseDetail> getCourseDetailByStudentID(long id, long studentId) {
+        return courseDetailRepository.getCourseDetailByStudentId(id,studentId);
+    }
+    @Override
     public Video findDefaultVideo(long id) {
         return courseDetailRepository.findDefaultVideo(id);
     }

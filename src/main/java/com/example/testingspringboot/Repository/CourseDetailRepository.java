@@ -15,6 +15,9 @@ public interface CourseDetailRepository extends JpaRepository<CourseDetail , Lon
     @Query("select c from CourseDetail c where c.courseId=?1")
     public List<CourseDetail> getCourseDetailByCourseId(Long id);
 
+    @Query("select cd from CourseDetail cd INNER JOIN Course c ON c.id = cd.courseId INNER JOIN PaymentUserDetails pc ON c.id = pc.courserId where c.id=?1 AND cd.courseId=?1 AND pc.userId=?2")
+    public List<CourseDetail> getCourseDetailByStudentId(Long id,long StudentId);
+
 //    @Query("FROM Course
 //            INNER JOIN CourseDetail INNER JOIN Video
 //            WHERE Course.id = CourseDetail.
