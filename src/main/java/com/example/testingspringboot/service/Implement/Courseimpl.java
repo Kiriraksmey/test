@@ -1,19 +1,25 @@
 package com.example.testingspringboot.service.Implement;
 
 import com.example.testingspringboot.Repository.CourseRepository;
+import com.example.testingspringboot.Repository.PaymentUserDetailsRepository;
 import com.example.testingspringboot.entities.Course;
+import com.example.testingspringboot.entities.PaymentUserDetails;
 import com.example.testingspringboot.service.CourseService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
 public class Courseimpl implements CourseService {
     private final CourseRepository courseRepository;
+    private final PaymentUserDetailsRepository paymentUserDetailsRepository;
 
-    public Courseimpl(CourseRepository courseRepository) {
+    public Courseimpl(CourseRepository courseRepository, PaymentUserDetailsRepository paymentUserDetailsRepository) {
         this.courseRepository = courseRepository;
+        this.paymentUserDetailsRepository = paymentUserDetailsRepository;
     }
 
     @Override
@@ -65,5 +71,30 @@ public class Courseimpl implements CourseService {
 //            return courseRepository.search(keyword);
 //        }
 //        return courseRepository.findAll();
+    }
+
+    @Override
+    public List<Course> getAllCourseByUserId(Long userId) {
+        try{
+            List<Course> courseList = new ArrayList<>();
+            if (userId == null){
+                return null;
+            }
+            List<PaymentUserDetails> list = paymentUserDetailsRepository.getAllCourseByUserId(userId);
+            if (list != null){
+                for (PaymentUserDetails lst : list){
+                    Long id = lst.getCourserId();
+                    Course listCourse = courseRepository.findById(lst.getCourserId()).get();
+                    courseList.add(listCourse);
+                }
+            }
+
+            System.out.println("List of UserCourse"+list);
+            return courseList;
+
+        }catch(Exception ex){
+            throw ex;
+        }
+
     }
 }

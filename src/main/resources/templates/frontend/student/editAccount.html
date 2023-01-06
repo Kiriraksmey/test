@@ -69,7 +69,7 @@
 
             <div class="post-meta">
               <span>Student</span></div>
-            <h4><a  th:href="@{/mycourse}">Course</a></h4>
+            <h4><a  th:href="@{/mycourse/{userId}(userId=${userSession?.id})}">Course</a></h4>
             <h4><a th:href="@{/updateProfile}">Change Information</a></h4>
 
           </div>

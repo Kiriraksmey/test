@@ -26,9 +26,10 @@ public class PaymentUserDetailController {
         this.paymentUserDetailService = paymentUserDetailService;
         this.courseService = courseService;
     }
-    @GetMapping("/mycourse")
-    public String mycourse(Model model,  HttpSession session) {
+    @GetMapping("/mycourse/{userId}")
+    public String mycourse(Model model,  HttpSession session, @PathVariable Long userId) {
         @SuppressWarnings("unchecked")
+        Long id = userId;
         List<String> messages = (List<String>) session.getAttribute("MY_SESSION_MESSAGES");
         if (messages == null) {
             messages = new ArrayList<>();
@@ -36,7 +37,8 @@ public class PaymentUserDetailController {
         model.addAttribute("sessionMessages", messages);
 
 
-        model.addAttribute("courses", courseService.getAllCourse());
+//        model.addAttribute("courses", courseService.getAllCourse());
+        model.addAttribute("courses", courseService.getAllCourseByUserId(userId));
         model.addAttribute("paymentuserdetails", paymentUserDetailService.getAllPaymentUserDetail());
         //return "course";
 
