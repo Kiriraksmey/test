@@ -1,5 +1,6 @@
 package com.example.testingspringboot.controller.fontEnd;
 import com.example.testingspringboot.controller.AppController;
+import com.example.testingspringboot.entities.PaymentUser;
 import com.example.testingspringboot.entities.Student;
 import com.example.testingspringboot.entities.User;
 import com.example.testingspringboot.service.StudentService;
@@ -44,6 +45,7 @@ public class ProfileStudentController {
     public String userProfile(Model model) {
         User user = appController.getSession();
         model.addAttribute("userSession", user);
+
         return "frontend/student/editAccount";
     }
 
@@ -90,5 +92,7 @@ public class ProfileStudentController {
 //        studentService.saveStudent(student);
 //        return "/frontend/course/login";
 //    }
+
+
 
 }

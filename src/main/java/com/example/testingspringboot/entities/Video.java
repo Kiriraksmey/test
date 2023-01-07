@@ -17,6 +17,7 @@ public class Video {
     private  Date updateDate;
     private  String user;
     private  Boolean defualt;
+    private  Boolean allowPlay;
 
     @Column(name = "course_detail_id")
     private Long courseDetailId;
@@ -118,5 +119,14 @@ public class Video {
 
     public void setDefualt(Boolean defualt) {
         this.defualt = defualt;
+    }
+
+
+    public Boolean getAllowPlay() {
+        return allowPlay;
+    }
+
+    public void setAllowPlay(Boolean allowPlay) {
+        this.allowPlay = allowPlay;
     }
 }

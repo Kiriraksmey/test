@@ -1,6 +1,7 @@
 package com.example.testingspringboot.controller.admin;
 
 import com.example.testingspringboot.entities.Video;
+import com.example.testingspringboot.service.CourseService;
 import com.example.testingspringboot.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,9 +15,10 @@ import java.util.List;
 public class VideoController {
     @Autowired
     private final VideoService videoService;
-
-    public VideoController(VideoService videoService) {
+    private final CourseService courseService;
+    public VideoController(VideoService videoService, CourseService courseService) {
         this.videoService = videoService;
+        this.courseService = courseService;
     }
     @GetMapping("/videoList")
     public String listVideo(Model model) {
@@ -33,7 +35,8 @@ public class VideoController {
 
     @GetMapping("/create-video")
     public String createEmployee(Model model) {
-        return null;
+        model.addAttribute("courses", courseService.getAllCourse());
+        return "/course/video";
     }
 
     @PostMapping("/saveVideo")

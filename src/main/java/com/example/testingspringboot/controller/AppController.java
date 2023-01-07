@@ -2,24 +2,24 @@ package com.example.testingspringboot.controller;
 
 
 import com.example.testingspringboot.Repository.UserRepository;
+import com.example.testingspringboot.entities.PaymentUser;
 import com.example.testingspringboot.entities.User;
 import com.example.testingspringboot.entities.UserResponeBody;
 import com.example.testingspringboot.service.CourseService;
+import com.example.testingspringboot.service.PaymentUserService;
 import com.example.testingspringboot.service.StudentService;
 import com.example.testingspringboot.service.UserService;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.method.P;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.List;
 
 @Controller
 public class AppController {
@@ -40,6 +40,7 @@ public class AppController {
         this.userService = userService;
         this.courseService = courseService;
         this.studentService = studentService;
+
     }
 
     public User getSession() {

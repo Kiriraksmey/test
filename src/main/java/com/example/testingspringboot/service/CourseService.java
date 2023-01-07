@@ -18,4 +18,6 @@ public interface CourseService {
     Course editEmployee(Course course);
     //    Student search(Student student);
     List<Course>listAll(String keyword);
+
+    List<Course> getAllCourseByUserId(Long userId);
 }

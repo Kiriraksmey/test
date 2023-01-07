@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<!-- <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"> -->
+
+</html>
+
+<head>
+    <title>Spring Security Example</title>
+</head>
+
+<body>
+<!-- <div th:if="${param.error}">
+<p th:text="${session.error}" th:unless="${session == null}">[...]</p>
+</div>
+<div th:if="${param.logout}">You have been logged out.</div> -->
+<!-- <form th:action="@{/login}" th:object="${employee}" method="post> -->
+<form
+        method="post"
+        role="form"
+        th:action="@{/system/register}"
+        class="form-horizontal"
+>
+    <div class="form-group mb-3">
+        <label class="control-label"> Email</label>
+        <input
+                type="text"
+                id="username"
+                name="username"
+                class="form-control"
+                placeholder="Enter email address"
+        />
+    </div>
+
+    <div class="form-group mb-3">
+        <label class="control-label"> Password</label>
+        <input
+                type="password"
+                id="password"
+                name="password"
+                class="form-control"
+                placeholder="Enter password"
+        />
+    </div>
+    <div class="form-group mb-3">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <span> Not registered ?
+            <a th:href="@{/register}">Register/Signup here</a>
+        </span>
+    </div>
+</form>
+
+</body>
+
+</html>
