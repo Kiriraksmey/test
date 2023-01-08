@@ -112,5 +112,9 @@ public class PaymentController implements WebMvcConfigurer {
         paymentUserRepository.save(paymentUser);
         return "redirect:/payment";
     }
+    @GetMapping("/test2")
+    public String createEmployee(Model model) {
+        return "employee/test";
+    }
 
 }

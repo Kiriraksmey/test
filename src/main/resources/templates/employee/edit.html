@@ -1,66 +1,53 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout/main_layout}">
+
+<!DOCTYPE html>
+<html lang="en"
+
+>
 <head>
     <meta charset="UTF-8">
-    <title>Student</title>
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
           crossorigin="anonymous" />
-
-    <!--    <script>-->
-    <!--        function validateForm() {-->
-    <!--            let x = document.forms["myForm"]["fname"].value;-->
-    <!--            if (x == "") {-->
-    <!--                alert("You have To fill all information");-->
-    <!--                return false;-->
-    <!--            }-->
-    <!--        }-->
-    <!--    </script>-->
+    <title>Title</title>
 </head>
-<section layout:fragment="content">
+<body>
+<legend class="w-auto px-2">Edit Student</legend>
+<form th:action="@{/system/updateStudent/{id}(id=${student.id})}" th:object="${student}" method="POST">
 
-
-
-        <legend class="w-auto px-2">Edit Student</legend>
-        <form th:action="@{/system/updateStudent/{id}(id=${student.id})}" th:object="${student}" method="POST">
-
-            <div class="col">
-                <div class="col-md-6 col-lg-6  col-sm-12">
-                    <div class="form-group">
-                        <label for="age">Age</label>
-                        <input type="text" class="form-control" id="age" th:field="*{age}" placeholder="Age">
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-sm-12" >
-                    <div class="form-group">
-                        <label for="age">Gender</label>
-                        <input type="text" class="form-control" id="gender" th:field="*{gender}" placeholder="gender">
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-sm-12" >
-                    <div class="form-group">
-                        <label for="age">Name</label>
-                        <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="gender">
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-sm-12" >
-                    <div class="form-group">
-                        <label for="age">Avatar</label>
-                        <input type="text" class="form-control" id="avtar" th:field="*{avtar}" placeholder="Avatar">
-                    </div>
-                </div>
-                <div class="col-md-12 col-lg-12">
-
-                    <button type="submit" class="btn btn-primary">Submit</button>
-
-                </div>
+    <div class="col">
+        <div class="col-md-6 col-lg-6  col-sm-12">
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="text" class="form-control" id="age" th:field="*{age}" placeholder="Age">
             </div>
-        </form>
+        </div>
+        <div class="col-md-6 col-lg-6 col-sm-12" >
+            <div class="form-group">
+                <label for="age">Gender</label>
+                <input type="text" class="form-control" id="gender" th:field="*{gender}" placeholder="gender">
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-6 col-sm-12" >
+            <div class="form-group">
+                <label for="age">Name</label>
+                <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="gender">
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-6 col-sm-12" >
+            <div class="form-group">
+                <label for="age">Avatar</label>
+                <input type="text" class="form-control" id="avtar" th:field="*{avtar}" placeholder="Avatar">
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-12">
 
+            <button type="submit" class="btn btn-primary">Submit</button>
 
-</section>
+        </div>
+    </div>
+</form>
+</body>
+</html>
 
 
