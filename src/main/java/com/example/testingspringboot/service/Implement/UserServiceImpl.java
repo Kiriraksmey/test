@@ -49,10 +49,7 @@ public class UserServiceImpl implements UserService {
         return  lst;
     }
 
-    @Override
-    public User editVideo(User user) {
-        return null;
-    }
+
 
     @Override
     public User updateClassRoom(User user) {

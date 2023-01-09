@@ -1,16 +1,16 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout/main_layout}">
+<!DOCTYPE html>
+<html lang="en"
+
+>
 <head>
   <meta charset="UTF-8">
-  <title>Student</title>
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
         crossorigin="anonymous" />
+  <title>Title</title>
 </head>
-<section layout:fragment="content">
+<body>
 
 
   <fieldset class="form-group border p-3">
@@ -18,6 +18,12 @@
     <form th:action="@{/system/updateUser/{id}(id=${users.id})}" th:object="${users}" method="POST">
 
       <div class="col">
+        <div class="col-md-6 col-lg-6 col-sm-12" >
+          <div class="form-group">
+            <label for="age">Name</label>
+            <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="Name">
+          </div>
+        </div>
         <div class="col-md-6 col-lg-6  col-sm-12">
           <div class="form-group">
             <label for="age">Email</label>
@@ -30,11 +36,23 @@
             <input type="text" class="form-control" id="gender" th:field="*{password}" placeholder="gender">
           </div>
         </div>
+        <div class="col-md-6 col-lg-6 col-sm-12" >
+          <div class="form-group">
+            <label for="age">UserType</label>
+            <input type="text" class="form-control" id="userType" th:field="*{userType}" placeholder="usertype">
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-12">
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+
+        </div>
 
       </div>
     </form>
   </fieldset>
 
-</section>
+</body>
+</html>
 
 

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"
+
+>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+        crossorigin="anonymous" />
+  <title>Title</title>
+</head>
+<body>
+
+
+<fieldset class="form-group border p-3">
+  <legend class="w-auto px-2">Edit Videolist</legend>
+  <form th:action="@{/system/updateVideo/{id}(id=${videos.id})}" th:object="${videos}" method="POST">
+
+    <div class="col">
+      <div class="col-md-6 col-lg-6 col-sm-12" >
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="Name">
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6  col-sm-12">
+        <div class="form-group">
+          <label for="course_detail_id">course_detail_id</label>
+          <input type="text" class="form-control" id="course_detail_id" th:field="*{course_detail_id}" placeholder="course_detail_id">
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6 col-sm-12" >
+        <div class="form-group">
+          <label for="link">link</label>
+          <input type="text" class="form-control" id="link" th:field="*{link}" placeholder="link">
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6 col-sm-12" >
+        <div class="form-group">
+          <label for="description">description</label>
+          <input type="text" class="form-control" id="description" th:field="*{description}" placeholder="description">
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-12">
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+      </div>
+
+    </div>
+  </form>
+</fieldset>
+
+</body>
+</html>
+
+

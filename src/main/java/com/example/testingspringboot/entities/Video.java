@@ -1,7 +1,9 @@
 package com.example.testingspringboot.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -18,13 +20,21 @@ public class Video {
     private  String user;
     private  Boolean defualt;
     private  Boolean allowPlay;
-
-    @Column(name = "course_detail_id")
     private Long courseDetailId;
+//
+    @ManyToOne
+    @JoinColumn(name="courseDetailId", nullable=false, insertable = false, updatable = false)
+    private CourseDetail courseDetail;
 
+//    @OneToMany(
+//            cascade = CascadeType.ALL,
+//            orphanRemoval = true
+//    )
+//    @JoinColumn(name = "courseDetailId")
+//    private List<CourseDetail> courseDetail = new ArrayList<>();
 //    @ManyToOne
-//    @JoinColumn(name="course_detail_id", nullable=false)
-//    private CourseDetail detail;
+//    @JoinColumn(name = "courseDetailId")
+//    private CourseDetail person;
 
 //    public CourseDetail getDetail() {
 //        return detail;
@@ -47,6 +57,14 @@ public class Video {
         this.user = user;
         this.defualt = defualt;
         this.courseDetailId = courseDetailId;
+    }
+
+    public CourseDetail getCourseDetail() {
+        return courseDetail;
+    }
+
+    public void setCourseDetail(CourseDetail courseDetail) {
+        this.courseDetail = courseDetail;
     }
 
     public long getId() {

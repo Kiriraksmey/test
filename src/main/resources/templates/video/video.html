@@ -6,10 +6,23 @@
       layout:decorate="~{layout/main_layout}">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+  <title>Create Video</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css"/>
+  <link rel="stylesheet" type="text/css"
+        href="https://select2.github.io/select2-bootstrap-theme/css/select2-bootstrap.css">
+  <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+
+  <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'>
+  </script>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'>
+  </script>
 </head>
 <body>
 <section layout:fragment="content">
@@ -38,26 +51,32 @@
   <table class="table table-bordered table-striped">
     <thead>
     <tr>
+      <th>Name</th>
+      <th>Course Detail Name</th>
+      <th>Link</th>
       <th>CreateDate</th>
       <th>UpdateDate</th>
       <th>Description</th>
-      <th>Link</th>
-      <th>Name</th>
-      <th>User</th>
-      <th>Course Detail Id</th>
+      <th>Allow play</th>
+
+
       <th>Action</th>
     </tr>
     </thead>
 
 
     <tr th:each="video: ${videos}">
+      <td th:text="${video.name}"/>
+      <td th:text="${video?.courseDetail.name}"/>
+      <td th:text="${video.link}"/>
       <td th:text="${video.createDate}"/>
       <td th:text="${video.updateDate}"/>
       <td th:text="${video.description}"/>
-      <td th:text="${video.link}"/>
-      <td th:text="${video.name}"/>
-    <td th:text="${video.user}"/>
-    <td th:text="${video.courseDetailId}"/>
+      <td th:text="${video.allowPlay}"/>
+
+
+
+
 
 
 

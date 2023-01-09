@@ -398,7 +398,7 @@
                                 </div>
 
                                 <a th:if="${#session.getAttribute('userSession') == null}" th:href="@{/register_permission}"  >Sign up now</a>
-                                <a th:unless="${#session.getAttribute('userSession') == null}" th:href="@{/register_permission}" >Buy now</a>
+                                <a th:unless="${#session.getAttribute('userSession') == null}" th:href="@{/payment}" >Buy now</a>
 
 <!--                                <a th:href="@{/register_permission}" style="margin-top: 10px">Sign Up Now</a>-->
                             </div>

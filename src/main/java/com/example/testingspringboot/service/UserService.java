@@ -13,7 +13,7 @@ public interface UserService {
 
     List<User> getListUser(long id);
     User getUserById(Long id);
-    User editVideo(User user);
+
     User updateClassRoom(User user);
     User editEmployee(User user);
     //    Student search(Student student);

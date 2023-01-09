@@ -1,7 +1,6 @@
 package com.example.testingspringboot.controller.admin;
 
 import com.example.testingspringboot.entities.Course;
-import com.example.testingspringboot.entities.Student;
 import com.example.testingspringboot.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +24,7 @@ public class CourseController {
     public String listEmployee(Model model) {
         List list = courseService.getAllCourse();
         model.addAttribute("courses", courseService.getAllCourse());
-        return "course";
+        return "course/course";
     }
     @GetMapping("/deletecourse/{id}")
     public String deleteStudent(@PathVariable Long id) {

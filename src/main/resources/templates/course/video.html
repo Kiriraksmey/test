@@ -33,24 +33,34 @@
                 <label for="exampleFormControlInput1">Email address</label>
                 <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
             </div>
-<!--            <div class="form-group">-->
-<!--                <label for="exampleFormControlSelect1">Example select</label>-->
-<!--                <select class="form-control" id="exampleFormControlSelect1">-->
-<!--                    <option>1</option>-->
-<!--                    <option>2</option>-->
-<!--                    <option>3</option>-->
-<!--                    <option>4</option>-->
-<!--                    <option>5</option>-->
-<!--                </select>-->
-<!--            </div>-->
+            <!--            <div class="form-group">-->
+            <!--                <label for="exampleFormControlSelect1">Example select</label>-->
+            <!--                <select class="form-control" id="exampleFormControlSelect1">-->
+            <!--                    <option>1</option>-->
+            <!--                    <option>2</option>-->
+            <!--                    <option>3</option>-->
+            <!--                    <option>4</option>-->
+            <!--                    <option>5</option>-->
+            <!--                </select>-->
+            <!--            </div>-->
             <div class="form-group col-lg-12 col-md-12" >
                 <label>Course</label>
-<!--                <select multiple class="form-control select2_multi" placeholder="Choose Course"-->
-                <select  class="form-control select2_multi  col-lg-12 col-md-12" placeholder="Choose Course"  id="course_id"
-                        data-allow-clear="1" th:name="courseId" action="/action_page.php">
-
+                <!--                <select multiple class="form-control select2_multi" placeholder="Choose Course"-->
+                <select  class="form-control select2_multi " placeholder="Choose Course"  id="course_id"
+                         data-allow-clear="1" th:name="courseId" action="/action_page.php">
+                    <option value="">- Please select  Course -</option>
                     <option   th:each="course: ${courses}" th:value="${course.id}"
                               th:text="${course.courseName}"  ></option>
+                </select>
+            </div>
+            <div class="form-group col-lg-12 col-md-12" >
+                <label>Course</label>
+                <!--                <select multiple class="form-control select2_multi" placeholder="Choose Course"-->
+                <select  class="form-control select2_multi " placeholder="Choose Course"  id="teacherId"
+                         data-allow-clear="1" th:name="courseId" action="/action_page.php">
+                    <option value="">- Please select  teacher -</option>
+                    <option   th:each="row: ${teacherList}" th:value="${row.id}"
+                              th:text="${row.teacherName}"  ></option>
                 </select>
             </div>
 

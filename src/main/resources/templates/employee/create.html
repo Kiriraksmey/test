@@ -10,15 +10,15 @@
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
           crossorigin="anonymous" />
 
-<!--    <script>-->
-<!--        function validateForm() {-->
-<!--            let x = document.forms["myForm"]["fname"].value;-->
-<!--            if (x == "") {-->
-<!--                alert("You have To fill all information");-->
-<!--                return false;-->
-<!--            }-->
-<!--        }-->
-<!--    </script>-->
+    <script>
+        function validateForm() {
+            let x = document.forms["myForm"]["fname"].value;
+            if (x == "") {
+                alert("You have To fill all information");
+                return false;
+            }
+        }
+    </script>
 </head>
 <section layout:fragment="content">
     <form th:action="@{/system/saveEmployee}" th:object="${student}" name="myForm" onsubmit="return validateForm()" method="post">

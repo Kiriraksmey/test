@@ -69,7 +69,7 @@ public class UserController {
 //
 //    }
 
-    @PostMapping("/updateUser")
+    @PostMapping("/updateUser/{id}")
     public String updateStudent(@PathVariable Long id,User user) {
         userService .saveUser(user);
         return "redirect:/system/userList";

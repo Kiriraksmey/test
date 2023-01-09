@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/main_layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Video</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="https://select2.github.io/select2-bootstrap-theme/css/select2-bootstrap.css">
+    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'>
+    </script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'>
+    </script>
+</head>
+
+<section layout:fragment="content">
+
+    <form th:action="@{/system/saveVideo}" th:object="${videos}" name="myForm" method="post">
+
+
+        <legend class="w-auto px-2">Add User</legend>
+        <div class="col">
+            <div class="col-md-6 col-lg-6  col-sm-12">
+                <div class="form-group">
+                    <label for="name">Input Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                </div>
+            </div>
+            <!--            <div class="col-md-6 col-lg-6 col-sm-12" >-->
+            <!--                <div class="form-group">-->
+            <!--                    <label for="course_detail_id">Input Course Detail Id</label>-->
+            <!--                    <input type="text" class="form-control" id="course_detail_id" name="course_detail_id"    placeholder="course_detail_id">-->
+            <!--                </div>-->
+
+
+            <div class="col-md-6 col-lg-6 col-sm-12">
+                <div class="form-group">
+                    <label>Course</label>
+                    <select class="form-control select2_multi " placeholder="Choose Course" id="courseDetailId"
+                            data-allow-clear="1" th:name="courseDetailId" action="/action_page.php">
+                        <option class="form-control" value="">- Please select Course -</option>
+                        <option class="form-control" th:each="course: ${courses}" th:value="${course.id}" th:text="${course.name}"></option>
+                    </select>
+                </div>
+            </div>
+
+            <!--            </div>-->
+            <div class="col-md-6 col-lg-6 col-sm-12">
+                <div class="form-group">
+                    <label for="link">Input Link</label>
+                    <input type="text" class="form-control" id="link" name="link" placeholder="Link">
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-6 col-sm-12">
+                <div class="form-group">
+                    <label for="description">Input Description</label>
+                    <input type="text" class="form-control" id="description" name="description"
+                           placeholder="description">
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-12">
+
+
+                <input type="submit" class="btn btn-primary" value="Submit">
+
+            </div>
+
+
+        </div>
+    </form>
+</section>
+
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
