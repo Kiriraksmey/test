@@ -1,5 +1,6 @@
 package com.example.testingspringboot.controller.admin;
 
+import com.example.testingspringboot.entities.User;
 import com.example.testingspringboot.entities.Video;
 import com.example.testingspringboot.service.CourseDetailService;
 import com.example.testingspringboot.service.CourseService;
@@ -80,4 +81,6 @@ public class VideoController {
         return "redirect:/system/videoList";
 
     }
+
+
 }
