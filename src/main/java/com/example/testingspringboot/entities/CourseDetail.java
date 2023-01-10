@@ -19,10 +19,9 @@ public class CourseDetail {
     @Column(name = "course_id")
     private Long courseId;
 
-//    @OneToMany
-//    @JoinColumn(name = "course_detail_id") // we need to duplicate the physical information
-//    @OrderBy("id")
-//    private Set<Video> videos;
+    @OneToMany
+    @JoinColumn(name = "courseDetailId") // we need to duplicate the physical information
+    public Set<Video> videos;
 
     public CourseDetail() {
     }
@@ -97,5 +96,11 @@ public class CourseDetail {
         this.courseId = courseId;
     }
 
+    public Set<Video> getVideos() {
+        return videos;
+    }
 
+    public void setVideos(Set<Video> videos) {
+        this.videos = videos;
+    }
 }

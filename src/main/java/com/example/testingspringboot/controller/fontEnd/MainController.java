@@ -64,7 +64,7 @@ public class MainController {
     public String viewDetailDOC(Model model, @PathVariable Long id) {
 
         model.addAttribute("course", courseService.getCourseById(id));
-        model.addAttribute("descriptions", descriptionService.getDescriptionById(id));
+//        model.addAttribute("descriptions", descriptionService.getDescriptionById(id));
 
         List<CourseDetail> listDetail = courseDetailService.getCourseDetailByID(id);
         model.addAttribute("courseDetail", listDetail);

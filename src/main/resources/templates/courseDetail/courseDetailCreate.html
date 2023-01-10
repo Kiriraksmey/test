@@ -7,10 +7,18 @@
 <head>
   <meta charset="UTF-8">
   <title>Student</title>
+
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
         crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'>
+  </script>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'>
+  </script>
 </head>
 
 
@@ -23,10 +31,14 @@
 
     <div class="col">
 
-      <div class="col-md-6 col-lg-6  col-sm-12">
+      <div class="col-md-6 col-lg-6 col-sm-12">
         <div class="form-group">
-          <label for="courseId">Input Course ID</label>
-          <input type="text" class="form-control" id="courseId" name="courseId" placeholder="courseId">
+          <label>Course ID</label>
+          <select class="form-control select2_multi " placeholder="Choose Course ID" id="courseId"
+                  data-allow-clear="1" th:name="courseDetailId" action="/action_page.php">
+
+            <option class="form-control" th:each="course: ${courses}" th:value="${course.id}" th:text="${course.id}"></option>
+          </select>
         </div>
       </div>
 

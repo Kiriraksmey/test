@@ -30,7 +30,7 @@ public class PaymentDetailServiceImpl implements PaymentUserDetailService {
 
     @Override
     public List<PaymentUserDetails> getAllPaymentUserDetail() {
-        return null;
+        return paymentUserDetailsRepository.findAll();
     }
 
     @Override

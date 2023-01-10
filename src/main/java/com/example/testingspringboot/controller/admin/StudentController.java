@@ -1,6 +1,7 @@
 package com.example.testingspringboot.controller.admin;
 
 import com.example.testingspringboot.entities.Student;
+import com.example.testingspringboot.service.PaymentUserDetailService;
 import com.example.testingspringboot.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -15,9 +16,12 @@ import java.util.List;
 public class StudentController {
     @Autowired
     private final StudentService studentService;
+    @Autowired
+    private final PaymentUserDetailService paymentUserDetailService;
 
-    public StudentController(StudentService studentService) {
+    public StudentController(StudentService studentService, PaymentUserDetailService paymentUserDetailService) {
         this.studentService = studentService;
+        this.paymentUserDetailService = paymentUserDetailService;
     }
     @GetMapping("/test")
     public String list(Model model) {
@@ -84,6 +88,11 @@ public class StudentController {
         model.addAttribute("students", listStudents);
 //        model.addAttribute("keyword", keyword);
         return "employee/index";
+    }
+    @GetMapping("/paymentUserdetail")
+    public String listEmplyee(Model model) {
+        model.addAttribute("paymentusersdetails", paymentUserDetailService.getAllPaymentUserDetail());
+        return "courseDetail/coursedetailpayment";
     }
 
 

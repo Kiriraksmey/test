@@ -2,6 +2,7 @@ package com.example.testingspringboot.controller.admin;
 
 import com.example.testingspringboot.entities.CourseDetail;
 import com.example.testingspringboot.service.CourseDetailService;
+import com.example.testingspringboot.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
@@ -15,9 +16,12 @@ import java.util.List;
 public class CourseDetailController {
     @Autowired
     private final CourseDetailService courseDetailService;
+    @Autowired
+    private final CourseService courseService;
 
-    public CourseDetailController(CourseDetailService courseDetailService) {
+    public CourseDetailController(CourseDetailService courseDetailService, CourseService courseService) {
         this.courseDetailService = courseDetailService;
+        this.courseService = courseService;
     }
 
 
@@ -27,6 +31,7 @@ public class CourseDetailController {
         model.addAttribute("courseDetails", courseDetailService.getAllCourseDetail());
         return "courseDetail/courseDetail";
     }
+
 
     @PostMapping("/courseDetailList")
     public String viewHomePage(Model model, @Param("keyword") String keyword) {
@@ -45,6 +50,11 @@ public class CourseDetailController {
 
     @GetMapping("/create-courseDetail")
     public String createEmployee(Model model) {
+        List lst = courseDetailService.getAllCourseDetail();
+        model.addAttribute("courses", courseDetailService.getAllCourseDetail());
+//        model.addAttribute("teacherList", teacherService.getAllTeacher());
+        model.addAttribute("videos", courseService.getAllCourse());
+
         return "courseDetail/courseDetailCreate";
     }
 
