@@ -35,9 +35,9 @@
         <div class="form-group">
           <label>Course ID</label>
           <select class="form-control select2_multi " placeholder="Choose Course ID" id="courseId"
-                  data-allow-clear="1" th:name="courseDetailId" action="/action_page.php">
+                  data-allow-clear="1" th:name="courseId" action="/action_page.php">
 
-            <option class="form-control" th:each="course: ${courses}" th:value="${course.id}" th:text="${course.id}"></option>
+            <option class="form-control" th:each="course: ${videos}" th:text="${course.id}"></option>
           </select>
         </div>
       </div>

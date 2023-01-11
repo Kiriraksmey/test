@@ -6,13 +6,10 @@ import com.example.testingspringboot.entities.User;
 import com.example.testingspringboot.service.*;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +19,7 @@ public class MainController {
     @Autowired
     private final StudentService studentService;
     private final CourseService courseService;
+    private final TeacherService teacherService;
     private final VideoService videoService;
     private final DescriptionService descriptionService;
 
@@ -30,10 +28,11 @@ public class MainController {
 
   
     //
-    public MainController(StudentService studentService, CourseService courseService, VideoService videoService, DescriptionService descriptionService, CourseDetailService courseDetailService, ObjectFactory<HttpSession> httpSessionFactory) {
+    public MainController(StudentService studentService, CourseService courseService, TeacherService teacherService, VideoService videoService, DescriptionService descriptionService, CourseDetailService courseDetailService, ObjectFactory<HttpSession> httpSessionFactory) {
         this.studentService = studentService;
 
         this.courseService = courseService;
+        this.teacherService = teacherService;
         this.videoService = videoService;
         this.descriptionService = descriptionService;
         this.courseDetailService = courseDetailService;
@@ -51,6 +50,7 @@ public class MainController {
 
 
         model.addAttribute("courses", courseService.getAllCourse());
+        model.addAttribute("teachers", teacherService.getAllTeacher());
         //return "course";
         model.addAttribute("students", studentService.getAllStudent());
 

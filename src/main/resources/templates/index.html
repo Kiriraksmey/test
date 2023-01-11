@@ -250,19 +250,21 @@
                     <section id="gallery">
                         <div class="container">
                             <div class="row">
-                                <div class="col-lg-4 mb-4" th:each="course: ${courses}">
+                                <div class="col-lg-4 mb-4" th:each="course: ${courses}" >
                                     <div class="card" style="height: 400px;">
                                         <img style="width: 294px;height: 196px" th:src="${course.image}"
 
                                              alt="" class="card-img-top">
-                                        <div class="card-body" style="position: relative">
+                                        <div class="card-body" style="position: relative" >
                                             <h5 class="card-title" style="font-weight: bold"
                                                 th:text="${course.courseName}"></h5>
 <!--                                            <p class="card-text" style="font-size: 16px;  text-align: justify; font-family: sans-serif"-->
 <!--                                               th:text="${course.description}"></p>-->
+
                                             <p class="card-text"
-                                               style="font-size: 16px; font-weight: bold;  text-align: left; color: #ff1800a3">Teacher
-                                                Name</p>
+                                               style="font-size: 16px; font-weight: bold;  text-align: left; color: #ff1800a3"  >Jonh David
+                                                </p>
+
                                             <div>
                                                 <span class="bi bi-star check-star"></span>
                                                 <span class="bi bi-star check-star"></span>

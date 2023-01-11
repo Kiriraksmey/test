@@ -58,6 +58,7 @@
       <th>UpdateDate</th>
       <th>Description</th>
       <th>Allow play</th>
+      <th>Video default</th>
 
 
       <th>Action</th>
@@ -73,6 +74,7 @@
       <td th:text="${video.updateDate}"/>
       <td th:text="${video.description}"/>
       <td th:text="${video.allowPlay}"/>
+      <td th:text="${video.defualt}"/>
 
 
 
@@ -86,7 +88,7 @@
         <a class="btn  btn-info btn-sm"
            th:href="@{/system/editVideo/{id}(id=${video.id})}">Update</a>
 
-        <a th:href="@{/system/deleteVideo/{id}(id=${video.id})}" class="btn btn-danger ml-2">Delete</a>
+        <a th:href="@{/system/deletevideo/{id}(id=${video.id})}" class="btn btn-danger ml-2">Delete</a>
       </td>
     </tr>
 

@@ -18,6 +18,7 @@ public class CourseDetailimpl implements CourseDetailService {
 
     @Override
     public void deleteCourseDetail(long id) {
+        courseDetailRepository.deleteById(id);
 
     }
 
